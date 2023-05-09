@@ -1,0 +1,59 @@
+<body class="info_profil_body">
+    <main>
+        <div class="div_image_info_pseudo">
+
+            <img class="image_info_profil" src="<?= $_SESSION['lien_image'] ?>" alt="">
+        </div>
+        <form action="" method="post">
+            <div class="div_pseudo_info_pseudo">
+                <?php if (empty($_POST['modifier_pseudo'])) { ?>
+                    <h5 class="h5_info_profil">Pseudo :</h5>
+                    <h3 class="h3_info_profil"><?= $_SESSION['pseudo'] ?></h3>
+                    <input type="submit" value="Modifier" class="modifier_pseudo" name="modifier_pseudo" id="">
+                <?php } ?>
+
+                <?php if (isset($_POST['modifier_pseudo'])) { ?>
+                    <h5 class="h5_info_profil">Pseudo :</h5>
+                    <input type="text" class="inp_pseudo" value="<?= $_SESSION['pseudo'] ?>" name="pseudo" id="">
+                    <input type="submit" value="Modifier" class="send_pseudo" name="send_pseudo" id="">
+                <?php  } ?>
+            </div>
+        </form>
+
+        <form action="" method="post">
+            <div class="div_pseudo_info_pseudo">
+                <?php if (empty($_POST['modifier_email'])) { ?>
+
+                    <h5 class="h5_info_profil">Email :</h5>
+                    <h3 class="h3_info_profil"><?= $_SESSION['email'] ?></h3>
+                    <input type="submit" value="Modifier" class="modifier_email" name="modifier_email" id="">
+                <?php  } ?>
+
+                <?php if (isset($_POST['modifier_email'])) { ?>
+                    <h5 class="h5_info_profil">Email :</h5>
+                    <input type="text" class="inp_email" value="<?= $_SESSION['email'] ?>" name="email" id="">
+                    <input type="submit" value="Modifier" class="send_email" name="send_email" id="">
+                <?php  } ?>
+            </div>
+
+        </form>
+        <form action="" method="post">
+            <div class="div_pseudo_info_pseudo">
+                <?php if (empty($_POST['modifier_password'])) { ?>
+
+                    <h5 class="h5_info_profil">Password :</h5>
+                    <h3 class="h3_info_profil">************</h3>
+                    <input type="submit" value="Modifier" class="modifier_password" name="modifier_password" id="">
+                <?php  } ?>
+
+                <?php if (isset($_POST['modifier_password'])) { ?>
+                    <h5 class="h5_info_profil">Password :</h5>
+                    <input type="password" class="inp_password" name="password" id="">
+                    <input type="submit" value="Modifier" class="send_password" name="send_password" id="">
+                <?php  } ?>
+
+            </div>
+        </form>
+
+    </main>
+</body>

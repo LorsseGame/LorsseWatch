@@ -1,0 +1,1255 @@
+/* page index  */
+
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    border: 0;
+    border-spacing: 0;
+    box-sizing: border-box;
+}
+
+#menu__toggle {
+    opacity: 0;
+}
+
+#menu__toggle:checked+.menu__btn>span {
+    transform: rotate(45deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+#menu__toggle:checked+.menu__btn>span::after {
+    top: 0;
+    transform: rotate(90deg);
+}
+
+#menu__toggle:checked~.menu__box {
+    left: 0 !important;
+}
+
+.menu__btn {
+    position: fixed;
+    top: 30px;
+    left: 20px;
+    width: 26px;
+    height: 26px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.menu__btn>span,
+.menu__btn>span::before,
+.menu__btn>span::after {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition-duration: .25s;
+}
+
+.menu__btn>span::before {
+    content: '';
+    top: -8px;
+}
+
+.menu__btn>span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu__box {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    margin: 0;
+    padding-top: 15%;
+    list-style: none;
+    background-color: #ECEFF1;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
+    transition-duration: .25s;
+    z-index: 1;
+}
+
+.menu__item {
+    display: block;
+    padding: 12px 24px;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    transition-duration: .25s;
+}
+
+.menu__item:hover {
+    background-color: #CFD8DC;
+}
+
+.navbare {
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(24, 24, 24);
+    padding: 0 1vw;
+    height: 4.5vw;
+}
+
+.login {
+
+    margin: 1vw 3vw 0 2vw;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(85, 51, 51, 1);
+    color: white;
+    /* padding: 0.4vw 0.6vw; */
+    height: 2.5vw;
+    width: 5vw;
+}
+
+.register {
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    /* padding: 0.4vw 0.8vw; */
+    text-decoration: none;
+    height: 2.5vw;
+    width: 4rem;
+
+}
+
+.Nom-Site {
+    border: none;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    border: none;
+
+}
+
+.a_recherche_navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Nom-Site:hover {
+    color: white;
+    border: none;
+    text-decoration: none;
+}
+
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+
+#menu>li {
+    width: 150px;
+    height: 40px;
+
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+
+}
+
+.nav_slide {
+    z-index: 2;
+}
+
+#menu li ul a:hover,
+#menu li ul input:hover {
+    background-color: red;
+    transition: linear 500ms;
+}
+
+#menu li ul a,
+#menu li ul input {
+    display: block;
+    width: 150px;
+    height: 40px;
+    background: black;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+#menu li ul {
+    height: 0;
+    overflow: hidden;
+    transition: 1s all;
+}
+
+
+#menu li:hover ul {
+    height: 120px;
+}
+
+
+.menu-image {
+    width: 5vw;
+    height: 5vw;
+    border-radius: 40px;
+}
+
+
+/* footer  */
+
+
+.footer_index {
+    background-color: black;
+    width: 100%;
+    height: 15vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: auto;
+}
+
+
+
+.div-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer_index .div-footer a {
+    color: white;
+}
+
+.footer_index .div_reseaux a {
+    text-decoration: none;
+    color: white;
+}
+
+.mention_legal {
+    margin-left: 2vw;
+}
+
+.politique_confidentialité {
+    margin-left: 2vw;
+}
+
+.bi-instagram,
+.bi-discord,
+.bi-twitter,
+.bi-github {
+    width: 1.8vw;
+    height: 1.8vw;
+}
+
+.bi-discord,
+.bi-twitter,
+.bi-github {
+    margin-left: 2vw;
+}
+
+.div_reseaux {
+    margin-bottom: 2vw;
+}
+
+
+
+/* register */
+
+
+.body_register {
+    background-color: rgb(212, 211, 211);
+    height: 100%;
+}
+
+.main_register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div_direction {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#pseudo,
+#email,
+#password,
+.prenom,
+.nom {
+    border: none;
+    border-radius: 5px;
+    background-color: rgb(236, 236, 236);
+    width: 60%;
+    height: 2.6vw;
+    text-align: center;
+    box-shadow: 4px 4px 10px 1px rgba(0, 0, 255, .2);
+    margin-top: 1vw;
+    font-size: 14px;
+
+}
+
+#send {
+    border: none;
+    /* margin-top: 1vw; */
+    color: white;
+    background-color: rgb(212, 140, 254);
+    width: 5vw;
+    height: 2vw;
+    border-radius: 10px;
+}
+
+.prenom {
+    margin-right: 2vw;
+    width: 12vw;
+}
+
+.nom {
+    width: 12vw;
+}
+
+.conteneur_form {
+    margin: 10% 0;
+    justify-content: center;
+    background-color: rgb(248, 248, 248);
+    width: 30vw;
+    max-height: 100%;
+    border-radius: 20px;
+    padding-bottom: 1rem;
+}
+
+.conteneur_prenom {
+    display: flex;
+    margin: 1vw 0;
+}
+
+.div_prenom {
+    display: flex;
+    flex-direction: column;
+}
+
+.div_nom {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* page home */
+
+.body_home {
+    background-color: #312f2f;
+}
+
+
+.image_slide1,
+.image_slide2,
+.image_slide3 {
+    width: 100%;
+    height: 40vw;
+}
+
+.image_annonce1 {
+    width: 15vw;
+    height: 20vw;
+    position: absolute;
+
+    top: 30%;
+    left: 35%;
+}
+
+
+.titre_slide1 {
+    position: absolute;
+    top: 33%;
+    left: 52%;
+
+    width: 20vw;
+    height: 8vw;
+}
+
+.titre_slide2 {
+    position: absolute;
+    top: 8%;
+    left: 50%;
+
+    width: 20vw;
+    height: 35vw;
+}
+
+.button_slide {
+    position: absolute;
+    top: 63%;
+    left: 58%;
+
+    border: none;
+    border-radius: 3px;
+    width: 8vw;
+    height: 3vw;
+    background-color: black;
+    color: white;
+
+}
+
+.dernier_sortie {
+    margin-top: 5vw;
+    margin-bottom: 1vw;
+    text-align: center;
+    font-size: 30px;
+}
+
+.image_anime1 {
+    width: 10vw;
+    height: 15vw;
+    margin-right: 3vw;
+}
+
+.conteneur_anime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div_image_anime_2,
+.div_image_anime_3,
+.div_image_anime_4,
+.div_image_anime_5,
+.div_image_anime_6 {
+    width: 10vw;
+    height: 15vw;
+    margin-right: 3vw;
+}
+
+.conteneur_anime div:hover {
+    transform: scale(1.10);
+    transition: all 0.2s ease-in-out;
+}
+
+
+
+.le_plus_popolaire {
+    margin-top: 5vw;
+    margin-bottom: 1vw;
+    text-align: center;
+    font-size: 30px;
+}
+
+.div_populaire {
+    display: flex;
+}
+
+.populaire {
+    width: 25%;
+    height: 35vw;
+}
+
+.populaire_droite {
+    background-color: rgb(23, 97, 193);
+    height: 35vw;
+    width: 100%;
+}
+
+.conteneur_titre_populaire {
+    text-align: center;
+    margin-top: 10vw;
+}
+
+
+.conteneur_btn_regarder {
+    display: flex;
+    justify-content: center;
+}
+
+.inp_regarder_home {
+    margin-top: 7%;
+    border: none;
+    border-radius: 3px;
+    width: 8vw;
+    height: 3vw;
+
+}
+
+.image_navbar_profil {
+    border-radius: 30px;
+    height: 4vw;
+    width: 4vw;
+}
+
+
+
+
+/* page login  */
+
+
+body {
+    background-color: rgb(212, 211, 211);
+}
+
+.Main_Login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.div_login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6%;
+    height: 30vw;
+    width: 30%;
+    background-color: #fff;
+    margin: 5vw 0;
+    border-radius: 10px;
+}
+
+.h1_login {
+    color: black;
+}
+
+#input_Email {
+    background-color: rgb(209, 209, 209);
+    margin-top: 1vw;
+    padding: 0.5vw 0;
+    padding-left: 2vw;
+    width: 18vw;
+    height: 2.2vw;
+    box-shadow: 4px 4px 10px 1px rgba(0, 0, 255, .2);
+}
+
+#input_Password {
+    background-color: rgb(209, 209, 209);
+    margin-top: 1vw;
+    padding: 0.5vw 0;
+    padding-left: 2vw;
+    width: 18vw;
+    height: 2.2vw;
+    box-shadow: 4px 4px 10px 1px rgba(0, 0, 255, .2);
+}
+
+.No_mdp {
+    margin-right: 8vw;
+    text-decoration: none;
+}
+
+#Input_Valider_Login {
+    margin-top: 3vw;
+    color: white;
+    background-color: rgb(212, 140, 254);
+    width: 5vw;
+    height: 2vw;
+    border-radius: 10px;
+    box-shadow: 4px 4px 10px 1px rgba(0, 0, 255, .2);
+}
+
+.sinscrire {
+    text-decoration: none;
+}
+
+.lien_login {
+    margin-top: 2vw;
+}
+
+
+/* page information profil  */
+
+.div_image_info_pseudo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_info_profil {
+    width: 15vw;
+    height: 15vw;
+    border-radius: 120px;
+
+    margin-top: 3vw;
+}
+
+.info_profil_body {
+    background-color: #312f2f;
+    height: 100%;
+}
+
+.div_pseudo_info_pseudo {
+    display: flex;
+    justify-content: center;
+    margin-top: 2vw;
+}
+
+.h3_info_profil {
+    background-color: #242323;
+    width: 35%;
+    height: 4vw;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h5_info_profil {
+    color: white;
+    background-color: #242323;
+    width: 10%;
+    height: 4vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-right: 1px solid black;
+}
+
+.modifier_pseudo,
+.modifier_email,
+.modifier_password {
+    border: none;
+    height: 4vw;
+    width: 5%;
+}
+
+.send_password,
+.send_email,
+.send_pseudo {
+    border: none;
+    height: 4vw;
+    width: 5%;
+}
+
+.inp_email,
+.inp_password,
+.inp_pseudo {
+    color: white;
+    background-color: #242323;
+    width: 35%;
+    height: 4vw;
+    text-align: center;
+}
+
+/* page watchlist  */
+
+
+
+.watchlist_body {
+    background-color: #312f2f;
+}
+
+.div_info_watchlist {
+    background-color: #a3a0a0;
+    width: 40vw;
+    height: 40vw;
+    border-radius: 20px;
+    margin: 2vw 0 0 2vw;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.image_profil_watchlist {
+    height: 10vw;
+    width: 10vw;
+    border-radius: 70px;
+    margin-top: 2vw;
+}
+
+.div_info_dinamique_watchlist {
+    display: flex;
+    margin-top: 5vw;
+
+}
+
+.h3_temp_watchlist {
+    margin-left: 5vw;
+}
+
+.inp_lancer_watchlist {
+    border: none;
+    width: 8vw;
+    height: 3vw;
+    border-radius: 5px;
+    background-color: wheat;
+    margin-right: 4vw;
+    margin-top: 7vw;
+}
+
+.conteneur_video_watchlist {
+    display: flex;
+    flex-direction: column;
+}
+
+.conteneur_div_watchlist {
+    display: flex;
+}
+
+.div_video1_watchlist,
+.div_video2_watchlist,
+.div_video3_watchlist {
+    margin-top: 5vw;
+    margin-left: 4vw;
+    background-color: #fff;
+    width: 50vw;
+    height: 8vw;
+    border-radius: 10px;
+}
+
+
+
+
+/* page video  */
+
+
+.div_video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2vw 0;
+}
+
+.video {
+    max-width: 100%;
+    width: 50%;
+    background-color: black;
+    height: auto;
+}
+
+.a_video_moins {
+    text-decoration: none;
+    color: black;
+    margin-right: 10rem;
+    font-size: 40px;
+}
+
+.a_video_moins:hover {
+    text-decoration: none;
+}
+
+.a_video_plus {
+    text-decoration: none;
+    color: black;
+    margin-left: 10rem;
+    font-size: 40px;
+}
+
+.a_video_plus:hover {
+    text-decoration: none;
+}
+
+
+.numero_episode {
+    text-align: center;
+
+}
+
+
+
+/* page  choix  */
+
+
+.div_fond_image_anime {
+    background-color: pink;
+    width: 100%;
+    height: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_anime_choix {
+    background-color: #fff;
+    width: auto;
+    max-height: 100%;
+}
+
+.body_choix {
+    background-color: #312f2f;
+}
+
+.information_anime {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1_choix_titre {
+    color: white;
+    font-size: 30px;
+    margin-top: 2vw;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.div_fond_episode {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.div_choix_episode {
+    width: 15vw;
+    height: 10vw;
+    margin-right: 2vw;
+    margin-bottom: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image_choix_play {
+    height: 5vw;
+    width: 5vw;
+}
+
+.div_fond_episode div:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+
+.conteneur_choix_episode {
+    display: flex;
+    flex-direction: column;
+}
+
+.h3_numero_episode_choix {
+    text-align: center;
+    margin-bottom: 4rem;
+    color: white;
+    font-size: 20px;
+}
+
+.select_saison_choix,
+.select_langue_choix {
+    width: 8rem;
+    height: 35px;
+    font-size: 18px;
+
+    border: none;
+    text-decoration: none;
+    background-color: inherit;
+}
+
+.select_saison_choix {
+    margin-right: 1rem;
+}
+
+.select_langue_choix {
+    margin-left: 1rem;
+}
+
+/* page admin  */
+.h1_ajouter_anime {
+    text-align: center;
+}
+
+.conteneur_inp_ajoue_anime {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteneur_inp_ajoue_anime input {
+    margin-top: 2rem;
+    text-align: center;
+    width: 20rem;
+    height: 2rem;
+}
+
+.div_admin_ligne {
+    width: 100%;
+    height: 1px;
+    background-color: black;
+    margin: 2vw 0;
+}
+
+.h1_ajouter_episode {
+    text-align: center;
+}
+
+.conteneur_inp_ajoue_episode {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5rem;
+
+}
+
+.conteneur_inp_ajoue_episode input {
+    margin-top: 2rem;
+    text-align: center;
+    width: 20rem;
+    height: 2rem;
+}
+
+.conteneur_inp_ajoue_episode select {
+    margin: 2rem 0;
+}
+
+.conteneur_changer_slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.h2_changer_slider{
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.div_changer_slider div {
+    margin-bottom: 1.5rem;
+}
+
+.div_changer_slider h3 {
+    text-align: center;
+}
+
+.inp_send_slider_admin{
+    margin-left: 2rem;
+
+}
+
+.conteneur_change_populaire{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* page recherche  */
+
+.body_recherche {
+    background-color: #1e1e1e;
+}
+
+.conteneur_recherche {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.div_recherche{
+    display: flex;
+    flex-direction: row;
+}
+
+#search-input{
+    box-sizing: border-box;
+    outline: 0;
+    border: 0;
+    background: #4c4c4c;
+    color: #727272;
+    display: flex;
+    align-items: center;
+    width: 60rem;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+    padding: 1rem 1.25rem;
+}
+
+#send_recherche{
+    width: 4rem;
+    height: 3.5rem;
+    background-color: #4c4c4c;
+    border-left:solid 1px black ;
+}
+.div_recherche_anime {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(100px, auto);
+    grid-gap: 3rem;
+
+}
+
+.a_recherche img {
+    width: 10vw;
+    height: 15vw;
+}
+
+.h3_erreur_recherche{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+
+
+
+@media only screen and (max-width: 480px) {
+
+    /* page home  */
+
+    .navbare {
+        height: 2.5rem;
+    }
+
+    .Nom-Site {
+        font-size: 15px;
+    }
+
+    .image_navbar_profil {
+        width: 7vw;
+        height: 7vw;
+    }
+
+    #menu li ul a,
+    #menu li ul input {
+        width: 100px;
+    }
+
+    .register {
+        width: 2.5rem;
+        height: 1.5rem;
+        font-size: 10px;
+        border-radius: 6px;
+        text-decoration: none;
+
+    }
+
+
+    .login {
+        width: 2.5rem;
+        height: 1.5rem;
+        font-size: 10px;
+        border-radius: 6px;
+    }
+
+    .balise-login {
+        display: flex;
+        align-items: center;
+    }
+
+    .menu__btn {
+        top: 20px;
+        width: 20px;
+        height: 20px;
+    }
+
+    #menu>li {
+        width: 105px;
+    }
+
+
+    /* footer */
+
+
+    .mention_legal,
+    .politique_confidentialité,
+    .contact {
+        font-size: 12px;
+    }
+
+    /* page home  */
+
+    .image_titre_populaire {
+        width: 40%;
+        height: auto;
+    }
+
+    .inp_regarder_home {
+        margin-top: 0;
+        width: 4rem;
+        height: 1.5rem;
+        font-size: 10px;
+    }
+
+    .conteneur_anime div {
+        width: 8vw;
+        height: 20vw;
+        margin-right: 2rem;
+
+    }
+
+    .image_anime1 {
+        width: 14vw;
+        height: 24vw;
+    }
+
+
+    .image_slide1,
+    .image_slide2,
+    .image_slide3 {
+        height: 55vw;
+    }
+
+
+    .button_slide {
+        font-size: 10px;
+        width: 12vw;
+        height: 8vw;
+    }
+
+    .dernier_sortie {
+        margin: 3vw 0;
+        font-size: 20px;
+    }
+
+    .le_plus_popolaire {
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        font-size: 20px;
+    }
+
+    .populaire_droite {
+        height: 50vw;
+    }
+
+    .populaire {
+        width: 50%;
+        height: 50vw;
+    }
+
+    .div_populaire {
+        margin-bottom: 3vw;
+    }
+
+
+    /* page register */
+
+    .conteneur_form {
+        width: 61vw;
+        border-radius: 21px;
+        padding-bottom: 0;
+    }
+
+    #pseudo,
+    #email,
+    #password {
+        height: 6.6vw;
+        width: 77%;
+    }
+
+    .prenom,
+    .nom {
+        height: 6.6vw;
+        width: 23vw;
+
+    }
+
+    .image_profil_register {
+        width: 56.5%;
+    }
+
+    #send {
+        font-size: 15px;
+        width: 16vw;
+        height: 9vw;
+    }
+
+    /* page login  */
+
+
+    .conteneur_input_login {
+        margin-top: 2rem;
+    }
+
+    .div_login {
+        height: 68vw;
+        width: 60%;
+    }
+
+    .h1_login {
+        font-size: 25px;
+    }
+
+    .direction_element_connexion {
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #input_Email,
+    #input_Password {
+        height: 6.2vw;
+        width: 39vw;
+        text-align: center;
+    }
+
+    #Input_Valider_Login {
+        margin-top: 5vw;
+        width: 13vw;
+        height: 8vw;
+        border-radius: 8px;
+    }
+
+    /* page choix video  */
+    .h1_choix_titre {
+        width: 46vw;
+        font-size: 100%;
+        margin-left: 1rem;
+    }
+
+    .h3_numero_episode_choix {
+        font-size: 70%;
+    }
+
+    /* page video  */
+
+    .a_video_plus,
+    .a_video_moins {
+        display: none;
+    }
+
+    .video {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .numero_episode {
+        font-size: 12px;
+    }
+
+
+    /* page recherche  */
+
+
+    #search-input{
+        width: 14rem;
+        height: 2rem;
+    }
+
+    #send_recherche{
+        height: 2rem;
+    }
+
+    .div_recherche_anime{
+        grid-gap: 1rem;
+    }
+
+
+    .a_recherche img {
+        width: 16vw;
+        height: 25vw;
+    }
+
+}
