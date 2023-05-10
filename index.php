@@ -57,9 +57,9 @@ include("./Controller/ctrl.index.php");
                     <li> <img class="image_navbar_profil" src="<?= $_SESSION['lien_image'] ?>" alt="">
                         <ul>
                             <li><a href="index.php?info_profil">Mes Info</a></li>
-                            <?php if($_SESSION['Role'] == 1 ) { ?>
+                            <?php if($utilisateur->verif_role()["Code_role"] == 1 ) { ?>
                                 <li><a href="index.php?admin">Admin</a></li>
-                         <?php } ?>
+                         <?php } else{}?>
                             <form method="post" action="">
                                 <li><input type="submit" value="Déconnexion" name="deconnexion" id=""></li>
                             </form>

@@ -1,6 +1,6 @@
 <?php
 
-if ($_SESSION['Role'] == 1) { ?>
+if ($role->verif_role()["Code_role"] == 1) { ?>
 
     <!DOCTYPE html>
     <html lang="en">

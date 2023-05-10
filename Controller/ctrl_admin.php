@@ -1,15 +1,14 @@
 <?php
 $role = new Utilisateur;
+$role->setId($_SESSION['id']);
+$role->setEmail($_SESSION['email']);
+
 $anime = new Anime;
 $epi = new Episode;
 $role->setId($_SESSION['id']);
 $role->setEmail($_SESSION['email']);
 
 $anime->setCode(0);
-
-echo $anime->getCode();
-
-
 
 if (isset($_POST['send_anime'])) {
     $erreur = [];
