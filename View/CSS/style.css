@@ -790,8 +790,8 @@ body {
 
 .information_anime {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 }
 
 .h1_choix_titre {
@@ -860,6 +860,31 @@ body {
 .select_langue_choix {
     margin-left: 1rem;
 }
+
+.bouton_ajoue_watchlist{
+    width: 2rem;
+    height: 2rem;
+}
+
+.conteneur_bouton_ajoue_watchlist{
+border: 3px solid black;
+padding: 0.5rem;
+}
+
+.conteneur_bouton_ajoue_watchlist:hover{
+    cursor: pointer;
+}
+.span_ajoue_watchlist{
+    color: black;
+    font-size: 19px;
+}
+
+.conteneur_element{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 
 /* page admin  */
 .h1_ajouter_anime {
