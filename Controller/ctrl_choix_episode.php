@@ -9,7 +9,6 @@ $episode->setCode_anime($_GET['code']);
 $episode->setSaison($_GET['saison']);
 $episode->setEpisode(1);
 
-
 if ($_GET['code'] <= 0) {
 ?>
     <script>
@@ -26,9 +25,9 @@ if ($_GET['code'] <= 0) {
 <?php
 }
 if ($_GET['saison'] <= 0) {
-    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1");
+    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=".$_GET['langue']);
 } else if ($_GET['saison'] > $choix_episode->nombre_saison()['nombre_saison']) {
-    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1");
+    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=".$_GET['langue']);
 }
 
 
