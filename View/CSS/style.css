@@ -861,28 +861,12 @@ body {
     margin-left: 1rem;
 }
 
-.bouton_ajoue_watchlist{
-    width: 2rem;
-    height: 2rem;
-}
-
-.conteneur_bouton_ajoue_watchlist{
-border: 3px solid black;
-padding: 0.5rem;
-}
-
-.conteneur_bouton_ajoue_watchlist:hover{
-    cursor: pointer;
-}
-.span_ajoue_watchlist{
-    color: black;
-    font-size: 19px;
-}
-
-.conteneur_element{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.add_anime_watchlist{
+    border: 3px solid black;
+    background-color: #312f2f;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 1rem;
 }
 
 

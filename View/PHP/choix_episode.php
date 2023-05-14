@@ -6,68 +6,10 @@
 
     <div class="information_anime">
 
-        <!-- <div class="conteneur_bouton_ajoue_watchlist">
-            <div class="div_ajoue_watchlist">
-                <img class="bouton_ajoue_watchlist" src="./image/watchlist.png" alt="">
-                <span class="span_ajoue_watchlist">Ajouter a la watchlist</span>
-            </div>
-        </div> -->
-
-
-
-
-
-        <form id="myForm" action="./verifier.php" method="post">
-    <div class="conteneur_bouton_ajoue_watchlist" onclick="verifierEtEnvoyer()">
-        <div class="div_ajoue_watchlist">
-            <img class="bouton_ajoue_watchlist" src="./image/watchlist.png" alt="">
-            <span class="span_ajoue_watchlist">Ajouter à la watchlist</span>
-        </div>
-        <input type="hidden" name="codeAnime" id="codeAnimeInput">
-    </div>
+    
+<form action="" method="post">
+    <input type="submit" class="add_anime_watchlist" value="Ajouter à la watchlist" name="add_anime_watchlist" id="">
 </form>
-
-<script>
-    function verifierEtEnvoyer() {
-        var codeAnime = getCodeAnimeFromURL();
-        document.getElementById('codeAnimeInput').value = codeAnime;
-        console.log('Code Anime:', codeAnime);
-
-        fetch('./verifier.php', {
-                method: 'POST',
-                body: JSON.stringify({
-                    codeAnime: codeAnime
-                })
-            })
-            .then(function(response) {
-                if (!response.ok) {
-                    throw new Error('Erreur lors de la requête: ' + response.status);
-                }
-                return response.json();
-            })
-            .then(function(data) {
-                if (data.valide) {
-                    document.getElementById('myForm').submit();
-                } else {
-                    alert('La vérification a échoué: ' + data.message);
-                }
-            })
-            .catch(function(error) {
-                console.error('Erreur lors de la vérification:', error);
-                console.log('Réponse du serveur:', error.response);
-                alert('Erreur lors de la vérification. Vérifiez la console pour plus d\'informations.');
-            });
-
-    }
-
-    function getCodeAnimeFromURL() {
-        var searchParams = new URLSearchParams(window.location.search);
-        return searchParams.get('code');
-    }
-</script>
-
-
-
 
         <select class="select_saison_choix" name="saison" onchange="location.href=''+this.options[this.selectedIndex].value;" id="">
             <option style="display:none" value="">Choix Saison</option>
