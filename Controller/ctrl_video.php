@@ -15,7 +15,6 @@ $moins = $_GET['episode'];
 $moins--;
 
 if ($_GET['episode'] <= 0) {
-    echo "passage"
     ?>
 <script>
     window.location.href = "index.php?video&episode=1&anime="+<?= $_GET['anime'] ?>+"&saison="+<?= $_GET['saison'] ?>;
