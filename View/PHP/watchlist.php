@@ -16,10 +16,11 @@ if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && $_SESSION['email']) 
             </div>
 
             <div class="conteneur_video_watchlist">
-                <div class="div_video1_watchlist"></div>
-                <div class="div_video2_watchlist"></div>
-                <div class="div_video3_watchlist"></div>
+                <div class="div_video1_watchlist">
+                    <img class="img_watchlist_anime" src="" alt="">
+                </div>
             </div>
+
         </div>
     </body>
 
