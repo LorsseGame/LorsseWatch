@@ -1,5 +1,5 @@
 <?php
-
+//verification si l'utilisateur a bien le role admin
 if ($role->verif_role()["Code_role"] == 1) { ?>
 
     <!DOCTYPE html>
@@ -16,6 +16,8 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
 
 
         <h1 class="h1_ajouter_anime">Ajouter Anime</h1>
+
+        <!-- formulaire d'ajoue d'anime dans base de donnée -->
         <form action="" method="post" enctype="multipart/form-data">
             <div class="conteneur_inp_ajoue_anime">
                 <input type="text" placeholder="Titre" name="titre" id="">
@@ -38,9 +40,10 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
                 <input type="submit" name="send_anime" id="">
             </div>
         </form>
-        <div class="div_admin_ligne"></div>
+        <div class="div_admin_ligne"></div><!-- ajoue d'une ligne de separation  -->
 
         <h1 class="h1_ajouter_episode">Ajouter Episode</h1>
+        <!-- formulaire d'ajoue d'episode dans base de donnée -->
         <form action="" method="post">
             <div class="conteneur_inp_ajoue_episode">
 
@@ -53,7 +56,7 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
                     echo $erreur['image_episode'];
                 } ?>
 
-                <select name="code_anime" id="">
+                <select name="code_anime" id=""> <!-- select affichant tous les anime de la base de donnée -->
                     <option value="">Choix anime</option>
                     <?php for ($i = 1; $i <= $anime->nombre_anime()['nombre_anime']; $i++) {
                         $anime->setCode($i) ?>
@@ -62,11 +65,9 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
 
                 </select>
 
-                <select name="choix" id="">
-
+                <select name="choix" id=""> <!-- select choix de la langue des episode ajouter  -->
                     <option value="vostfr">Vostfr</option>
                     <option value="vf">VF</option>
-
                 </select>
 
                 <?php if (isset($erreur['durer'])) {
@@ -82,14 +83,16 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
             </div>
         </form>
 
-        <div class="div_admin_ligne"></div>
+        <div class="div_admin_ligne"></div><!-- ajoue d'une ligne de separation  -->
+
         <h2 class="h2_changer_slider">changer slider page home</h2>
+        <!-- formulaire pour changer slider sur la page home -->
         <form action="index.php?home" method="post">
             <div class="conteneur_changer_slider">
                 <div class="div_changer_slider">
                     <div class="div_slider1">
                         <h3>Slider 1</h3>
-                        <select name="change_slider1" id="">
+                        <select name="change_slider1" id=""><!-- select affichant tous les anime de la base de donnée -->
                             <option value="">Choix anime</option>
                             <?php for ($i = 1; $i <= $anime->nombre_anime()['nombre_anime']; $i++) {
                                 $anime->setCode($i) ?>
@@ -101,7 +104,7 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
 
                     <div class="div_slider2">
                         <h3>Slider 2</h3>
-                        <select name="change_slider2" id="">
+                        <select name="change_slider2" id=""><!-- select affichant tous les anime de la base de donnée -->
                             <option value="">Choix anime</option>
                             <?php for ($i = 1; $i <= $anime->nombre_anime()['nombre_anime']; $i++) {
                                 $anime->setCode($i) ?>
@@ -112,7 +115,7 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
                     </div>
                     <div class="div_slider3">
                         <h3>Slider 3</h3>
-                        <select name="change_slider3" id="">
+                        <select name="change_slider3" id=""><!-- select affichant tous les anime de la base de donnée -->
                             <option value="">Choix anime</option>
                             <?php for ($i = 1; $i <= $anime->nombre_anime()['nombre_anime']; $i++) {
                                 $anime->setCode($i) ?>
@@ -129,14 +132,14 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
         <div class="div_admin_ligne"></div>
 
         <div class="conteneur_change_populaire">
+            <!-- formulaire pour changer l'anime populaire sur la page home -->
             <form action="index.php?home" method="post">
-                <select name="populaire" id="">
+                <select name="populaire" id=""><!-- select affichant tous les anime de la base de donnée -->
                     <option value="">Choix anime</option>
                     <?php for ($i = 1; $i <= $anime->nombre_anime()['nombre_anime']; $i++) {
                         $anime->setCode($i) ?>
                         <option value="<?= $i ?>"><?= $anime->information_anime()['Titre_anime']  ?></option>
                     <?php }  ?>
-
                 </select>
                 <input type="submit" name="send_populaire_admin" id="">
             </form>
@@ -151,7 +154,7 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
 <?php } else {
 ?>
     <script>
-        window.location.href = "index.php?home";
+        window.location.href = "index.php?home";  //redirection de l'utilisateur si il n'a pas les droits admin
     </script>
 
 <?php

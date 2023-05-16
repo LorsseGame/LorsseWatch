@@ -1,45 +1,43 @@
 <?php
-$role = new Utilisateur;
+$role = new Utilisateur; //initialisation de la l'objet Utilisateur
 $role->setId($_SESSION['id']);
 $role->setEmail($_SESSION['email']);
 
-$anime = new Anime;
-$epi = new Episode;
-$role->setId($_SESSION['id']);
-$role->setEmail($_SESSION['email']);
+$anime = new Anime; //initialisation de la l'objet Anime
+$epi = new Episode; //initialisation de la l'objet Episode
 
 $anime->setCode(0);
 
-if (isset($_POST['send_anime'])) {
-    $erreur = [];
+if (isset($_POST['send_anime'])) { //verification si l'input avec le name send_anime et cliquer
+    $erreur = []; //initialisation d'un tableaux $erreur
     if (isset($_POST['titre']) && !empty($_POST['titre'])) {
         $titre = (string) $_POST['titre'];
     } else {
-        $erreur['titre'] = "Erreur titre vide";
+        $erreur['titre'] = "Erreur titre vide"; // Ajout d'une erreur si le titre est vide
     }
     if (isset($_POST['nombre_episode']) && !empty($_POST['nombre_episode'])) {
         $nombre_episode = (string) $_POST['nombre_episode'];
     } else {
-        $erreur['nombre_episode'] = "Erreur nombre_episode vide";
+        $erreur['nombre_episode'] = "Erreur nombre_episode vide"; // Ajout d'une erreur si nombre_episode  est vide
     }
     if (isset($_POST['nombre_saison']) && !empty($_POST['nombre_saison'])) {
         $nombre_saison = (string) $_POST['nombre_saison'];
     } else {
-        $erreur['nombre_saison'] = "Erreur nombre_saison vide";
+        $erreur['nombre_saison'] = "Erreur nombre_saison vide"; // Ajout d'une erreur si nombre_saison  est vide
     }
 
     if (empty($erreur)) {
-        if (isset($_FILES['image_anime']) && $_FILES['image_anime']['error'] == 0) {
+        if (isset($_FILES['image_anime']) && $_FILES['image_anime']['error'] == 0) { //verification si une image a bien été ajouter et si il n'y a pas d'erreur 
 
             $fichier = $titre;
-            $fichier = str_replace(' ', '_', $fichier);
+            $fichier = str_replace(' ', '_', $fichier); //fontion permétant de remplacer les espace de $fichier en _
 
-            $url_image = "./image_anime/" . $fichier . "/" . $_FILES['image_anime']['name'];;
-            $img = strrchr($url_image, '.');
-            $extension = strtolower(substr($img, 1));
-            $tabextension = ['jpg', 'jpeg', 'gif', 'png'];
+            $url_image = "./image_anime/" . $fichier . "/" . $_FILES['image_anime']['name']; //stockage du chemain de destination de l'image de l'anime
+            $img = strrchr($url_image, '.'); //on recupère l'extension de l'image dans la variable 
+            $extension = strtolower(substr($img, 1)); // Extrait l'extension de fichier à partir du nom du fichier image et la convertit en minuscules
+            $tabextension = ['jpg', 'jpeg', 'gif', 'png']; //ajoue des extension autoriser dans un tableaux
         } else {
-            $erreur['image_anime'] = "Aucun fichier selectionner";
+            $erreur['image_anime'] = "Aucun fichier selectionner";// Ajout d'une erreur si aucun fichier n'a été ajouter
         }
 
         if (empty($erreur['image_anime'])) {
@@ -90,12 +88,12 @@ if (isset($_POST['send_episode'])) {
 
                 $anime->setCode($_POST['code_anime']);
 
-                $fichier = $anime->information_anime()['Titre_anime'];
-                $fichier = str_replace(' ', '_', $fichier);
+                $fichier = $anime->information_anime()['Titre_anime']; //stockage du titre de l'anime
+                $fichier = str_replace(' ', '_', $fichier);//changement des espace dans la variable $fichier en _
 
-                $url_image = "image_episode/" . $fichier . "_s" . $_POST['saison'] . "/episode" . $i . ".PNG";
+                $url_image = "image_episode/" . $fichier . "_s" . $_POST['saison'] . "/episode" . $i . ".PNG"; //stockage du chemain de destination de l'image de l'episode selon $i
 
-                $url_video = "Video/" . $fichier . "/saison" . $_POST['saison'] . "/" . $_POST['choix'] . "/episode" . $i . ".mp4";
+                $url_video = "Video/" . $fichier . "/saison" . $_POST['saison'] . "/" . $_POST['choix'] . "/episode" . $i . ".mp4";//stockage du chemain de destination de la video selon $i
 
                 $epi->setEpisode($i);
                 $epi->setSaison($saison);
@@ -109,13 +107,13 @@ if (isset($_POST['send_episode'])) {
 
             $ajoue = "Les episode on bien été ajouter";
         } else {
-            if ($epi->verif_episode()["episode"] === $episode) {
+            if ($epi->verif_episode()["episode"] === $episode) { //verification si les episode existe déjà
                 $episodeExiste = "l'episode existe déjà";
             }
-            if ($epi->verif_episode()["saison"] === $saison) {
+            if ($epi->verif_episode()["saison"] === $saison) {//verification si la saison existe déjà
                 $saisonExiste = "la saison existe déjà";
             }
-            if ($epi->verif_episode()["video"] === $video) {
+            if ($epi->verif_episode()["video"] === $video) {//verification si les video existe déjà
                 $videoExiste = "la video existe déjà";
             }
         }

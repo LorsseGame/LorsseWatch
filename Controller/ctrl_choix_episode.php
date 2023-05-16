@@ -12,7 +12,7 @@ $episode->setEpisode(1);
 if ($_GET['code'] <= 0) {
 ?>
     <script>
-        window.location.href = "index.php?home";
+        window.location.href = "index.php?home"; 
     </script>
 
 <?php
