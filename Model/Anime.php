@@ -123,4 +123,9 @@ class Anime extends Database
         $afficher = $this->PDO->query("SELECT `image_home`,`image_fond`,`image_titre` FROM `anime` WHERE Code_anime = ".$code);
         return $afficher->fetch();
     }
+    public function affichage_watchlist($code)
+    {
+        $afficher = $this->PDO->query("SELECT `image_home`,Titre_anime,Nombre_episode FROM `anime` WHERE Code_anime = ".$code);
+        return $afficher->fetch();
+    }
 }

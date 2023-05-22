@@ -36,10 +36,12 @@ class Watchlist extends Database {
         return $affichage ->fetchAll();
     }
 
-    public function affichage()
-    {
-        $afficher = $this->PDO->prepare("SELECT `image_home` FROM `anime` WHERE Code_anime = ? ");
-        $afficher->bindValue(1,$this->code_anime,PDO::PARAM_INT);
-        return $afficher->fetchAll();
+    public function delete_anime (){
+    $delete = $this->PDO->prepare("DELETE FROM `watchlist` WHERE `Code_utilisateur` = ? AND `Code_anime` = ?");
+    $delete->bindValue(1,$this->code_utilisateur,PDO::PARAM_INT);
+    $delete->bindValue(2,$this->code_anime,PDO::PARAM_INT);
+    $delete->execute();
+
     }
+
 }
