@@ -128,4 +128,6 @@ class Anime extends Database
         $afficher = $this->PDO->query("SELECT `image_home`,Titre_anime,Nombre_episode FROM `anime` WHERE Code_anime = ".$code);
         return $afficher->fetch();
     }
+
+    
 }

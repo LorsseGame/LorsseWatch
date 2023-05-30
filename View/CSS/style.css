@@ -717,10 +717,6 @@ body {
     align-items: center;
 }
 
-.div_anime_watchlist:hover{
-    transform: scale(1.05);
-    transition: all 0.3s ease-in-out;
-}
 
 .img_watchlist_anime {
     max-width: 5rem;

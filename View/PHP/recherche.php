@@ -19,11 +19,11 @@
             <?php
             if (empty($_POST['recherche'])) {
 
-                for ($i = 1; $i <= $Anime->nombre_anime()['nombre_anime']; $i++) {
+                for ($i = 1; $i <= 16; $i++) {
                     $Anime->setCode($i)  ?>
 
                     <a class="a_recherche" href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr">
-                        <img class="image_anime_recherche<?= $i ?>" src="<?php echo $Anime->information_anime()['image_home'] ?>" alt="">
+                        <img class="image_anime_recherche<?= $i ?>" src="<?= $Anime->information_anime()['image_home'] ?>" alt="">
                     </a>
 
                 <?php }
