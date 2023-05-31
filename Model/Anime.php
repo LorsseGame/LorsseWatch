@@ -9,6 +9,7 @@ class Anime extends Database
     private $image;
     private $saison;
     private $image_home;
+    private $code_categorie;
 
 
     public function getCode()
@@ -64,6 +65,15 @@ class Anime extends Database
         $this->image = $image;
     }
 
+    public function getCode_categorie()
+    {
+        $this->code_categorie;
+    }
+    public function setCode_categorie($code_categorie)
+    {
+        $this->code_categorie = $code_categorie;
+    }
+
 
     public function information_anime()
     {
@@ -75,7 +85,7 @@ class Anime extends Database
 
     public function nombre_anime()
     {
-        $image =  $this->PDO->query("SELECT MAX(Code_anime)nombre_anime FROM `anime`;");
+        $image =  $this->PDO->query("SELECT count(Code_anime)nombre_anime FROM `anime`;");
         return $image->fetch();
     }
 
@@ -127,6 +137,13 @@ class Anime extends Database
     {
         $afficher = $this->PDO->query("SELECT `image_home`,Titre_anime,Nombre_episode FROM `anime` WHERE Code_anime = ".$code);
         return $afficher->fetch();
+    }
+
+    public function affichage_anime_categorie (){
+        $affichage= $this->PDO->prepare("SELECT Code_anime,`image_home`,Titre_anime,Nombre_episode FROM `anime` WHERE `Code_categorie` = ?");
+        $affichage->bindValue(1,$this->code_categorie,PDO::PARAM_STR);
+        $affichage->execute();
+        return $affichage->fetchAll();
     }
 
     

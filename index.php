@@ -6,6 +6,7 @@ include("./Model/Utilisateur.php");
 include("./Model/Anime.php");
 include("./Model/Episode.php");
 include("./Model/Watchlist.php");
+include("./Model/Categorie.php");
 include("./Controller/ctrl.index.php");
 ?>
 

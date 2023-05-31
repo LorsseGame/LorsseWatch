@@ -105,6 +105,7 @@ body {
     background-color: rgb(24, 24, 24);
     padding: 0 1vw;
     height: 4.5vw;
+    z-index: 0;
 }
 
 .login {
@@ -1084,10 +1085,6 @@ justify-content: center;
     margin-top: 1rem;
     margin-bottom: 0;
 }
-.nav_slide_anime {
-    display: flex;
-    justify-content: flex-end;
-}
 
 ul {
     margin: 0;
@@ -1105,11 +1102,14 @@ ul {
 }
 
 .nav_slide_anime {
+    display: flex;
+    justify-content: flex-end;
     z-index: 2;
+
 }
 
-#menu_anime li ul a:active,
-#menu_anime li ul input:active {
+#menu_anime li ul a:hover,
+#menu_anime li ul input:hover {
     background-color: red;
 }
 
@@ -1129,7 +1129,7 @@ ul {
 }
 
 #menu_anime li.active ul {
-    height: 120px;
+    height: 500rem;
 }
 
 
