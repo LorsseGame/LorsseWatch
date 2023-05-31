@@ -161,16 +161,13 @@ ul {
     list-style: none;
 }
 
-
-#menu>li {
+#menu > li {
     width: 150px;
     height: 40px;
-
     float: left;
     text-align: center;
     line-height: 40px;
     cursor: pointer;
-
 }
 
 .nav_slide {
@@ -180,7 +177,6 @@ ul {
 #menu li ul a:hover,
 #menu li ul input:hover {
     background-color: red;
-    transition: linear 500ms;
 }
 
 #menu li ul a,
@@ -193,18 +189,11 @@ ul {
     color: white;
 }
 
-
-
 #menu li ul {
     height: 0;
     overflow: hidden;
-    transition: 1s all;
 }
 
-
-#menu li:hover ul {
-    height: 120px;
-}
 
 
 .menu-image {
@@ -746,18 +735,18 @@ body {
     flex: 0;
     margin-left: auto;
     display: flex;
-  align-items: center;
-  justify-content: center;
+    align-items: center;
+    justify-content: center;
 }
 
 .div_bouton_watchlist {
     position: absolute;
-  right: 80px;
-  display: flex;
-  flex-direction: column;
+    right: 80px;
+    display: flex;
+    flex-direction: column;
 }
 
-.Bouton_Delete_Watchlist{
+.Bouton_Delete_Watchlist {
     border: none;
     border-radius: 3px;
     width: 8vw;
@@ -1058,6 +1047,89 @@ body {
     justify-content: center;
     color: #fff;
     text-align: center;
+}
+
+/* page anime  */
+
+.body_anime {
+    display: flex;
+    flex-direction: column;
+}
+
+.div_anime {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: minmax(2rem, auto);
+    grid-gap: 3rem;
+
+}
+
+.a_anime img {
+    width: 10vw;
+    height: 15vw;
+}
+
+.conteneur_div_anime {
+    display: flex;
+    justify-content: center;
+}
+#filtre h4{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+.h4_filtre_anime {
+    font-size: 20px;
+    margin-top: 1rem;
+    margin-bottom: 0;
+}
+.nav_slide_anime {
+    display: flex;
+    justify-content: flex-end;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+#menu_anime>li {
+    width: 150px;
+    height: 40px;
+    float: left;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
+.nav_slide_anime {
+    z-index: 2;
+}
+
+#menu_anime li ul a:active,
+#menu_anime li ul input:active {
+    background-color: red;
+}
+
+#menu_anime li ul a,
+#menu_anime li ul input {
+    display: block;
+    width: 150px;
+    height: 40px;
+    background: black;
+    text-decoration: none;
+    color: white;
+}
+
+#menu_anime li ul {
+    height: 0;
+    overflow: hidden;
+}
+
+#menu_anime li.active ul {
+    height: 120px;
 }
 
 

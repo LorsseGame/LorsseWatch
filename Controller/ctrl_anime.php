@@ -1,0 +1,2 @@
+<?php
+$Anime = new Anime;
