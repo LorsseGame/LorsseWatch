@@ -52,7 +52,7 @@ if (isset($_POST['Valider'])) {
             $profilInexistant = "Le profil n'existe pas";
         } else {
             if (password_verify($password, $utilisateur->verif2()['MotdePasse_utilisateur'])) { //verification du mot passe entrer
-                if ($utilisateur->verif_desactiver()['desactiver'] == 1) {
+                if ($utilisateur->verifDesactiver()['desactiver'] == 1) {
                     $erreur['desactiver'] = "Votre compte est désactiver pour le réactiver clicker sur le bouton 'Activer' ";
                     $_SESSION["email"] = $email;
                 } else {

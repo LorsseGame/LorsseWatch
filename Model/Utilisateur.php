@@ -2,6 +2,7 @@
 
 class Utilisateur extends Database
 {
+    // Propriétés de la classe Utilisateur
     private $email;
     private $MotdePasse;
     public $pseudo;
@@ -12,87 +13,103 @@ class Utilisateur extends Database
     private $nom;
     private $date_naissance;
 
-    public function getDate_naissance()
+    // Getters et setters pour les propriétés
+    public function getDateNaissance()
     {
-        $this->date_naissance;
+        return $this->dateNaissance;
     }
-    public function setDate_naissance($date_naissance)
+
+    public function setDateNaissance($dateNaissance)
     {
-        $this->date_naissance = $date_naissance;
+        $this->dateNaissance = $dateNaissance;
     }
+
     public function getPrenom()
     {
-        $this->prenom;
+        return $this->prenom;
     }
+
     public function setPrenom($prenom)
     {
         $this->prenom = $prenom;
     }
+
     public function getNom()
     {
-        $this->nom;
+        return $this->nom;
     }
+
     public function setNom($nom)
     {
         $this->nom = $nom;
     }
+
     public function getEmail()
     {
-        $this->email;
+        return $this->email;
     }
+
     public function setEmail($email)
     {
         $this->email = $email;
     }
+
     public function getId()
     {
-        $this->id;
+        return $this->id;
     }
+
     public function setId($id)
     {
         $this->id = $id;
     }
 
-    public function getMotdePasse()
+    public function getMotDePasse()
     {
-        $this->MotdePasse;
+        return $this->motDePasse;
     }
-    public function setMotdePasse($MotdePasse)
+
+    public function setMotDePasse($motDePasse)
     {
-        $this->MotdePasse = $MotdePasse;
+        $this->motDePasse = $motDePasse;
     }
-    public function getLien_image()
+
+    public function getLienImage()
     {
-        $this->lien_image;
+        return $this->lienImage;
     }
-    public function setLien_image($lien_image)
+
+    public function setLienImage($lienImage)
     {
-        $this->lien_image = $lien_image;
+        $this->lienImage = $lienImage;
     }
+
     public function getDesactiver()
     {
-        $this->desactiver;
+        return $this->desactiver;
     }
+
     public function setDesactiver($desactiver)
     {
         $this->desactiver = $desactiver;
     }
 
-
+    // Méthode pour supprimer un utilisateur
     public function supprimer()
     {
         $supprimer = $this->PDO->prepare("DELETE FROM `utilisateur` WHERE Code_utilisateur=?");
         $supprimer->bindValue(1, $this->id, PDO::PARAM_INT);
         $supprimer->execute();
     }
-
-    public function Desactiver()
+    // Méthode pour désactiver un utilisateur
+    public function desactiver()
     {
         $desacitver = $this->PDO->prepare("UPDATE `utilisateur` SET desactiver='1' WHERE Code_utilisateur=?");
         $desacitver->bindValue(1, $this->id, PDO::PARAM_INT);
         $desacitver->execute();
     }
 
+    // Méthode pour activer un utilisateur
     public function activer()
     {
         $activer = $this->PDO->prepare("UPDATE utilisateur SET desactiver = DEFAULT WHERE AdresseEmail_utilisateur=? ;");
@@ -100,6 +117,7 @@ class Utilisateur extends Database
         $activer->execute();
     }
 
+     // Méthode pour vérifier si un utilisateur est désactivé
     public function verif_desactiver()
     {
         $desactiver = $this->PDO->prepare("SELECT desactiver,AdresseEmail_utilisateur FROM utilisateur WHERE AdresseEmail_utilisateur =?");
@@ -108,6 +126,7 @@ class Utilisateur extends Database
         return $desactiver->fetch();
     }
 
+    // Méthode pour vérifier si un utilisateur existe déjà
     public function verif()
     {
 
@@ -118,6 +137,8 @@ class Utilisateur extends Database
         return $nbuser->fetch(PDO::FETCH_ASSOC);
     }
 
+    
+    // Méthode pour récupérer les informations d'un utilisateur
     public function verif2()
     {
         $recup = $this->PDO->prepare("SELECT Code_utilisateur,AdresseEmail_utilisateur,MotdePasse_utilisateur,Pseudo_utilisateur,lien_image,desactiver,Code_role FROM `utilisateur`  WHERE AdresseEmail_utilisateur = ?");
@@ -125,6 +146,8 @@ class Utilisateur extends Database
         $recup->execute();
         return $recup->fetch(PDO::FETCH_ASSOC);
     }
+
+        // Méthode pour récupérer les informations de profil d'un utilisateur
     public function info_profil()
     {
         $recup = $this->PDO->prepare("SELECT Code_utilisateur,DateCreationCompte__utilisateur FROM `utilisateur`  WHERE Code_utilisateur =?");
@@ -133,6 +156,7 @@ class Utilisateur extends Database
         return $recup->fetch(PDO::FETCH_ASSOC);
     }
 
+        // Méthode pour mettre à jour le pseudo d'un utilisateur
     public function update_pseudo()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET Pseudo_utilisateur=? WHERE Code_utilisateur=?");
@@ -140,6 +164,8 @@ class Utilisateur extends Database
         $modif->bindValue(2, $this->id, PDO::PARAM_STR);
         $modif->execute();
     }
+
+        // Méthode pour mettre à jour l'email d'un utilisateur
     public function update_email()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET AdresseEmail_utilisateur=? WHERE Code_utilisateur=?");
@@ -147,6 +173,8 @@ class Utilisateur extends Database
         $modif->bindValue(2, $this->id, PDO::PARAM_STR);
         $modif->execute();
     }
+
+        // Méthode pour mettre à jour le mot de passe d'un utilisateur
     public function update_password()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET MotdePasse_utilisateur=? WHERE Code_utilisateur=?");
@@ -155,9 +183,7 @@ class Utilisateur extends Database
         $modif->execute();
     }
 
-
-
-
+    // Méthode pour inscrire un nouvel utilisateur
     public function inscription()
     {
         $inscription = $this->PDO->prepare("INSERT INTO `utilisateur`(AdresseEmail_utilisateur, MotdePasse_utilisateur,Pseudo_utilisateur,lien_image,Prenom_utilisateur,Nom_utilisateur) VALUES (?,?,?,?,?,?);");
@@ -170,6 +196,7 @@ class Utilisateur extends Database
         $inscription->execute();
     }
 
+        // Méthode pour vérifier le rôle d'un utilisateur
     public function verif_role()
     {
         $role = $this->PDO->prepare("SELECT Code_role FROM `utilisateur` WHERE Code_utilisateur = ? AND AdresseEmail_utilisateur = ?");

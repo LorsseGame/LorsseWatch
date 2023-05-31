@@ -17,7 +17,7 @@ class Episode extends Database
 
     public function getVideo()
     {
-        $this->video;
+        return $this->video;
     }
     public function setVideo($video)
     {
@@ -25,7 +25,7 @@ class Episode extends Database
     }
     public function getLangue()
     {
-        $this->Langue;
+        return $this->Langue;
     }
     public function setLangue($Langue)
     {
@@ -33,7 +33,7 @@ class Episode extends Database
     }
     public function getCode()
     {
-        $this->code;
+        return $this->code;
     }
     public function setCode($code)
     {
@@ -41,7 +41,7 @@ class Episode extends Database
     }
     public function getDurer()
     {
-        $this->durer;
+        return $this->durer;
     }
     public function setDurer($durer)
     {
@@ -49,7 +49,7 @@ class Episode extends Database
     }
     public function getCode_anime()
     {
-        $this->code_anime;
+        return $this->code_anime;
     }
     public function setCode_anime($code_anime)
     {
@@ -57,7 +57,7 @@ class Episode extends Database
     }
     public function getDescription()
     {
-        $this->description;
+        return $this->description;
     }
     public function setDescription($description)
     {
@@ -65,7 +65,7 @@ class Episode extends Database
     }
     public function getEpisode()
     {
-        $this->episode;
+        return $this->episode;
     }
     public function setEpisode($episode)
     {
@@ -73,7 +73,7 @@ class Episode extends Database
     }
     public function getSaison()
     {
-        $this->saison;
+        return $this->saison;
     }
     public function setSaison($saison)
     {
@@ -81,7 +81,7 @@ class Episode extends Database
     }
     public function getTitre()
     {
-        $this->titre;
+        return $this->titre;
     }
     public function setTitre($titre)
     {
@@ -89,7 +89,7 @@ class Episode extends Database
     }
     public function getImage()
     {
-        $this->image;
+        return $this->image;
     }
     public function setImage($image)
     {
@@ -97,6 +97,7 @@ class Episode extends Database
     }
 
 
+    // Méthode pour récupérer les informations sur un épisode
     public function information_episode()
     {
         $image =  $this->PDO->prepare("SELECT image_episode,saison,titre_episode,episode FROM `episode` WHERE Code_anime = ? AND episode = ? AND saison = ?");
@@ -107,7 +108,7 @@ class Episode extends Database
         return $image->fetch();
     }
 
-
+    // Méthode pour récupérer le numéro maximal d'épisode d'une saison d'un anime
     public function max_episode()
     {
         $image =  $this->PDO->prepare("SELECT MAX(episode) episode FROM `episode` WHERE Code_anime = ? AND saison = ?");
@@ -117,6 +118,7 @@ class Episode extends Database
         return $image->fetch();
     }
 
+    // Méthode pour récupérer la vidéo d'un épisode
     public function video()
     {
         $video = $this->PDO->prepare("SELECT video,image_episode FROM `episode` WHERE Code_anime = ? AND episode = ? AND saison = ? AND Langue = ?");
@@ -128,6 +130,7 @@ class Episode extends Database
         return $video->fetch();
     }
 
+    // Méthode pour vérifier l'existence d'un épisode dans la base de données
     public function verif_episode()
     {
         $episode = $this->PDO->prepare("SELECT episode,saison,Code_anime,video FROM `episode` WHERE episode = ? AND saison = ? AND Code_anime = ? AND video = ?");
@@ -139,15 +142,17 @@ class Episode extends Database
         return $episode->fetch();
     }
 
-public function ajoue_episode(){
-    $episode = $this->PDO->prepare("INSERT INTO `episode`(`episode`, `saison`, `image_episode`,  `video`, `Code_anime`,Langue) VALUES (?,?,?,?,?,?)");
-    $episode->bindValue(1,$this->episode,PDO::PARAM_INT);
-    $episode->bindValue(2,$this->saison,PDO::PARAM_INT);
-    $episode->bindValue(3,$this->image,PDO::PARAM_STR);
-    $episode->bindValue(4,$this->video,PDO::PARAM_STR);
-    $episode->bindValue(5,$this->code_anime,PDO::PARAM_INT);
-    $episode->bindValue(6,$this->Langue,PDO::PARAM_STR);
-    $episode->execute();
-}
+    // Méthode pour ajouter un épisode à la base de données
+    public function ajoue_episode(){
+        $episode = $this->PDO->prepare("INSERT INTO `episode`(`episode`, `saison`, `image_episode`,  `video`, `Code_anime`,Langue) VALUES (?,?,?,?,?,?)");
+        $episode->bindValue(1,$this->episode,PDO::PARAM_INT);
+        $episode->bindValue(2,$this->saison,PDO::PARAM_INT);
+        $episode->bindValue(3,$this->image,PDO::PARAM_STR);
+        $episode->bindValue(4,$this->video,PDO::PARAM_STR);
+        $episode->bindValue(5,$this->code_anime,PDO::PARAM_INT);
+        $episode->bindValue(6,$this->Langue,PDO::PARAM_STR);
+        $episode->execute();
+    }
 
 }
+
