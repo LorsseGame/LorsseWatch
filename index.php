@@ -53,22 +53,44 @@ include("./Controller/ctrl.index.php");
         <?php
         if (isset($_SESSION['email']) && $_SESSION['id']) { ?>
 
-            <nav class="nav_slide">
-                <ul id="menu">
-                    <li> <img class="image_navbar_profil" src="<?= $_SESSION['lien_image'] ?>" alt="">
-                        <ul>
-                            <li><a href="index.php?info_profil">Mes Info</a></li>
-                            <?php if($utilisateur->verif_role()["Code_role"] == 1 ) { ?>
-                                <li><a href="index.php?admin">Admin</a></li>
-                         <?php } else{}?>
-                            <form method="post" action="">
-                                <li><input type="submit" value="Déconnexion" name="deconnexion" id=""></li>
-                            </form>
-                        </ul>
-                    </li>
+<nav class="nav_slide">
+    <ul id="menu">
+        <li>
+            <img id="profil-image" class="image_navbar_profil" src="<?= $_SESSION['lien_image'] ?>" alt="">
+            <ul id="slider">
+                <li><a href="index.php?info_profil">Mes Info</a></li>
+                <?php if ($utilisateur->verif_role()["Code_role"] == 1) { ?>
+                    <li><a href="index.php?admin">Admin</a></li>
+                <?php } ?>
+                <form method="post" action="">
+                    <li><input type="submit" value="Déconnexion" name="deconnexion" id=""></li>
+                </form>
+            </ul>
+        </li>
+    </ul>
+</nav>
 
-                </ul>
-            </nav>
+<script>
+    var profilImage = document.getElementById("profil-image");
+    var slider = document.getElementById("slider");
+
+    profilImage.addEventListener("click", function() {
+        var isSliderVisible = slider.style.height !== "0px";
+
+        if (isSliderVisible) {
+            slider.style.height = "0px";
+        } else {
+            slider.style.height = "120px";
+        }
+    });
+
+    document.addEventListener("click", function(event) {
+        if (!slider.contains(event.target) && event.target !== profilImage) {
+            slider.style.height = "0px";
+        }
+    });
+</script>
+
 
 
         <?php } else { ?>
@@ -111,7 +133,7 @@ if (isset($_GET['home'])) {
 } elseif (isset($_GET['recherche'])) {
     include("./Controller/ctrl_recherche.php");
     include("./View/PHP/recherche.php");
-} elseif(isset($_GET['Anime'])){
+} elseif (isset($_GET['Anime'])) {
     include("./Controller/ctrl_anime.php");
     include("./View/PHP/anime.php");
 } else {
