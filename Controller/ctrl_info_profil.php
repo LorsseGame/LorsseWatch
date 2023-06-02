@@ -53,7 +53,7 @@ if (isset($_POST["password"]) && !empty($_POST["password"])) {
 
 if(empty($erreur)){
     $utilisateur= new Utilisateur;
-    $utilisateur->setMotdePasse($password);
+    $utilisateur->setMotDePasse($password);
     $utilisateur->setId($_SESSION['id']);
     $utilisateur->update_password();
     

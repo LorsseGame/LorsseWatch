@@ -35,9 +35,8 @@ include("./Controller/ctrl.index.php");
             </label>
 
             <ul class="menu__box">
-                <li><a class="menu__item" href="index.php?Anime">Anime</a></li>
+                <li><a class="menu__item" href="index.php?Categorie">Catégorie</a></li>
                 <li><a class="menu__item" href="index.php?WatchList">WatchList</a></li>
-                <li><a class="menu__item" href="#">Catégorie</a></li>
                 <li><a class="menu__item" href="#">Historique</a></li>
             </ul>
         </div>
@@ -134,9 +133,9 @@ if (isset($_GET['home'])) {
 } elseif (isset($_GET['recherche'])) {
     include("./Controller/ctrl_recherche.php");
     include("./View/PHP/recherche.php");
-} elseif (isset($_GET['Anime'])) {
-    include("./Controller/ctrl_anime.php");
-    include("./View/PHP/anime.php");
+} elseif (isset($_GET['Categorie'])) {
+    include("./Controller/ctrl_categorie.php");
+    include("./View/PHP/categorie.php");
 } else {
 ?>
     <script>

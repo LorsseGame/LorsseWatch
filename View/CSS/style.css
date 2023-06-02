@@ -1052,12 +1052,8 @@ body {
 
 /* page anime  */
 
-.body_anime {
-    display: flex;
-    flex-direction: column;
-}
 
-.div_anime {
+.conteneurCategorie {
     display: grid;
     grid-template-columns: repeat(6, 1fr);
     grid-auto-rows: minmax(2rem, auto);
@@ -1070,67 +1066,33 @@ body {
     height: 15vw;
 }
 
-.conteneur_div_anime {
+.conteneurCategorie {
     display: flex;
     justify-content: center;
-}
-#filtre h4{
-display: flex;
-align-items: center;
-justify-content: center;
+
 }
 
-.h4_filtre_anime {
-    font-size: 20px;
-    margin-top: 1rem;
-    margin-bottom: 0;
-}
-
-ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-#menu_anime>li {
-    width: 150px;
-    height: 40px;
-    float: left;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
-}
-
-.nav_slide_anime {
+.conteneurCategorieEmpty{
     display: flex;
-    justify-content: flex-end;
-    z-index: 2;
-
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
-#menu_anime li ul a:hover,
-#menu_anime li ul input:hover {
+.divCategorie{
+    margin-bottom: 2rem;
+    margin-right: 2rem;
+}
+
+.btnCategorie{
+    width: 5rem;
+    height: 3rem;
+}
+
+.btnCategorie:hover{
     background-color: red;
 }
 
-#menu_anime li ul a,
-#menu_anime li ul input {
-    display: block;
-    width: 150px;
-    height: 40px;
-    background: black;
-    text-decoration: none;
-    color: white;
-}
 
-#menu_anime li ul {
-    height: 0;
-    overflow: hidden;
-}
-
-#menu_anime li.active ul {
-    height: 500rem;
-}
 
 
 

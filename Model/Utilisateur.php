@@ -4,14 +4,14 @@ class Utilisateur extends Database
 {
     // Propriétés de la classe Utilisateur
     private $email;
-    private $MotdePasse;
+    private $motDePasse;
     public $pseudo;
-    private $lien_image;
+    private $lienImage;
     private $desactiver;
     private $id;
     private $prenom;
     private $nom;
-    private $date_naissance;
+    private $dateNaissance;
 
     // Getters et setters pour les propriétés
     public function getDateNaissance()
@@ -118,7 +118,7 @@ class Utilisateur extends Database
     }
 
      // Méthode pour vérifier si un utilisateur est désactivé
-    public function verif_desactiver()
+    public function verifDesactiver()
     {
         $desactiver = $this->PDO->prepare("SELECT desactiver,AdresseEmail_utilisateur FROM utilisateur WHERE AdresseEmail_utilisateur =?");
         $desactiver->bindValue(1, $this->email, PDO::PARAM_STR);
@@ -178,7 +178,7 @@ class Utilisateur extends Database
     public function update_password()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET MotdePasse_utilisateur=? WHERE Code_utilisateur=?");
-        $modif->bindValue(1, $this->MotdePasse, PDO::PARAM_STR);
+        $modif->bindValue(1, $this->motDePasse, PDO::PARAM_STR);
         $modif->bindValue(2, $this->id, PDO::PARAM_STR);
         $modif->execute();
     }
@@ -188,9 +188,9 @@ class Utilisateur extends Database
     {
         $inscription = $this->PDO->prepare("INSERT INTO `utilisateur`(AdresseEmail_utilisateur, MotdePasse_utilisateur,Pseudo_utilisateur,lien_image,Prenom_utilisateur,Nom_utilisateur) VALUES (?,?,?,?,?,?);");
         $inscription->bindValue(1, $this->email, PDO::PARAM_STR);
-        $inscription->bindValue(2, $this->MotdePasse, PDO::PARAM_STR);
+        $inscription->bindValue(2, $this->motDePasse, PDO::PARAM_STR);
         $inscription->bindValue(3, $this->pseudo, PDO::PARAM_STR);
-        $inscription->bindValue(4, $this->lien_image, PDO::PARAM_STR);
+        $inscription->bindValue(4, $this->lienImage, PDO::PARAM_STR);
         $inscription->bindValue(5, $this->prenom, PDO::PARAM_STR);
         $inscription->bindValue(6, $this->nom, PDO::PARAM_STR);
         $inscription->execute();

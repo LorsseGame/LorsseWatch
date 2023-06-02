@@ -157,4 +157,9 @@ class Anime extends Database
         $affichage->execute();
         return $affichage->fetchAll();
     }
+
+    public function affichageCategorie (){
+        $affichage= $this->PDO->query("SELECT Code_anime,`image_home` FROM anime");
+        return $affichage->fetchAll();
+    }
 }

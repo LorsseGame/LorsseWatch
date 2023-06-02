@@ -76,7 +76,7 @@ if (isset($_POST['send'])) {
                 $utilisateur->setEmail($email);
                 $utilisateur->pseudo = $pseudo;
                 $utilisateur->setMotdePasse($password);
-                $utilisateur->setLien_image($url_image);
+                $utilisateur->setLienImage($url_image);
                 $utilisateur->setPrenom($prenom);
                 $utilisateur->setNom($nom);
 
