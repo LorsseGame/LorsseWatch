@@ -1,6 +1,7 @@
 <?php
 $video = new Episode;
 $anime = new Anime;
+$historique = new Historique;
 
 $video->setCode_anime($_GET['anime']);
 $video->setEpisode($_GET['episode']);
@@ -13,6 +14,21 @@ $plus = $_GET['episode'];
 $plus++;
 $moins = $_GET['episode'];
 $moins--;
+
+
+
+if(isset($_SESSION['id']) && isset($_SESSION['email'])&& isset($_SESSION['pseudo']) && isset($_SESSION['lien_image']) && isset($_SESSION['Role'])){
+    $historique->setCodeUtilisateur($_SESSION['id']);
+    $historique->setCodeAnime($_GET['anime']);
+    $historique->setEpisode($_GET['episode']);
+if(empty($historique->verificationExistant())){
+    echo "pass";
+}
+    
+}
+
+
+
 
 if ($_GET['episode'] <= 0) {
     ?>
