@@ -5,7 +5,8 @@ $role->setEmail($_SESSION['email']);
 
 $anime = new Anime; //initialisation de la l'objet Anime
 $epi = new Episode; //initialisation de la l'objet Episode
-
+$slider = new Slider;
+$Populaire = new Populaire;
 $anime->setCode(0);
 
 if (isset($_POST['send_anime'])) { //verification si l'input avec le name send_anime et cliquer
@@ -37,7 +38,7 @@ if (isset($_POST['send_anime'])) { //verification si l'input avec le name send_a
             $extension = strtolower(substr($img, 1)); // Extrait l'extension de fichier à partir du nom du fichier image et la convertit en minuscules
             $tabextension = ['jpg', 'jpeg', 'gif', 'png']; //ajoue des extension autoriser dans un tableaux
         } else {
-            $erreur['image_anime'] = "Aucun fichier selectionner";// Ajout d'une erreur si aucun fichier n'a été ajouter
+            $erreur['image_anime'] = "Aucun fichier selectionner"; // Ajout d'une erreur si aucun fichier n'a été ajouter
         }
 
         if (empty($erreur['image_anime'])) {
@@ -89,11 +90,11 @@ if (isset($_POST['send_episode'])) {
                 $anime->setCode($_POST['code_anime']);
 
                 $fichier = $anime->information_anime()['Titre_anime']; //stockage du titre de l'anime
-                $fichier = str_replace(' ', '_', $fichier);//changement des espace dans la variable $fichier en _
+                $fichier = str_replace(' ', '_', $fichier); //changement des espace dans la variable $fichier en _
 
                 $url_image = "image_episode/" . $fichier . "_s" . $_POST['saison'] . "/episode" . $i . ".PNG"; //stockage du chemain de destination de l'image de l'episode selon $i
 
-                $url_video = "Video/" . $fichier . "/saison" . $_POST['saison'] . "/" . $_POST['choix'] . "/episode" . $i . ".mp4";//stockage du chemain de destination de la video selon $i
+                $url_video = "Video/" . $fichier . "/saison" . $_POST['saison'] . "/" . $_POST['choix'] . "/episode" . $i . ".mp4"; //stockage du chemain de destination de la video selon $i
 
                 $epi->setEpisode($i);
                 $epi->setSaison($saison);
@@ -110,12 +111,52 @@ if (isset($_POST['send_episode'])) {
             if ($epi->verif_episode()["episode"] === $episode) { //verification si les episode existe déjà
                 $episodeExiste = "l'episode existe déjà";
             }
-            if ($epi->verif_episode()["saison"] === $saison) {//verification si la saison existe déjà
+            if ($epi->verif_episode()["saison"] === $saison) { //verification si la saison existe déjà
                 $saisonExiste = "la saison existe déjà";
             }
-            if ($epi->verif_episode()["video"] === $video) {//verification si les video existe déjà
+            if ($epi->verif_episode()["video"] === $video) { //verification si les video existe déjà
                 $videoExiste = "la video existe déjà";
             }
         }
+    }
+}
+
+if (isset($_POST['send_slider_admin'])) {
+    $erreur = [];
+    if (isset($_POST['change_slider1']) && !empty($_POST['change_slider1'])) {
+        $change_slider1 = (string) $_POST['change_slider1'];
+    } else {
+        $erreur['change_slider1'] = "Erreur change_slider1 vide";
+    }
+
+    if (isset($_POST['change_slider2']) && !empty($_POST['change_slider2'])) {
+        $change_slider2 = (string) $_POST['change_slider2'];
+    } else {
+        $erreur['change_slider2'] = "Erreur change_slider2 vide";
+    }
+
+    if (isset($_POST['change_slider3']) && !empty($_POST['change_slider3'])) {
+        $change_slider3 = (string) $_POST['change_slider3'];
+    } else {
+        $erreur['change_slider3'] = "Erreur change_slider3 vide";
+    }
+
+    if (empty($erreur)) {
+        $slider->changeSlider($change_slider1,1);
+        $slider->changeSlider($change_slider2,2);
+        $slider->changeSlider($change_slider3,3);
+    }
+}
+if (isset($_POST['send_populaire_admin'])) {
+    $erreur = [];
+    if (isset($_POST['populaire']) && !empty($_POST['populaire'])) {
+        $populaire = (string) $_POST['populaire'];
+    } else {
+        $erreur['populaire'] = "Erreur populaire vide";
+    }
+
+    if (empty($erreur)) {
+        $Populaire->changePopulaire($populaire,1);
+
     }
 }

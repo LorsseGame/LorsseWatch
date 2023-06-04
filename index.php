@@ -7,6 +7,8 @@ include("./Model/Anime.php");
 include("./Model/Episode.php");
 include("./Model/Watchlist.php");
 include("./Model/Categorie.php");
+include("./Model/Slider.php");
+include("./Model/Populaire.php");
 include("./Controller/ctrl.index.php");
 ?>
 

@@ -1,5 +1,6 @@
 <?php
 $Watchlist = new Watchlist;
+$Watchlist->setCode_utilisateur($_SESSION['id']);
 
 $choix_episode = new Anime;
 $choix_episode->setCode($_GET['code']);
@@ -48,11 +49,15 @@ if (empty($_GET['saison'])) {
 <?php
 }
 
-if (isset($_POST['add_anime_watchlist'])) {
-    if (isset($_SESSION['id'])) {
-        $Watchlist->setCode_anime($_GET['code']);
-        $Watchlist->setCode_utilisateur($_SESSION['id']);
-        $Watchlist->add_anime();
+
+if($Watchlist->verifDoublon()['Code_anime'] != $_GET['code'] ){
+    if (isset($_POST['add_anime_watchlist'])) {
+        if (isset($_SESSION['id'])) {
+            $Watchlist->setCode_anime($_GET['code']);
+            $Watchlist->setCode_utilisateur($_SESSION['id']);
+            $Watchlist->add_anime();
+        }
     }
 }
+
 ?>

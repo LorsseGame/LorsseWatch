@@ -87,7 +87,7 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
 
         <h2 class="h2_changer_slider">changer slider page home</h2>
         <!-- formulaire pour changer slider sur la page home -->
-        <form action="index.php?home" method="post">
+        <form action="" method="post">
             <div class="conteneur_changer_slider">
                 <div class="div_changer_slider">
                     <div class="div_slider1">
@@ -132,8 +132,9 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
         <div class="div_admin_ligne"></div>
 
         <div class="conteneur_change_populaire">
+            <h3>Populaire</h3>
             <!-- formulaire pour changer l'anime populaire sur la page home -->
-            <form action="index.php?home" method="post">
+            <form action="" method="post">
                 <select name="populaire" id=""><!-- select affichant tous les anime de la base de donnée -->
                     <option value="">Choix anime</option>
                     <?php for ($i = 1; $i <= $anime->nombre_anime()['nombre_anime']; $i++) {
