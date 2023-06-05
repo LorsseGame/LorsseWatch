@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : dim. 04 juin 2023 à 13:43
+-- Généré le : lun. 05 juin 2023 à 16:03
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -689,8 +689,7 @@ INSERT INTO `episode` (`Code_episode`, `Description_episode`, `episode`, `saison
 (1310, '', 8, 1, 'image_episode/Oshi_no_Ko_s1/episode8.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode8.mp4', 16, 0, 'vostfr'),
 (1311, '', 9, 1, 'image_episode/Oshi_no_Ko_s1/episode9.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode9.mp4', 16, 0, 'vostfr'),
 (1312, '', 10, 1, 'image_episode/Oshi_no_Ko_s1/episode10.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode10.mp4', 16, 0, 'vostfr'),
-(1313, '', 11, 1, 'image_episode/Oshi_no_Ko_s1/episode11.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode11.mp4', 16, 0, 'vostfr'),
-(1314, '', 12, 1, 'image_episode/Oshi_no_Ko_s1/episode12.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode12.mp4', 16, 0, 'vostfr');
+(1313, '', 11, 1, 'image_episode/Oshi_no_Ko_s1/episode11.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode11.mp4', 16, 0, 'vostfr');
 
 -- --------------------------------------------------------
 
@@ -704,6 +703,17 @@ CREATE TABLE `historique` (
   `numeroEpisode` int(11) NOT NULL,
   `codeUtilisateur` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `historique`
+--
+
+INSERT INTO `historique` (`codeHistorique`, `codeAnime`, `numeroEpisode`, `codeUtilisateur`) VALUES
+(1, 16, 2, 3),
+(2, 12, 4, 3),
+(3, 13, 2, 3),
+(4, 14, 2, 3),
+(5, 1, 12, 3);
 
 -- --------------------------------------------------------
 
@@ -762,7 +772,7 @@ CREATE TABLE `slider` (
 INSERT INTO `slider` (`codeSlider`, `nomSlider`, `codeAnime`) VALUES
 (1, 'Slider 1', 4),
 (2, 'Slider 2', 6),
-(3, 'Slider 3', 1);
+(3, 'Slider 3', 16);
 
 -- --------------------------------------------------------
 
@@ -813,6 +823,7 @@ INSERT INTO `watchlist` (`Code_watchlist`, `Code_utilisateur`, `Code_anime`) VAL
 (15, 3, 11),
 (16, 3, 12),
 (20, 3, 14),
+(23, 3, 16),
 (13, 8, 10);
 
 --
@@ -916,7 +927,7 @@ ALTER TABLE `episode`
 -- AUTO_INCREMENT pour la table `historique`
 --
 ALTER TABLE `historique`
-  MODIFY `codeHistorique` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `codeHistorique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT pour la table `populaire`
@@ -946,7 +957,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `Code_watchlist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `Code_watchlist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- Contraintes pour les tables déchargées
