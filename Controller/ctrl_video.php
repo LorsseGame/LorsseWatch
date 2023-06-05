@@ -32,21 +32,18 @@ if (isset($_SESSION['id']) && isset($_SESSION['email']) && isset($_SESSION['pseu
 }
 
 
-
-
 if ($_GET['episode'] <= 0) {
 ?>
     <script>
-        window.location.href = "index.php?video&episode=1&anime=" + <?= $_GET['anime'] ?> + "&saison=" + <?= $_GET['saison'] ?>;
+        window.location.href = "index.php?video&episode=1&anime=" + <?= $_GET['anime'] ?> + "&saison=" + <?= $_GET['saison'] ?>+ "langue=" + <?= $_GET['langue'] ?>;
     </script>
 
 <?php
 
-
-} else if ($_GET['episode'] > $anime->nombre_episode()['Nombre_episode']) {
+} else if ($_GET['episode'] >= $anime->nombre_episode()['Nombre_episode']) {
 ?>
     <script>
-        window.location.href = "index.php?video&episode=1&anime=" + <?= $_GET['anime'] ?> + "&saison=" + <?= $_GET['saison'] ?>;
+        window.location.href = "index.php?video&episode=1&anime=" + <?= $_GET['anime'] ?> + "&saison=" + <?= $_GET['saison'] ?> + "langue=" + <?= $_GET['langue'] ?>;
     </script>
 <?php
 }
@@ -74,14 +71,14 @@ if ($_GET['saison'] <= 0) {
 
 ?>
     <script>
-        window.location.href = "index.php?video&episode=<?= $_GET['episode'] ?>&anime=<?= $_GET['anime'] ?>&saison=1";
+        window.location.href = "index.php?video&episode=<?= $_GET['episode'] ?>&anime=<?= $_GET['anime'] ?>&saison=1"+ "langue=" + <?= $_GET['langue'] ?>;
     </script>
 
 <?php
 } else if ($_GET['saison'] > $anime->nombre_saison()['nombre_saison']) {
 ?>
     <script>
-        window.location.href = "index.php?video&episode=<?= $_GET['episode'] ?>&anime=<?= $_GET['anime'] ?>&saison=1";
+        window.location.href = "index.php?video&episode=<?= $_GET['episode'] ?>&anime=<?= $_GET['anime'] ?>&saison=1"+ "langue=" + <?= $_GET['langue'] ?>;
     </script>
 <?php
 }

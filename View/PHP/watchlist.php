@@ -7,11 +7,8 @@
                 <h3><?= $_SESSION['pseudo'] ?></h3>
 
                 <div class="div_info_dinamique_watchlist">
-                    <h3>Video: 0</h3>
-                    <h3 class="h3_temp_watchlist">Temps: 00:00</h3>
+                    <h3>Anime: <?= $watchlist->countAnime()["codeAnime"] ?></h3>
                 </div>
-
-                <input type="submit" value="Lancer" class="inp_lancer_watchlist" name="" id="">
             </div>
 
 

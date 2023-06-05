@@ -19,6 +19,7 @@
         </select>
         <h1 class="h1_choix_titre"><?= $choix_episode->information_anime()['Titre_anime']; ?></h1>
         <select onchange="location.href=''+this.options[this.selectedIndex].value;" class="select_langue_choix" name="choix_langue" id=""> <!-- select affichant les langue -->
+        <option style="display: none;" value="">Choix langue</option>
             <option value="index.php?choix&code=<?= $_GET['code'] ?>&saison=<?= $_GET['saison'] ?>&langue=vostfr">VOSTFR</option>
             <option value="index.php?choix&code=<?= $_GET['code'] ?>&saison=<?= $_GET['saison'] ?>&langue=vf">VF</option>
         </select>

@@ -52,4 +52,11 @@ class Watchlist extends Database {
         $verif->execute();
         return $verif->fetch();
     }
+
+    public function countAnime(){
+        $count = $this->PDO->prepare("SELECT COUNT(Code_anime)codeAnime FROM `watchlist` WHERE `Code_utilisateur` = ?;");
+        $count->bindValue(1,$this->code_utilisateur,PDO::PARAM_INT);
+        $count->execute();
+        return $count->fetch();
+    }
 }
