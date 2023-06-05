@@ -46,9 +46,10 @@ class Watchlist extends Database {
     }
 
     public function verifDoublon(){
-        $verif = $this->PDO->prepare("SELECT `Code_anime` FROM `watchlist` WHERE `Code_utilisateur` = ?");
+        $verif = $this->PDO->prepare("SELECT * FROM `watchlist` WHERE `Code_utilisateur` = ? AND Code_anime = ?");
         $verif->bindValue(1,$this->code_utilisateur,PDO::PARAM_INT);
+        $verif->bindValue(2,$this->code_anime,PDO::PARAM_INT);
         $verif->execute();
-        return $verif->fetchAll();
+        return $verif->fetch();
     }
 }

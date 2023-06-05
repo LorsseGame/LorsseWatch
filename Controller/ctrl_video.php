@@ -17,50 +17,54 @@ $moins--;
 
 
 
-if(isset($_SESSION['id']) && isset($_SESSION['email'])&& isset($_SESSION['pseudo']) && isset($_SESSION['lien_image']) && isset($_SESSION['Role'])){
+if (isset($_SESSION['id']) && isset($_SESSION['email']) && isset($_SESSION['pseudo']) && isset($_SESSION['lien_image']) && isset($_SESSION['Role'])) {
     $historique->setCodeUtilisateur($_SESSION['id']);
     $historique->setCodeAnime($_GET['anime']);
     $historique->setEpisode($_GET['episode']);
-if(empty($historique->verificationExistant())){
-    echo "pass";
-}
-    
+
+    if (empty($historique->verificationExistant())) {
+        $historique->addHistorique();
+    } else if (is_numeric($historique->verificationExistant()['codeHistorique'])) {
+        if ($historique->recupEpisode()['numeroEpisode'] != $_GET['episode']) {
+            $historique->updateHistorique();
+        }
+    }
 }
 
 
 
 
 if ($_GET['episode'] <= 0) {
-    ?>
-<script>
-    window.location.href = "index.php?video&episode=1&anime="+<?= $_GET['anime'] ?>+"&saison="+<?= $_GET['saison'] ?>;
-</script>
+?>
+    <script>
+        window.location.href = "index.php?video&episode=1&anime=" + <?= $_GET['anime'] ?> + "&saison=" + <?= $_GET['saison'] ?>;
+    </script>
 
 <?php
 
 
 } else if ($_GET['episode'] > $anime->nombre_episode()['Nombre_episode']) {
-    ?>
-<script>
-    window.location.href = "index.php?video&episode=1&anime="+<?= $_GET['anime'] ?>+"&saison="+<?= $_GET['saison'] ?>;
-</script>
+?>
+    <script>
+        window.location.href = "index.php?video&episode=1&anime=" + <?= $_GET['anime'] ?> + "&saison=" + <?= $_GET['saison'] ?>;
+    </script>
 <?php
 }
 
 if ($_GET['anime'] <= 0) {
 
-    ?>
-<script>
-    window.location.href = "index.php?home";
-</script>
+?>
+    <script>
+        window.location.href = "index.php?home";
+    </script>
 
 <?php
 } else if ($_GET['anime'] >  $anime->nombre_anime()['nombre_anime']) {
 
-   ?>
-<script>
-    window.location.href = "index.php?home";
-</script>
+?>
+    <script>
+        window.location.href = "index.php?home";
+    </script>
 
 <?php
 
@@ -68,27 +72,27 @@ if ($_GET['anime'] <= 0) {
 
 if ($_GET['saison'] <= 0) {
 
-    ?>
+?>
     <script>
         window.location.href = "index.php?video&episode=<?= $_GET['episode'] ?>&anime=<?= $_GET['anime'] ?>&saison=1";
     </script>
-    
-    <?php
+
+<?php
 } else if ($_GET['saison'] > $anime->nombre_saison()['nombre_saison']) {
-    ?>
+?>
     <script>
         window.location.href = "index.php?video&episode=<?= $_GET['episode'] ?>&anime=<?= $_GET['anime'] ?>&saison=1";
     </script>
-    <?php
+<?php
 }
 
 
 if (empty($_GET['episode'])) {
 
-    ?>
-<script>
-    window.location.href = "index.php?home";
-</script>
+?>
+    <script>
+        window.location.href = "index.php?home";
+    </script>
 
 <?php
 
@@ -96,10 +100,10 @@ if (empty($_GET['episode'])) {
 
 if (empty($_GET['anime'])) {
 
-    ?>
-<script>
-    window.location.href = "index.php?home";
-</script>
+?>
+    <script>
+        window.location.href = "index.php?home";
+    </script>
 
 <?php
 
@@ -107,12 +111,11 @@ if (empty($_GET['anime'])) {
 
 if (empty($_GET['saison'])) {
 
-    ?>
-<script>
-    window.location.href = "index.php?home";
-</script>
+?>
+    <script>
+        window.location.href = "index.php?home";
+    </script>
 
 <?php
 
 }
-

@@ -1,5 +1,4 @@
-<?php
-if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && $_SESSION['email']) { ?>
+<?php if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && $_SESSION['email']) { ?>
 
     <body class="watchlist_body">
         <div class="conteneur_div_watchlist">
@@ -50,4 +49,3 @@ if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && $_SESSION['email']) 
 <?php } else { ?>
     <?php header("Location:index.php?login&watchlist=false") ?>
 <?php } ?>
-?>

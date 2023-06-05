@@ -162,7 +162,7 @@ ul {
     list-style: none;
 }
 
-#menu > li {
+#menu>li {
     width: 150px;
     height: 40px;
     float: left;
@@ -1072,26 +1072,71 @@ body {
 
 }
 
-.conteneurCategorieEmpty{
+.conteneurCategorieEmpty {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.divCategorie{
+.divCategorie {
     margin-bottom: 2rem;
     margin-right: 2rem;
 }
 
-.btnCategorie{
+.btnCategorie {
     width: 5rem;
     height: 3rem;
 }
 
-.btnCategorie:hover{
+.btnCategorie:hover {
     background-color: red;
 }
 
+
+/* page historique  */
+
+.conteneurHistorique {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divHistorique {
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imgHistorique {
+    width: 8rem;
+    height: 11rem;
+}
+
+.imgHistorique:hover{
+    transform: scale(1.10);
+    transition: all 0.2s ease-in-out;
+}
+
+.conteneurInfoHistorique {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center ;
+    margin-left: 2rem;
+}
+
+.titreAnimeHistorique{
+    width: 15rem;
+    font-size: 25px;
+}
+
+.episodeAnimeHistorique{
+    font-family: Roboto ;
+    font-size: 25px;
+}
 
 
 

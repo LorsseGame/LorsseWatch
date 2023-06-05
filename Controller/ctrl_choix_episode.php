@@ -1,6 +1,7 @@
 <?php
 $Watchlist = new Watchlist;
 $Watchlist->setCode_utilisateur($_SESSION['id']);
+$Watchlist->setCode_anime($_GET['code']);
 
 $choix_episode = new Anime;
 $choix_episode->setCode($_GET['code']);
@@ -13,7 +14,7 @@ $episode->setEpisode(1);
 if ($_GET['code'] <= 0) {
 ?>
     <script>
-        window.location.href = "index.php?home"; 
+        window.location.href = "index.php?home";
     </script>
 
 <?php
@@ -26,9 +27,9 @@ if ($_GET['code'] <= 0) {
 <?php
 }
 if ($_GET['saison'] <= 0) {
-    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=".$_GET['langue']);
+    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=" . $_GET['langue']);
 } else if ($_GET['saison'] > $choix_episode->nombre_saison()['nombre_saison']) {
-    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=".$_GET['langue']);
+    header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=" . $_GET['langue']);
 }
 
 
@@ -49,12 +50,9 @@ if (empty($_GET['saison'])) {
 <?php
 }
 
-
-if($Watchlist->verifDoublon()['Code_anime'] != $_GET['code'] ){
-    if (isset($_POST['add_anime_watchlist'])) {
+if (isset($_POST['add_anime_watchlist'])) {
+    if (empty($Watchlist->verifDoublon())) {
         if (isset($_SESSION['id'])) {
-            $Watchlist->setCode_anime($_GET['code']);
-            $Watchlist->setCode_utilisateur($_SESSION['id']);
             $Watchlist->add_anime();
         }
     }

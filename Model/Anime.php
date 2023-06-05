@@ -162,4 +162,9 @@ class Anime extends Database
         $affichage= $this->PDO->query("SELECT Code_anime,`image_home` FROM anime");
         return $affichage->fetchAll();
     }
+
+    public function affichageHistorique($code){
+        $aff= $this->PDO->query("SELECT `Titre_anime`,`image_home` FROM `anime` WHERE `Code_anime` = $code;");
+        return $aff->fetch();
+    }
 }

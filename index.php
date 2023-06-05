@@ -40,7 +40,7 @@ include("./Controller/ctrl.index.php");
             <ul class="menu__box">
                 <li><a class="menu__item" href="index.php?Categorie">Catégorie</a></li>
                 <li><a class="menu__item" href="index.php?WatchList">WatchList</a></li>
-                <li><a class="menu__item" href="#">Historique</a></li>
+                <li><a class="menu__item" href="index.php?Historique">Historique</a></li>
             </ul>
         </div>
 
@@ -139,6 +139,9 @@ if (isset($_GET['home'])) {
 } elseif (isset($_GET['Categorie'])) {
     include("./Controller/ctrl_categorie.php");
     include("./View/PHP/categorie.php");
+} elseif (isset($_GET['Historique'])) {
+    include("./Controller/ctrl_historique.php");
+    include("./View/PHP/historique.php");
 } else {
 ?>
     <script>
