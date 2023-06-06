@@ -205,4 +205,12 @@ class Utilisateur extends Database
         $role->execute();
         return $role->fetch();
     }
+
+    public function updateImage(){
+        $update= $this->PDO->prepare("UPDATE `utilisateur` SET `lien_image`= ? WHERE `Code_utilisateur` = ?");
+        $update->bindValue(1,$this->lienImage,PDO::PARAM_STR);
+        $update->bindValue(2,$this->id,PDO::PARAM_INT);
+        $update->execute();
+
+    }
 }

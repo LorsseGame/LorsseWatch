@@ -1,8 +1,25 @@
 <body class="info_profil_body">
     <main>
-        <div class="div_image_info_pseudo">
 
-            <img class="image_info_profil" src="<?= $_SESSION['lien_image'] ?>" alt="">
+        <div class="div_image_info_pseudo">
+            <form id="myForm" method="post" enctype="multipart/form-data">
+                <div>
+                    <input type="file" id="file" name="file" onchange="previewFile()" style="display: none;">
+                </div>
+                <div style="display: inline-block;">
+                    <img class="image_info_profil" src="<?= $_SESSION['lien_image'] ?>" alt="image" onclick="document.getElementById('file').click();">
+                </div>
+                <div style="display: none;" id="conteneurPreview" class="confirmationImage">
+                    <div id="preview" style="display: none;">
+                        <img class="imgConfirmation" src="" alt="image">
+                        <span style="color: white;">Voulez vous changer votre photo de profil</span>
+                        <div class="directionBouton">
+                            <button onclick="cancelImage()">NON</button>
+                            <input type="submit" value="OUI" name="sendImage" id="">
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
         <form action="" method="post">
             <div class="div_pseudo_info_pseudo">
