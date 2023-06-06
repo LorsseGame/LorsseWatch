@@ -57,7 +57,6 @@ if (isset($_POST['send_password'])) {
     }
 }
 
-echo $_SESSION['lien_image'];
 if (isset($_POST['sendImage'])) {
     $utilisateur = new Utilisateur;
     $fichier = $_SESSION['lien_image'];

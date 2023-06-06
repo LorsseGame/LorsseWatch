@@ -52,7 +52,7 @@
                 } ?>
                 <div class="lien_login">
                     <a class="No_mdp" href="">Forgot Password ?</a>
-                    <a class="sinscrire" href="inscriptions.php">Sign Up</a>
+                    <a class="sinscrire" href="index.php?register">Sign Up</a>
                 </div>
             </div>
 
