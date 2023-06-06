@@ -3,7 +3,7 @@
     <body class="watchlist_body">
         <div class="conteneur_div_watchlist">
             <div class="div_info_watchlist">
-                <img class="image_profil_watchlist" src="<?= $_SESSION['lien_image'] ?>" alt="">
+                <img class="image_profil_watchlist" src="<?= $_SESSION['lien_image'] ?>?t=<?= time() ?>" alt="">
                 <h3><?= $_SESSION['pseudo'] ?></h3>
 
                 <div class="div_info_dinamique_watchlist">

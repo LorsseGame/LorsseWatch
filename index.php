@@ -58,7 +58,7 @@ include("./Controller/ctrl.index.php");
 <nav class="nav_slide">
     <ul id="menu">
         <li>
-            <img id="profil-image" class="image_navbar_profil" src="<?= $_SESSION['lien_image'] ?>" alt="">
+        <img id="profil-image" class="image_navbar_profil" src="<?= $_SESSION['lien_image'] ?>?t=<?= time() ?>"  alt="">
             <ul id="slider">
                 <li><a href="index.php?info_profil">Mes Info</a></li>
                 <?php if ($utilisateur->verif_role()["Code_role"] == 1) { ?>

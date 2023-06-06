@@ -57,10 +57,7 @@ if (isset($_POST['send_password'])) {
     }
 }
 
-function confirmation()
-{
-}
-
+echo $_SESSION['lien_image'];
 if (isset($_POST['sendImage'])) {
     $utilisateur = new Utilisateur;
     $fichier = $_SESSION['lien_image'];
@@ -90,11 +87,14 @@ if (isset($_POST['sendImage'])) {
         }
 
         if (empty($erreur['fichier'])) {
-            unlink($fichier);
-            $_SESSION['lien_image'] = $url_image;
             $utilisateur->setLienImage($url_image);
             $utilisateur->setId($_SESSION['id']);
             $utilisateur->updateImage();
+            $_SESSION['lien_image'] = $url_image;
+            $timestamp = time();
+            $url = "index.php?info_profil&timestamp=$timestamp";
+            unlink($fichier);
+            header("Location: $url");
         }
     }
 }

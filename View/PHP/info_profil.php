@@ -7,7 +7,7 @@
                     <input type="file" id="file" name="file" onchange="previewFile()" style="display: none;">
                 </div>
                 <div style="display: inline-block;">
-                    <img class="image_info_profil" src="<?= $_SESSION['lien_image'] ?>" alt="image" onclick="document.getElementById('file').click();">
+                    <img class="image_info_profil" src="<?= $_SESSION['lien_image'] ?>?t=<?= time() ?>" alt="image" onclick="document.getElementById('file').click();">
                 </div>
                 <div style="display: none;" id="conteneurPreview" class="confirmationImage">
                     <div id="preview" style="display: none;">
@@ -15,7 +15,7 @@
                         <span style="color: white;">Voulez vous changer votre photo de profil</span>
                         <div class="directionBouton">
                             <button onclick="cancelImage()">NON</button>
-                            <input type="submit" value="OUI" name="sendImage" id="">
+                            <input type="submit" value="OUI" name="sendImage"  id="">
                         </div>
                     </div>
                 </div>
