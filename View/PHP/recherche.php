@@ -20,29 +20,30 @@
             if (empty($_POST['recherche'])) {
 
                 for ($i = 1; $i <= 16; $i++) {
-                    $Anime->setCode($i)  ?>
+                    $Anime->setCode($i);  if (!empty($Anime->information_anime()['image_home'])) { ?>
 
                     <a class="a_recherche" href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr">
                         <img class="image_anime_recherche<?= $i ?>" src="<?= $Anime->information_anime()['image_home'] ?>" alt="">
                     </a>
 
-                <?php }
+                <?php } }
             }
             if (isset($_POST['recherche'])) {
 
-                foreach ($recherche as $key => $value) {  ?>
+                foreach ($recherche as $key => $value) {  if (!empty($value['image_home'])) { ?>
 
                     <a class="a_recherche" href="index.php?choix&code=<?= $value['Code_anime'] ?>&saison=1&langue=vostfr">
                         <img class="image_anime_recherche" src="<?= $value['image_home'] ?>" alt="">
                     </a>
 
-            <?php }
-            }?>
+            <?php } }
+            } ?>
         </div>
 
-       <?php if (isset($_POST['send_recherche'])) {
-            if (empty($recherche)) {?>
+        <?php if (isset($_POST['send_recherche'])) {
+            if (empty($recherche)) { ?>
                 <h3 class="h3_erreur_recherche">Aucun résultat</h3>
-          <?php } }?>
+        <?php }
+        } ?>
     </div>
 </body>

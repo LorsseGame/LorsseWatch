@@ -1,3 +1,4 @@
+<?php if($anime->verificationDesactiver()['Desactiver'] == 0 ){ ?>
 <body class="body_choix">
 
     <div class="div_fond_image_anime">
@@ -48,3 +49,7 @@
     </div>
 
 </body>
+
+<?php } else{
+    header("Location:index.php?home");
+} ?>

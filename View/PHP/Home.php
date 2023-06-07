@@ -11,19 +11,19 @@
         <img class="d-block image_slide1  " src="<?= $image->affichage($slider->affichageSlider(1)["codeAnime"])['image_fond'] ?>" alt="First slide"> <!-- Image du premier slide -->
         <img class="image_annonce1" src="<?= $image->affichage($slider->affichageSlider(1)["codeAnime"])['image_home'] ?>" alt=""> <!-- Image de l'annonce du premier slide -->
         <img class="titre_slide1" src="<?= $image->affichage($slider->affichageSlider(1)["codeAnime"])['image_titre'] ?>" alt=""> <!-- Titre du premier slide -->
-        <a  href="index.php?choix&code=<?= $slider->affichageSlider(1)["codeAnime"] ?>&saison=1&langue=vostfr"><button class="button_slide">Regarder</button></a> <!-- Bouton pour regarder le contenu du premier slide -->
+        <a href="index.php?choix&code=<?= $slider->affichageSlider(1)["codeAnime"] ?>&saison=1&langue=vostfr"><button class="button_slide">Regarder</button></a> <!-- Bouton pour regarder le contenu du premier slide -->
       </div>
       <div class="carousel-item">
         <img class="d-block image_slide2 " src="<?= $image->affichage($slider->affichageSlider(2)["codeAnime"])['image_fond'] ?>" alt="Second slide"> <!-- Image du deuxième slide -->
         <img class="image_annonce1" src="<?= $image->affichage($slider->affichageSlider(2)["codeAnime"])['image_home'] ?>" alt=""> <!-- Image de l'annonce du deuxième slide -->
         <img class="titre_slide2" src="<?= $image->affichage($slider->affichageSlider(2)["codeAnime"])['image_titre'] ?>" alt=""> <!-- Titre du deuxième slide -->
-        <a  href="index.php?choix&code=<?= $slider->affichageSlider(2)["codeAnime"] ?>&saison=1&langue=vostfr"><button class="button_slide">Regarder</button></a> <!-- Bouton pour regarder le contenu du deuxième slide -->
+        <a href="index.php?choix&code=<?= $slider->affichageSlider(2)["codeAnime"] ?>&saison=1&langue=vostfr"><button class="button_slide">Regarder</button></a> <!-- Bouton pour regarder le contenu du deuxième slide -->
       </div>
       <div class="carousel-item">
         <img class=" d-block image_slide3 " src="<?= $image->affichage($slider->affichageSlider(3)["codeAnime"])['image_fond'] ?>" alt="Third slide"> <!-- Image du troisième slide -->
         <img class="image_annonce1" src="<?= $image->affichage($slider->affichageSlider(3)["codeAnime"])['image_home'] ?>" alt=""> <!-- Image de l'annonce du troisième slide -->
         <img class="titre_slide1" src="<?= $image->affichage($slider->affichageSlider(3)["codeAnime"])['image_titre'] ?>" alt=""> <!-- Titre du troisième slide -->
-        <a  href="index.php?choix&code=<?=$slider->affichageSlider(3)["codeAnime"] ?>&saison=1&langue=vostfr"><button class="button_slide">Regarder</button></a> <!-- Bouton pour regarder le contenu du troisième slide -->
+        <a href="index.php?choix&code=<?= $slider->affichageSlider(3)["codeAnime"] ?>&saison=1&langue=vostfr"><button class="button_slide">Regarder</button></a> <!-- Bouton pour regarder le contenu du troisième slide -->
       </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -39,9 +39,11 @@
   <h3 class="dernier_sortie" style="color: white;">Dernières sorties</h3>
   <div class="conteneur_anime">
     <?php for ($i = $image->calcule_anime()['Code_animeMax']; $i >= $image->calcule_anime()['Code_anime']; $i--) {
-      $image->setCode($i)  ?>
-      <div class="div_image_anime_<?= $i ?>"><a alt="<?= $i ?>" href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr" class="a_anime1"><img class="image_anime1" src="<?php echo $image->information_anime()['image_home']  ?>" alt=""></a></div> <!-- Affichage des images des dernières sorties avec un lien pour voir les détails -->
-    <?php } ?>
+      $image->setCode($i);
+        if (!empty($image->information_anime()['image_home'])) { ?>
+          <div class="div_image_anime_<?= $i ?>"><a alt="<?= $i ?>" href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr" class="a_anime1"><img class="image_anime1" src="<?= $image->information_anime()['image_home']  ?>" alt=""></a></div> <!-- Affichage des images des dernières sorties avec un lien pour voir les détails -->
+    <?php }
+      } ?>
   </div>
 
   <h3 class="le_plus_popolaire" style="color: white;">Le plus populaire</h3>

@@ -13,7 +13,7 @@
 
 
             <div class="conteneur_video_watchlist">
-                <?php foreach ($watchlist->recup_code() as $key => $value)  { ?>
+                <?php foreach ($watchlist->recup_code() as $key => $value) if (!empty($anime->affichage_watchlist($value['Code_anime'])['image_home'])) { { ?>
                     <div class="div_anime_watchlist">
                         <div class="conteneur_element_gauche_watchlist">
                             <div class="div_image_anime_watchlist">
@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                <?php  } ?>
+                <?php  } } ?>
             </div>
 
 

@@ -23,10 +23,10 @@
     <?php } ?>
 
     <?php if (isset($_GET['all'])) { ?>
-        <?php foreach($Anime->affichageCategorie() as $key => $value) { ?>
+        <?php foreach($Anime->affichageCategorie() as $key => $value) { if (!empty($value['image_home'])) { ?>
             <a class="a_anime" href="index.php?choix&code=<?= $value['Code_anime'] ?>&saison=1&langue=vostfr">
                 <img class="image_anime_recherche<?= $value['Code_anime'] ?>" src="<?= $value['image_home'] ?>" alt="">
             </a>
-        <?php } ?>
+        <?php } }?>
     <?php } ?>
 </body>

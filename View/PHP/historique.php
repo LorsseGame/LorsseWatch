@@ -3,7 +3,7 @@
 
     <body>
         <div class="conteneurHistorique">
-            <?php foreach ($historique->affichage() as $key => $value) { ?>
+            <?php foreach ($historique->affichage() as $key => $value) { if (!empty($anime->affichageHistorique($value['codeAnime'])['image_home'])) { ?>
                 <div class="divHistorique">
                     <div><a href="index.php?video&episode=<?= $value['numeroEpisode'] ?>&anime=<?= $value['codeAnime'] ?>&saison=1&langue=vostfr"><img class="imgHistorique" src="<?= $anime->affichageHistorique($value['codeAnime'])['image_home'] ?>" alt=""></a></div>
                     <div class="conteneurInfoHistorique">
@@ -16,7 +16,7 @@
                     </div>
 
                 </div>
-            <?php } ?>
+            <?php } }?>
         </div>
     </body>
 

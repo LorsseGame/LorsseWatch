@@ -11,6 +11,9 @@ $episode->setCode_anime($_GET['code']);
 $episode->setSaison($_GET['saison']);
 $episode->setEpisode(1);
 
+$anime = new Anime;
+$anime->setCode($_GET['code']);
+
 if ($_GET['code'] <= 0) {
 ?>
     <script>

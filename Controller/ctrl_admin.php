@@ -42,13 +42,15 @@ if (isset($_POST['send_anime'])) { //verification si l'input avec le name send_a
         }
 
         if (empty($erreur['image_anime'])) {
-
+$code = $anime->maxAnime()['maxNombreAnime'];
+$code ++ ;
 
             $anime->setTitre($titre);
             $anime->setNombre($nombre_episode);
             $anime->setImage($url_image);
             $anime->setImage_home($url_image);
             $anime->setSaison($nombre_saison);
+            $anime->setCode($code);
 
             $anime->add_anime();
 

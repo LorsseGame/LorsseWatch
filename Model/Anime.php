@@ -78,7 +78,7 @@ class Anime extends Database
     // Méthode pour récupérer les informations d'un anime
     public function information_anime()
     {
-        $image = $this->PDO->prepare("SELECT image,Titre_anime,image_home FROM `anime` WHERE Code_anime = ?");
+        $image = $this->PDO->prepare("SELECT image,Titre_anime,image_home FROM `anime` WHERE Code_anime = ? AND Desactiver = 0");
         $image->bindValue(1, $this->code, PDO::PARAM_INT);
         $image->execute();
         return $image->fetch();
@@ -90,6 +90,12 @@ class Anime extends Database
         $image = $this->PDO->query("SELECT count(Code_anime)nombre_anime FROM `anime`;");
         return $image->fetch();
     }
+    public function maxAnime()
+    {
+        $rec = $this->PDO->query("SELECT MAX(Code_anime)maxNombreAnime FROM `anime`;");
+        return $rec->fetch();
+    }
+
 
     // Méthode pour récupérer le nombre d'épisodes d'un anime
     public function nombre_episode()
@@ -112,26 +118,27 @@ class Anime extends Database
     // Méthode pour ajouter un anime
     public function add_anime()
     {
-        $anime = $this->PDO->prepare("INSERT INTO `anime`(`Titre_anime`, `Nombre_episode`, `image`, `image_home`, `nombre_saison`) VALUES (?,?,?,?,?)");
+        $anime = $this->PDO->prepare("INSERT INTO `anime`(`Titre_anime`, `Nombre_episode`, `image`, `image_home`, `nombre_saison`,`Code_anime`) VALUES (?,?,?,?,?,?)");
         $anime->bindValue(1, $this->titre, PDO::PARAM_STR);
         $anime->bindValue(2, $this->nombre, PDO::PARAM_STR);
         $anime->bindValue(3, $this->image, PDO::PARAM_STR);
         $anime->bindValue(4, $this->image_home, PDO::PARAM_STR);
         $anime->bindValue(5, $this->saison, PDO::PARAM_STR);
+        $anime->bindValue(6, $this->code, PDO::PARAM_INT);
         $anime->execute();
     }
 
     // Méthode pour calculer des informations sur les animes
     public function calcule_anime()
     {
-        $calcule = $this->PDO->query("SELECT MAX(Code_anime - 5) Code_anime , MAX(Code_anime) Code_animeMax FROM `anime`");
+        $calcule = $this->PDO->query("SELECT MAX(Code_anime - 5) Code_anime , COUNT(Code_anime) Code_animeMax FROM `anime`");
         return $calcule->fetch();
     }
 
     // Méthode pour effectuer une recherche d'anime
     public function recherche($recherche)
     {
-        $recherche = $this->PDO->query("SELECT Code_anime,Titre_anime,image_home FROM anime WHERE Titre_anime LIKE '" . $recherche . "%'");
+        $recherche = $this->PDO->query("SELECT Code_anime,Titre_anime,image_home FROM anime WHERE Desactiver = 0 AND Titre_anime  LIKE '" . $recherche . "%'");
         return $recherche->fetchAll(PDO::FETCH_ASSOC);
     }
 
@@ -145,7 +152,7 @@ class Anime extends Database
     // Méthode pour afficher les informations d'un anime dans la liste de suivi (watchlist)
     public function affichage_watchlist($code)
     {
-        $afficher = $this->PDO->query("SELECT `image_home`,Titre_anime,Nombre_episode FROM `anime` WHERE Code_anime = " . $code);
+        $afficher = $this->PDO->query("SELECT `image_home`,Titre_anime,Nombre_episode FROM `anime` WHERE Desactiver = 0 AND Code_anime = " . $code);
         return $afficher->fetch();
     }
 
@@ -159,12 +166,19 @@ class Anime extends Database
     }
 
     public function affichageCategorie (){
-        $affichage= $this->PDO->query("SELECT Code_anime,`image_home` FROM anime");
+        $affichage= $this->PDO->query("SELECT Code_anime,`image_home` FROM anime WHERE Desactiver = 0 ");
         return $affichage->fetchAll();
     }
 
     public function affichageHistorique($code){
-        $aff= $this->PDO->query("SELECT `Titre_anime`,`image_home` FROM `anime` WHERE `Code_anime` = $code;");
+        $aff= $this->PDO->query("SELECT `Titre_anime`,`image_home` FROM `anime` WHERE `Code_anime` = $code AND Desactiver = 0");
         return $aff->fetch();
+    }
+
+    public function verificationDesactiver(){
+        $verif = $this->PDO->prepare("SELECT `Desactiver` FROM `anime` WHERE `Code_anime` = ?");
+        $verif->bindValue(1,$this->code,PDO::PARAM_INT);
+        $verif->execute();
+        return $verif->fetch();
     }
 }
