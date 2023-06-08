@@ -165,20 +165,52 @@ class Anime extends Database
         return $affichage->fetchAll();
     }
 
-    public function affichageCategorie (){
-        $affichage= $this->PDO->query("SELECT Code_anime,`image_home` FROM anime WHERE Desactiver = 0 ");
+    public function affichageCategorie()
+    {
+        $affichage = $this->PDO->query("SELECT Code_anime,`image_home` FROM anime WHERE Desactiver = 0 ");
         return $affichage->fetchAll();
     }
 
-    public function affichageHistorique($code){
-        $aff= $this->PDO->query("SELECT `Titre_anime`,`image_home` FROM `anime` WHERE `Code_anime` = $code AND Desactiver = 0");
+    public function affichageHistorique($code)
+    {
+        $aff = $this->PDO->query("SELECT `Titre_anime`,`image_home` FROM `anime` WHERE `Code_anime` = $code AND Desactiver = 0");
         return $aff->fetch();
     }
 
-    public function verificationDesactiver(){
+    public function affichageChoixAnime()
+    {
+        $image = $this->PDO->prepare("SELECT image,Titre_anime,image_home FROM `anime` WHERE Code_anime = ? ");
+        $image->bindValue(1, $this->code, PDO::PARAM_INT);
+        $image->execute();
+        return $image->fetch();
+    }
+
+    public function verificationDesactiver()
+    {
         $verif = $this->PDO->prepare("SELECT `Desactiver` FROM `anime` WHERE `Code_anime` = ?");
-        $verif->bindValue(1,$this->code,PDO::PARAM_INT);
+        $verif->bindValue(1, $this->code, PDO::PARAM_INT);
         $verif->execute();
         return $verif->fetch();
+    }
+
+    public function desactiverAnime()
+    {
+        $desactiver = $this->PDO->prepare("UPDATE `anime` SET `Desactiver`= 1 WHERE `Code_anime` = ?");
+        $desactiver->bindValue(1, $this->code, PDO::PARAM_INT);
+        $desactiver->execute();
+    }
+
+    public function deleteAnime()
+    {
+        $delete = $this->PDO->prepare("DELETE FROM `anime` WHERE `Code_anime` = ?");
+        $delete->bindValue(1, $this->code, PDO::PARAM_INT);
+        $delete->execute();
+    }
+
+    public function reactivationAnime (){
+        $reactivation = $this->PDO->prepare("UPDATE `anime` SET `Desactiver` = 0 WHERE `Code_anime` = ?");
+        $reactivation->bindValue(1, $this->code, PDO::PARAM_INT);
+        $reactivation->execute();
+        
     }
 }

@@ -860,8 +860,7 @@ body {
 }
 
 
-
-/* page  choix  */
+/* page choix  */
 
 
 .div_fond_image_anime {
@@ -962,6 +961,93 @@ body {
     font-size: 20px;
     font-weight: bold;
     padding: 1rem;
+    margin-right: 1rem;
+
+}
+
+.notification {
+    position: absolute;
+    background-color: black;
+    width: 15rem;
+    height: 5rem;
+    align-items: center;
+    justify-content: center;
+    top: 6.5rem;
+    right: 25rem;
+    border-radius: 25px;
+    transition: 500ms linear;
+    padding-top: 1rem;
+    overflow: hidden;
+}
+
+.texteNotif {
+    color: white;
+}
+
+#btnDesativerAnime,
+.btnSupprimerAnime,
+.btnReactiverAnime {
+    background-color: #312f2f;
+    /* Couleur de fond */
+    padding: 10px 20px;
+    /* Espacement intérieur */
+    border: none;
+    /* Suppression de la bordure */
+    text-align: center;
+    /* Alignement du texte */
+    text-decoration: none;
+    /* Suppression de la décoration du texte */
+    display: inline-block;
+    /* Affichage en ligne */
+    font-size: 20px;
+    /* Taille de police */
+    font-weight: bold;
+    cursor: pointer;
+    /* Curseur en forme de pointeur au survol */
+    border-radius: 4px;
+    /* Arrondi des coins */
+    border: 3px solid black;
+    margin-left: 1rem;
+}
+
+.confirmationDelete {
+    position: fixed;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: black;
+    width: 25rem;
+    height: 15rem;
+    top: 50%;
+    left: 40%;
+    text-align: center;
+}
+
+.texteConfirmation {
+    color: white;
+    font-size: 20px;
+}
+
+.conteneurBoutonConfirmeDelete {
+    display: flex;
+    flex-direction: row;
+}
+
+.conteneurBoutonConfirmeDelete button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.conteneurBoutonConfirmeDelete button:hover {
+    background-color: #3e8e41;
 }
 
 
@@ -1397,16 +1483,7 @@ body {
         border-radius: 8px;
     }
 
-    /* page choix video  */
-    .h1_choix_titre {
-        width: 46vw;
-        font-size: 100%;
-        margin-left: 1rem;
-    }
 
-    .h3_numero_episode_choix {
-        font-size: 70%;
-    }
 
     /* page video  */
 

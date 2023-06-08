@@ -1,6 +1,5 @@
 <?php
 $Watchlist = new Watchlist;
-$Watchlist->setCode_utilisateur($_SESSION['id']);
 $Watchlist->setCode_anime($_GET['code']);
 
 $choix_episode = new Anime;
@@ -14,6 +13,17 @@ $episode->setEpisode(1);
 $anime = new Anime;
 $anime->setCode($_GET['code']);
 
+$utilisateur = new Utilisateur;
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+    $Watchlist->setCode_utilisateur($_SESSION['id']);
+
+
+    $utilisateur->setId($_SESSION['id']);
+    $utilisateur->setEmail($_SESSION['email']);
+}
+
+echo $choix_episode->nombre_anime()['nombre_anime'];
+
 if ($_GET['code'] <= 0) {
 ?>
     <script>
@@ -21,6 +31,7 @@ if ($_GET['code'] <= 0) {
     </script>
 
 <?php
+    exit;
 } else if ($_GET['code'] >  $choix_episode->nombre_anime()['nombre_anime']) {
 ?>
     <script>
@@ -28,6 +39,7 @@ if ($_GET['code'] <= 0) {
     </script>
 
 <?php
+    exit;
 }
 if ($_GET['saison'] <= 0) {
     header("Location:index.php?choix&code=" . $_GET['code'] . "&saison=1&langue=" . $_GET['langue']);
@@ -43,6 +55,7 @@ if (empty($_GET['code'])) {
     </script>
 
 <?php
+    exit;
 }
 if (empty($_GET['saison'])) {
 ?>
@@ -51,6 +64,7 @@ if (empty($_GET['saison'])) {
     </script>
 
 <?php
+    exit;
 }
 
 if (isset($_POST['add_anime_watchlist'])) {
@@ -60,5 +74,27 @@ if (isset($_POST['add_anime_watchlist'])) {
         }
     }
 }
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+    if (isset($_POST['desactiverAnime'])) {
+        echo "puss";
+        $anime->desactiverAnime();
+    }
+}
+
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+    if (isset($_POST['deleteAnime'])) {
+        $anime->deleteAnime();
+        header("Location:index.php?home");
+        exit();
+    }
+}
+
+if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+    if (isset($_POST['reactiverAnime'])) {
+        $anime->reactivationAnime();
+    }
+}
+
+
 
 ?>
