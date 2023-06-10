@@ -22,8 +22,6 @@ if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
     $utilisateur->setEmail($_SESSION['email']);
 }
 
-echo $choix_episode->nombre_anime()['nombre_anime'];
-
 if ($_GET['code'] <= 0) {
 ?>
     <script>
