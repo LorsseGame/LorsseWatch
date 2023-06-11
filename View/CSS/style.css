@@ -1282,8 +1282,22 @@ body {
 }
 
 
+/* page gerer utilisateur  */
 
+.divGererInformation{
+    display: flex;
+    background-color: white;
+    border: 1px solid black;
+    justify-content: center;
+    margin: 2rem 0;
+}
 
+.divGererInformation h3{
+    display: flex;
+}
+.divGererInformation h3 p {
+    margin-right: 1rem;
+}
 
 @media only screen and (max-width: 480px) {
 

@@ -117,7 +117,7 @@ class Utilisateur extends Database
         $activer->execute();
     }
 
-     // Méthode pour vérifier si un utilisateur est désactivé
+    // Méthode pour vérifier si un utilisateur est désactivé
     public function verifDesactiver()
     {
         $desactiver = $this->PDO->prepare("SELECT desactiver,AdresseEmail_utilisateur FROM utilisateur WHERE AdresseEmail_utilisateur =?");
@@ -137,7 +137,7 @@ class Utilisateur extends Database
         return $nbuser->fetch(PDO::FETCH_ASSOC);
     }
 
-    
+
     // Méthode pour récupérer les informations d'un utilisateur
     public function verif2()
     {
@@ -147,7 +147,7 @@ class Utilisateur extends Database
         return $recup->fetch(PDO::FETCH_ASSOC);
     }
 
-        // Méthode pour récupérer les informations de profil d'un utilisateur
+    // Méthode pour récupérer les informations de profil d'un utilisateur
     public function info_profil()
     {
         $recup = $this->PDO->prepare("SELECT Code_utilisateur,DateCreationCompte__utilisateur FROM `utilisateur`  WHERE Code_utilisateur =?");
@@ -156,7 +156,7 @@ class Utilisateur extends Database
         return $recup->fetch(PDO::FETCH_ASSOC);
     }
 
-        // Méthode pour mettre à jour le pseudo d'un utilisateur
+    // Méthode pour mettre à jour le pseudo d'un utilisateur
     public function update_pseudo()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET Pseudo_utilisateur=? WHERE Code_utilisateur=?");
@@ -165,7 +165,7 @@ class Utilisateur extends Database
         $modif->execute();
     }
 
-        // Méthode pour mettre à jour l'email d'un utilisateur
+    // Méthode pour mettre à jour l'email d'un utilisateur
     public function update_email()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET AdresseEmail_utilisateur=? WHERE Code_utilisateur=?");
@@ -174,7 +174,7 @@ class Utilisateur extends Database
         $modif->execute();
     }
 
-        // Méthode pour mettre à jour le mot de passe d'un utilisateur
+    // Méthode pour mettre à jour le mot de passe d'un utilisateur
     public function update_password()
     {
         $modif = $this->PDO->prepare("UPDATE `utilisateur` SET MotdePasse_utilisateur=? WHERE Code_utilisateur=?");
@@ -196,7 +196,7 @@ class Utilisateur extends Database
         $inscription->execute();
     }
 
-        // Méthode pour vérifier le rôle d'un utilisateur
+    // Méthode pour vérifier le rôle d'un utilisateur
     public function verif_role()
     {
         $role = $this->PDO->prepare("SELECT Code_role FROM `utilisateur` WHERE Code_utilisateur = ? AND AdresseEmail_utilisateur = ?");
@@ -206,11 +206,23 @@ class Utilisateur extends Database
         return $role->fetch();
     }
 
-    public function updateImage(){
-        $update= $this->PDO->prepare("UPDATE `utilisateur` SET `lien_image`= ? WHERE `Code_utilisateur` = ?");
-        $update->bindValue(1,$this->lienImage,PDO::PARAM_STR);
-        $update->bindValue(2,$this->id,PDO::PARAM_INT);
+    public function updateImage()
+    {
+        $update = $this->PDO->prepare("UPDATE `utilisateur` SET `lien_image`= ? WHERE `Code_utilisateur` = ?");
+        $update->bindValue(1, $this->lienImage, PDO::PARAM_STR);
+        $update->bindValue(2, $this->id, PDO::PARAM_INT);
         $update->execute();
+    }
 
+    public function affichageUtilisateur()
+    {
+        $affiche = $this->PDO->query("SELECT `Pseudo_utilisateur`,`Code_utilisateur`,`desactiver` FROM `utilisateur`");
+        return $affiche->fetchAll();
+    }
+    public function deleteUtilisateur()
+    {
+        $delete = $this->PDO->prepare("DELETE FROM `utilisateur` WHERE `Code_utilisateur` = ?");
+        $delete->bindValue(1, $this->id, PDO::PARAM_INT);
+        $delete->execute();
     }
 }

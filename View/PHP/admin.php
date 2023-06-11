@@ -3,7 +3,7 @@
 if ($role->verif_role()["Code_role"] == 1) { ?>
 
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="fr">
 
     <head>
         <meta charset="UTF-8">
@@ -16,6 +16,8 @@ if ($role->verif_role()["Code_role"] == 1) { ?>
 
 
         <h1 class="h1_ajouter_anime">Ajouter Anime</h1>
+
+        <a href="index.php?gererUtilisateur"><button>gérer utilisateur</button></a>
 
         <!-- formulaire d'ajoue d'anime dans base de donnée -->
         <form action="" method="post" enctype="multipart/form-data">

@@ -1,5 +1,4 @@
 <?php
-
 $image = new Anime;
 $image->setCode(0);
 $slider = new Slider;

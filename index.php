@@ -137,6 +137,9 @@ if (isset($_GET['home'])) {
 } elseif (isset($_GET['Historique'])) {
     include("./Controller/ctrl_historique.php");
     include("./View/PHP/historique.php");
+} elseif (isset($_GET['gererUtilisateur'])) {
+    include("./Controller/ctrl_gererUtilisateur.php");
+    include("./View/PHP/gererUtilisateur.php");
 } else {
 ?>
     <script>
