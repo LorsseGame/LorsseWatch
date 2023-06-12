@@ -33,14 +33,19 @@ class Slider extends Database {
         $this->codeAnime = $codeAnime;
     }
 
-    public function changeSlider($codeAnime,$codeSlider) {
-        $changer = $this->PDO->query("UPDATE `slider` SET `codeAnime`= $codeAnime WHERE `codeSlider` = $codeSlider ;");
+    public function changeSlider($codeAnime, $codeSlider) {
+        $changer = $this->PDO->prepare("UPDATE `slider` SET `codeAnime`= ? WHERE `codeSlider` = ?");
+        $changer->bindValue(1, $codeAnime, PDO::PARAM_INT);
+        $changer->bindValue(2, $codeSlider, PDO::PARAM_INT);
+        $changer->execute();
         return $changer->fetch();
     }
    
 
     public function affichageSlider($codeSlider){
-        $affichage = $this->PDO->query("SELECT `codeAnime` FROM `slider` WHERE `codeSlider` = $codeSlider ;");
+        $affichage = $this->PDO->prepare("SELECT `codeAnime` FROM `slider` WHERE `codeSlider` = ?");
+        $affichage->bindValue(1, $codeSlider, PDO::PARAM_INT);
+        $affichage->execute();
         return $affichage->fetch();
     }
     

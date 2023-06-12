@@ -105,7 +105,7 @@ if (isset($_POST['send_episode'])) {
                 $epi->setVideo($url_video);
                 $epi->setLangue($_POST['choix']);
 
-                $epi->ajoue_episode();
+                $epi->ajouter_episode();
             }
 
             $ajoue = "Les episode on bien été ajouter";
@@ -162,3 +162,4 @@ if (isset($_POST['send_populaire_admin'])) {
 
     }
 }
+?>

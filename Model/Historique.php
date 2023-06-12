@@ -1,5 +1,4 @@
-<?php
-
+<?php 
 class Historique extends Database
 {
     private $code;
@@ -42,43 +41,47 @@ class Historique extends Database
         $this->episode = $episode;
     }
 
-    public function verificationExistant(){
-        $verif = $this->PDO->prepare("SELECT `codeHistorique` FROM `historique` WHERE codeUtilisateur = ? AND codeAnime = ? ");
-        $verif->bindValue(1,$this->codeUtilisateur,PDO::PARAM_INT);
-        $verif->bindValue(2,$this->codeAnime,PDO::PARAM_INT);
+    public function verificationExistant()
+    {
+        $verif = $this->PDO->prepare("SELECT `codeHistorique` FROM `historique` WHERE codeUtilisateur = ? AND codeAnime = ?");
+        $verif->bindValue(1, $this->codeUtilisateur, PDO::PARAM_INT);
+        $verif->bindValue(2, $this->codeAnime, PDO::PARAM_INT);
         $verif->execute();
-        return $verif->fetch();
+        return $verif->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function recupEpisode(){
+    public function recupEpisode()
+    {
         $rec = $this->PDO->prepare("SELECT `numeroEpisode` FROM `historique` WHERE codeUtilisateur = ? AND codeAnime = ?");
-        $rec->bindValue(1,$this->codeUtilisateur,PDO::PARAM_INT);
-        $rec->bindValue(2,$this->codeAnime,PDO::PARAM_INT);
+        $rec->bindValue(1, $this->codeUtilisateur, PDO::PARAM_INT);
+        $rec->bindValue(2, $this->codeAnime, PDO::PARAM_INT);
         $rec->execute();
-        return $rec->fetch();
+        return $rec->fetch(PDO::FETCH_ASSOC);
     }
 
-    public function addHistorique(){
-        $add = $this->PDO->prepare("INSERT INTO `historique`( `codeAnime`, `numeroEpisode`, `codeUtilisateur`) VALUES (?,?,?);");
-        $add->bindValue(1,$this->codeAnime,PDO::PARAM_INT);
-        $add->bindValue(2,$this->episode,PDO::PARAM_INT);
-        $add->bindValue(3,$this->codeUtilisateur,PDO::PARAM_INT);
-        $add->execute();
-    }
-    public function updateHistorique(){
-        $add = $this->PDO->prepare("UPDATE `historique` SET `numeroEpisode`= ? WHERE `codeUtilisateur` = ? AND `codeAnime` = ?");
-        $add->bindValue(1,$this->episode,PDO::PARAM_INT);
-        $add->bindValue(2,$this->codeUtilisateur,PDO::PARAM_INT);
-        $add->bindValue(3,$this->codeAnime,PDO::PARAM_INT);
+    public function addHistorique()
+    {
+        $add = $this->PDO->prepare("INSERT INTO `historique`( `codeAnime`, `numeroEpisode`, `codeUtilisateur`) VALUES (?,?,?)");
+        $add->bindValue(1, $this->codeAnime, PDO::PARAM_INT);
+        $add->bindValue(2, $this->episode, PDO::PARAM_INT);
+        $add->bindValue(3, $this->codeUtilisateur, PDO::PARAM_INT);
         $add->execute();
     }
 
-    public function affichage(){
-        $aff = $this->PDO->prepare("SELECT `codeAnime`,`numeroEpisode` FROM `historique` WHERE codeUtilisateur = ?");
-        $aff->bindValue(1,$this->codeUtilisateur,PDO::PARAM_INT);
+    public function updateHistorique()
+    {
+        $add = $this->PDO->prepare("UPDATE `historique` SET `numeroEpisode` = ? WHERE `codeUtilisateur` = ? AND `codeAnime` = ?");
+        $add->bindValue(1, $this->episode, PDO::PARAM_INT);
+        $add->bindValue(2, $this->codeUtilisateur, PDO::PARAM_INT);
+        $add->bindValue(3, $this->codeAnime, PDO::PARAM_INT);
+        $add->execute();
+    }
+
+    public function affichage()
+    {
+        $aff = $this->PDO->prepare("SELECT `codeAnime`, `numeroEpisode` FROM `historique` WHERE codeUtilisateur = ?");
+        $aff->bindValue(1, $this->codeUtilisateur, PDO::PARAM_INT);
         $aff->execute();
-        return $aff->fetchAll();
+        return $aff->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
 }

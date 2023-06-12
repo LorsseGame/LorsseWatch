@@ -1,9 +1,11 @@
-<?php if ($anime->verificationDesactiver()['Desactiver'] == 0 || $_SESSION['Role'] == 1) { ?>
+<?php
+if ($anime->verificationDesactiver()['Desactiver'] == 0 || $_SESSION['Role'] == 1) {
+?>
 
     <body class="body_choix">
 
         <div class="div_fond_image_anime">
-            <img src="<?php echo $choix_episode->affichageChoixAnime()['image']; ?>" class="image_anime_choix" alt=""> <!-- affichage de l'image de l'anime -->
+            <img src="<?php echo htmlspecialchars($choix_episode->affichageChoixAnime()['image'], ENT_QUOTES, 'UTF-8'); ?>" class="image_anime_choix" alt=""> <!-- affichage de l'image de l'anime -->
         </div>
 
         <div style="display: none;" id="notification" class="notification">
@@ -16,22 +18,21 @@
 
         <div class="information_anime">
 
-
-            <form action="" method="post"> <!-- formulaire d'ajoue d'anime a la watchlist -->
+            <form action="" method="post"> <!-- formulaire d'ajout d'anime à la watchlist -->
                 <button type="submit" class="add_anime_watchlist" name="add_anime_watchlist" id=""> Ajouter à la watchlist</button>
             </form>
 
-            <select class="select_saison_choix" name="saison" onchange="location.href=''+this.options[this.selectedIndex].value;" id=""> <!-- select affichant le nombre de saison -->
+            <select class="select_saison_choix" name="saison" onchange="location.href=''+this.options[this.selectedIndex].value;" id=""> <!-- select affichant le nombre de saisons -->
                 <option style="display:none" value="">Choix Saison</option>
                 <?php for ($e = 1; $e <= $choix_episode->nombre_saison()['nombre_saison']; $e++) { ?>
-                    <option value="index.php?choix&code=<?= $_GET['code'] ?>&saison=<?= $e ?>&langue=<?= $_GET['langue'] ?>">Saison <?= $e ?></option>
+                    <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= $e ?>&langue=<?= htmlspecialchars($_GET['langue'], ENT_QUOTES, 'UTF-8') ?>">Saison <?= $e ?></option>
                 <?php }  ?>
             </select>
-            <h1 class="h1_choix_titre"><?= $choix_episode->affichageChoixAnime()['Titre_anime']; ?></h1>
-            <select onchange="location.href=''+this.options[this.selectedIndex].value;" class="select_langue_choix" name="choix_langue" id=""> <!-- select affichant les langue -->
+            <h1 class="h1_choix_titre"><?= htmlspecialchars($choix_episode->affichageChoixAnime()['Titre_anime'], ENT_QUOTES, 'UTF-8'); ?></h1>
+            <select onchange="location.href=''+this.options[this.selectedIndex].value;" class="select_langue_choix" name="choix_langue" id=""> <!-- select affichant les langues -->
                 <option style="display: none;" value="">Choix langue</option>
-                <option value="index.php?choix&code=<?= $_GET['code'] ?>&saison=<?= $_GET['saison'] ?>&langue=vostfr">VOSTFR</option>
-                <option value="index.php?choix&code=<?= $_GET['code'] ?>&saison=<?= $_GET['saison'] ?>&langue=vf">VF</option>
+                <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=vostfr">VOSTFR</option>
+                <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=vf">VF</option>
             </select>
             <?php
             if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
@@ -70,7 +71,7 @@
 
         <div class="confirmationDelete" id="confirmationDelete" style="display: none;">
             <div>
-                <p class="texteConfirmation">Êtes-vous sur de vouloirs supprimés cette anime ?</p>
+                <p class="texteConfirmation">Êtes-vous sûr de vouloir supprimer cette anime ?</p>
             </div>
 
             <div class="conteneurBoutonConfirmeDelete">
@@ -82,12 +83,12 @@
         </div>
 
         <div class="div_fond_episode">
-            <?php for ($i = 1; $i <= $episode->max_episode()['episode']; $i++) { //bouclage jusqu'a que le maximum d'episode soit atteint
+            <?php for ($i = 1; $i <= $episode->max_episode()['episode']; $i++) { //bouclage jusqu'à ce que le maximum d'épisodes soit atteint
                 $episode->setEpisode($i); ?>
                 <div class="conteneur_choix_episode">
                     <div class="div_image_choix_episode">
-                        <a href="index.php?video&episode=<?= $i ?>&anime=<?= $_GET['code'] ?>&saison=<?= $_GET['saison'] ?>&langue=<?= $_GET['langue'] ?>">
-                            <div class="div_choix_episode" style="background-image: url(<?php echo $episode->information_episode()['image_episode']; ?>);background-color: pink;">
+                        <a href="index.php?video&episode=<?= $i ?>&anime=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=<?= htmlspecialchars($_GET['langue'], ENT_QUOTES, 'UTF-8') ?>">
+                            <div class="div_choix_episode" style="background-image: url(<?php echo htmlspecialchars($episode->information_episode()['image_episode'], ENT_QUOTES, 'UTF-8'); ?>);background-color: pink;">
                                 <div>
                                     <img class="image_choix_play" src="image/play.svg" alt="">
                                 </div>
@@ -105,5 +106,6 @@
     </body>
 
 <?php } else {
-    header("Location:index.php?home");
+    header("Location: index.php?home");
+    exit;
 } ?>

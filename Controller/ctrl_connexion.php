@@ -27,23 +27,6 @@ if (isset($_POST['Valider'])) {
         $erreur['password'] = "Champs mot de passe vide";
     }
 }
-?>
-
-
-
-<?php
-if (isset($_POST['activer'])) {
-    $utilisateur->setEmail($_SESSION['email']);
-    $utilisateur->activer();
-    //suppression des session de l'utilisateur apres avoir reactiver son compte 
-    unset($_SESSION['id']);
-    unset($_SESSION['email']);
-    unset($_SESSION['pseudo']);
-    unset($_SESSION['lien_image']);
-    unset($_SESSION['Desactiver']);
-    unset($_SESSION['Role']);
-}
-
 
 if (isset($_POST['Valider'])) {
 

@@ -87,14 +87,18 @@ class Anime extends Database
     // Méthode pour récupérer le nombre total d'animes
     public function nombre_anime()
     {
-        $image = $this->PDO->query("SELECT count(Code_anime)nombre_anime FROM `anime`;");
-        return $image->fetch();
+        $query = $this->PDO->prepare("SELECT count(Code_anime) AS nombre_anime FROM `anime`");
+        $query->execute();
+        return $query->fetch();
     }
+
     public function maxAnime()
     {
-        $rec = $this->PDO->query("SELECT MAX(Code_anime)maxNombreAnime FROM `anime`;");
-        return $rec->fetch();
+        $query = $this->PDO->prepare("SELECT MAX(Code_anime) AS maxNombreAnime FROM `anime`");
+        $query->execute();
+        return $query->fetch();
     }
+
 
 
     // Méthode pour récupérer le nombre d'épisodes d'un anime
@@ -131,16 +135,21 @@ class Anime extends Database
     // Méthode pour calculer des informations sur les animes
     public function calcule_anime()
     {
-        $calcule = $this->PDO->query("SELECT MAX(Code_anime - 5) Code_anime , COUNT(Code_anime) Code_animeMax FROM `anime`");
-        return $calcule->fetch();
+        $query = $this->PDO->prepare("SELECT MAX(Code_anime - 5) AS Code_anime, COUNT(Code_anime) AS Code_animeMax FROM `anime`");
+        $query->execute();
+        return $query->fetch();
     }
 
     // Méthode pour effectuer une recherche d'anime
     public function recherche($recherche)
     {
-        $recherche = $this->PDO->query("SELECT Code_anime,Titre_anime,image_home FROM anime WHERE Desactiver = 0 AND Titre_anime  LIKE '" . $recherche . "%'");
-        return $recherche->fetchAll(PDO::FETCH_ASSOC);
+        $query = $this->PDO->prepare("SELECT Code_anime, Titre_anime, image_home FROM anime WHERE Desactiver = 0 AND Titre_anime LIKE ?");
+        $query->bindValue(1, $recherche . '%', PDO::PARAM_STR);
+        $query->execute();
+        $results = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $results;
     }
+
 
     // Méthode pour afficher les informations d'un anime
     public function affichage($code)
@@ -167,23 +176,29 @@ class Anime extends Database
 
     public function affichageCategorie()
     {
-        $affichage = $this->PDO->query("SELECT Code_anime,`image_home` FROM anime WHERE Desactiver = 0 ");
-        return $affichage->fetchAll();
+        $query = $this->PDO->prepare("SELECT Code_anime, `image_home` FROM anime WHERE Desactiver = 0");
+        $query->execute();
+        return $query->fetchAll();
     }
+
 
     public function affichageHistorique($code)
     {
-        $aff = $this->PDO->query("SELECT `Titre_anime`,`image_home` FROM `anime` WHERE `Code_anime` = $code AND Desactiver = 0");
-        return $aff->fetch();
+        $query = $this->PDO->prepare("SELECT `Titre_anime`, `image_home` FROM `anime` WHERE `Code_anime` = ? AND Desactiver = 0");
+        $query->bindValue(1, $code, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch();
     }
+
 
     public function affichageChoixAnime()
     {
-        $image = $this->PDO->prepare("SELECT image,Titre_anime,image_home FROM `anime` WHERE Code_anime = ? ");
-        $image->bindValue(1, $this->code, PDO::PARAM_INT);
-        $image->execute();
-        return $image->fetch();
+        $query = $this->PDO->prepare("SELECT `image`, `Titre_anime`, `image_home` FROM `anime` WHERE Code_anime = ?");
+        $query->bindValue(1, $this->code, PDO::PARAM_INT);
+        $query->execute();
+        return $query->fetch();
     }
+
 
     public function verificationDesactiver()
     {
@@ -207,10 +222,10 @@ class Anime extends Database
         $delete->execute();
     }
 
-    public function reactivationAnime (){
+    public function reactivationAnime()
+    {
         $reactivation = $this->PDO->prepare("UPDATE `anime` SET `Desactiver` = 0 WHERE `Code_anime` = ?");
         $reactivation->bindValue(1, $this->code, PDO::PARAM_INT);
         $reactivation->execute();
-        
     }
 }

@@ -1,18 +1,17 @@
 <?php
-
 class Utilisateur extends Database
 {
     // Propriétés de la classe Utilisateur
     private $email;
     private $motDePasse;
-    public $pseudo;
+    private $pseudo;
     private $lienImage;
     private $desactiver;
     private $id;
     private $prenom;
     private $nom;
     private $dateNaissance;
-
+    
     // Getters et setters pour les propriétés
     public function getDateNaissance()
     {
@@ -93,28 +92,12 @@ class Utilisateur extends Database
     {
         $this->desactiver = $desactiver;
     }
-
     // Méthode pour supprimer un utilisateur
     public function supprimer()
     {
         $supprimer = $this->PDO->prepare("DELETE FROM `utilisateur` WHERE Code_utilisateur=?");
         $supprimer->bindValue(1, $this->id, PDO::PARAM_INT);
         $supprimer->execute();
-    }
-    // Méthode pour désactiver un utilisateur
-    public function desactiver()
-    {
-        $desacitver = $this->PDO->prepare("UPDATE `utilisateur` SET desactiver='1' WHERE Code_utilisateur=?");
-        $desacitver->bindValue(1, $this->id, PDO::PARAM_INT);
-        $desacitver->execute();
-    }
-
-    // Méthode pour activer un utilisateur
-    public function activer()
-    {
-        $activer = $this->PDO->prepare("UPDATE utilisateur SET desactiver = DEFAULT WHERE AdresseEmail_utilisateur=? ;");
-        $activer->bindValue(1, $this->email, PDO::PARAM_STR);
-        $activer->execute();
     }
 
     // Méthode pour vérifier si un utilisateur est désactivé
@@ -129,14 +112,12 @@ class Utilisateur extends Database
     // Méthode pour vérifier si un utilisateur existe déjà
     public function verif()
     {
-
         $nbuser = $this->PDO->prepare("SELECT  Pseudo_utilisateur,AdresseEmail_utilisateur FROM `utilisateur` WHERE Pseudo_utilisateur =? OR AdresseEmail_utilisateur =? ");
         $nbuser->bindValue(1, $this->pseudo, PDO::PARAM_STR);
         $nbuser->bindValue(2, $this->email, PDO::PARAM_STR);
         $nbuser->execute();
         return $nbuser->fetch(PDO::FETCH_ASSOC);
     }
-
 
     // Méthode pour récupérer les informations d'un utilisateur
     public function verif2()
@@ -219,10 +200,27 @@ class Utilisateur extends Database
         $affiche = $this->PDO->query("SELECT `Pseudo_utilisateur`,`Code_utilisateur`,`desactiver` FROM `utilisateur`");
         return $affiche->fetchAll();
     }
+
     public function deleteUtilisateur()
     {
         $delete = $this->PDO->prepare("DELETE FROM `utilisateur` WHERE `Code_utilisateur` = ?");
         $delete->bindValue(1, $this->id, PDO::PARAM_INT);
         $delete->execute();
     }
+
+    public function desactiverUtilisateur()
+    {
+        $desac = $this->PDO->prepare("UPDATE `utilisateur` SET `desactiver`= 1 WHERE `Code_utilisateur` = ?");
+        $desac->bindValue(1, $this->id, PDO::PARAM_INT);
+        $desac->execute();
+    }
+
+    public function reactiverUtilisateur()
+    {
+        $desac = $this->PDO->prepare("UPDATE `utilisateur` SET `desactiver`= 0 WHERE `Code_utilisateur` = ?");
+        $desac->bindValue(1, $this->id, PDO::PARAM_INT);
+        $desac->execute();
+    }
 }
+
+?>

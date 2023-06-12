@@ -96,63 +96,61 @@ class Episode extends Database
         $this->image = $image;
     }
 
-
     // Méthode pour récupérer les informations sur un épisode
     public function information_episode()
     {
-        $image =  $this->PDO->prepare("SELECT image_episode,saison,titre_episode,episode FROM `episode` WHERE Code_anime = ? AND episode = ? AND saison = ?");
+        $image = $this->PDO->prepare("SELECT image_episode, saison, titre_episode, episode FROM `episode` WHERE Code_anime = ? AND episode = ? AND saison = ?");
         $image->bindValue(1, $this->code_anime, PDO::PARAM_INT);
         $image->bindValue(2, $this->episode, PDO::PARAM_INT);
         $image->bindValue(3, $this->saison, PDO::PARAM_INT);
         $image->execute();
-        return $image->fetch();
+        return $image->fetch(PDO::FETCH_ASSOC);
     }
 
     // Méthode pour récupérer le numéro maximal d'épisode d'une saison d'un anime
     public function max_episode()
     {
-        $image =  $this->PDO->prepare("SELECT MAX(episode) episode FROM `episode` WHERE Code_anime = ? AND saison = ?");
+        $image = $this->PDO->prepare("SELECT MAX(episode) AS episode FROM `episode` WHERE Code_anime = ? AND saison = ?");
         $image->bindValue(1, $this->code_anime, PDO::PARAM_INT);
         $image->bindValue(2, $this->saison, PDO::PARAM_INT);
         $image->execute();
-        return $image->fetch();
+        return $image->fetch(PDO::FETCH_ASSOC);
     }
 
     // Méthode pour récupérer la vidéo d'un épisode
     public function video()
     {
-        $video = $this->PDO->prepare("SELECT video,image_episode FROM `episode` WHERE Code_anime = ? AND episode = ? AND saison = ? AND Langue = ?");
+        $video = $this->PDO->prepare("SELECT video, image_episode FROM `episode` WHERE Code_anime = ? AND episode = ? AND saison = ? AND Langue = ?");
         $video->bindValue(1, $this->code_anime, PDO::PARAM_INT);
         $video->bindValue(2, $this->episode, PDO::PARAM_INT);
         $video->bindValue(3, $this->saison, PDO::PARAM_INT);
         $video->bindValue(4, $this->Langue, PDO::PARAM_STR);
         $video->execute();
-        return $video->fetch();
+        return $video->fetch(PDO::FETCH_ASSOC);
     }
 
     // Méthode pour vérifier l'existence d'un épisode dans la base de données
     public function verif_episode()
     {
-        $episode = $this->PDO->prepare("SELECT episode,saison,Code_anime,video FROM `episode` WHERE episode = ? AND saison = ? AND Code_anime = ? AND video = ?");
+        $episode = $this->PDO->prepare("SELECT episode, saison, Code_anime, video FROM `episode` WHERE episode = ? AND saison = ? AND Code_anime = ? AND video = ?");
         $episode->bindValue(1, $this->episode, PDO::PARAM_INT);
         $episode->bindValue(2, $this->saison, PDO::PARAM_INT);
         $episode->bindValue(3, $this->code_anime, PDO::PARAM_INT);
         $episode->bindValue(4, $this->video, PDO::PARAM_STR);
         $episode->execute();
-        return $episode->fetch();
+        return $episode->fetch(PDO::FETCH_ASSOC);
     }
 
     // Méthode pour ajouter un épisode à la base de données
-    public function ajoue_episode(){
-        $episode = $this->PDO->prepare("INSERT INTO `episode`(`episode`, `saison`, `image_episode`,  `video`, `Code_anime`,Langue) VALUES (?,?,?,?,?,?)");
-        $episode->bindValue(1,$this->episode,PDO::PARAM_INT);
-        $episode->bindValue(2,$this->saison,PDO::PARAM_INT);
-        $episode->bindValue(3,$this->image,PDO::PARAM_STR);
-        $episode->bindValue(4,$this->video,PDO::PARAM_STR);
-        $episode->bindValue(5,$this->code_anime,PDO::PARAM_INT);
-        $episode->bindValue(6,$this->Langue,PDO::PARAM_STR);
+    public function ajouter_episode()
+    {
+        $episode = $this->PDO->prepare("INSERT INTO `episode`(`episode`, `saison`, `image_episode`, `video`, `Code_anime`, `Langue`) VALUES (?,?,?,?,?,?)");
+        $episode->bindValue(1, $this->episode, PDO::PARAM_INT);
+        $episode->bindValue(2, $this->saison, PDO::PARAM_INT);
+        $episode->bindValue(3, $this->image, PDO::PARAM_STR);
+        $episode->bindValue(4, $this->video, PDO::PARAM_STR);
+        $episode->bindValue(5, $this->code_anime, PDO::PARAM_INT);
+        $episode->bindValue(6, $this->Langue, PDO::PARAM_STR);
         $episode->execute();
     }
-
 }
-

@@ -1,9 +1,8 @@
 <?php
 $Anime = new Anime;
 
-
-if(isset($_POST['send_recherche'])){
- $recherche = $Anime->recherche($_POST['recherche']);
+if (isset($_POST['send_recherche'])) {
+    $recherche = $_POST['recherche'];
+    $result = $Anime->recherche($recherche);
 }
-
 ?>

@@ -20,30 +20,40 @@
             if (empty($_POST['recherche'])) {
 
                 for ($i = 1; $i <= 16; $i++) {
-                    $Anime->setCode($i);  if (!empty($Anime->information_anime()['image_home'])) { ?>
+                    $Anime->setCode($i);
+                    $animeInfo = $Anime->information_anime();
+                    if (!empty($animeInfo['image_home'])) {
+                        ?>
 
-                    <a class="a_recherche" href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr">
-                        <img class="image_anime_recherche<?= $i ?>" src="<?= $Anime->information_anime()['image_home'] ?>" alt="">
-                    </a>
+                        <a class="a_recherche" href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr">
+                            <img class="image_anime_recherche<?= $i ?>" src="<?= htmlentities($animeInfo['image_home']) ?>" alt="">
+                        </a>
 
-                <?php } }
+                        <?php
+                    }
+                }
             }
             if (isset($_POST['recherche'])) {
-
-                foreach ($recherche as $key => $value) {  if (!empty($value['image_home'])) { ?>
-
-                    <a class="a_recherche" href="index.php?choix&code=<?= $value['Code_anime'] ?>&saison=1&langue=vostfr">
-                        <img class="image_anime_recherche" src="<?= $value['image_home'] ?>" alt="">
-                    </a>
-
-            <?php } }
-            } ?>
+                foreach ($result as $key => $value) {
+                    if (!empty($value['image_home'])) {
+                        ?>
+                        <a class="a_recherche" href="index.php?choix&code=<?= htmlentities($value['Code_anime']) ?>&saison=1&langue=vostfr">
+                            <img class="image_anime_recherche" src="<?= htmlentities($value['image_home']) ?>" alt="">
+                        </a>
+                        <?php
+                    }
+                }
+            }
+            ?>
         </div>
 
         <?php if (isset($_POST['send_recherche'])) {
-            if (empty($recherche)) { ?>
+            if (empty($result)) {
+                ?>
                 <h3 class="h3_erreur_recherche">Aucun résultat</h3>
-        <?php }
-        } ?>
+                <?php
+            }
+        }
+        ?>
     </div>
 </body>
