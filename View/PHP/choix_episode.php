@@ -17,55 +17,59 @@ if ($anime->verificationDesactiver()['Desactiver'] == 0 || $_SESSION['Role'] == 
         </div>
 
         <div class="information_anime">
+            <div class="conteneurInformationAnime">
+                <form action="" method="post">
+                    <!-- formulaire d'ajout d'anime à la watchlist -->
+                    <button type="submit" class="add_anime_watchlist" name="add_anime_watchlist" id="addButton">Ajouter à la watchlist</button>
+                </form>
 
-            <form action="" method="post"> <!-- formulaire d'ajout d'anime à la watchlist -->
-                <button type="submit" class="add_anime_watchlist" name="add_anime_watchlist" id=""> Ajouter à la watchlist</button>
-            </form>
+                <select class="select_saison_choix" name="saison" onchange="location.href=''+this.options[this.selectedIndex].value;" id=""> <!-- select affichant le nombre de saisons -->
+                    <option style="display:none" value="">Choix Saison</option>
+                    <?php for ($e = 1; $e <= $choix_episode->nombre_saison()['nombre_saison']; $e++) { ?>
+                        <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= $e ?>&langue=<?= htmlspecialchars($_GET['langue'], ENT_QUOTES, 'UTF-8') ?>">Saison <?= $e ?></option>
+                    <?php }  ?>
+                </select>
+                <h1 class="h1_choix_titre"><?= htmlspecialchars($choix_episode->affichageChoixAnime()['Titre_anime'], ENT_QUOTES, 'UTF-8'); ?></h1>
+                <select onchange="location.href=''+this.options[this.selectedIndex].value;" class="select_langue_choix" name="choix_langue" id=""> <!-- select affichant les langues -->
+                    <option style="display: none;" value="">Choix langue</option>
+                    <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=vostfr">VOSTFR</option>
+                    <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=vf">VF</option>
+                </select>
+            </div>
+            <div class="conteneurBtnAdmin">
+                <?php
+                if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+                    if ($utilisateur->verif_role()['Code_role'] == 1) {
+                ?>
+                        <form action="" method="post" id="formDesactiverAnime">
+                            <button type="submit" name="desactiverAnime" id="btnDesativerAnime" class="btnDesativerAnime">Désactiver</button>
+                        </form>
+                <?php
+                    }
+                }
+                ?>
+                <?php
+                if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+                    if ($utilisateur->verif_role()['Code_role'] == 1) {
+                ?>
+                        <form action="" method="post" id="formReactiverAnime">
+                            <button type="submit" name="reactiverAnime" id="btnReactiverAnime" class="btnReactiverAnime">Réactiver</button>
+                        </form>
+                <?php
+                    }
+                }
+                ?>
 
-            <select class="select_saison_choix" name="saison" onchange="location.href=''+this.options[this.selectedIndex].value;" id=""> <!-- select affichant le nombre de saisons -->
-                <option style="display:none" value="">Choix Saison</option>
-                <?php for ($e = 1; $e <= $choix_episode->nombre_saison()['nombre_saison']; $e++) { ?>
-                    <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= $e ?>&langue=<?= htmlspecialchars($_GET['langue'], ENT_QUOTES, 'UTF-8') ?>">Saison <?= $e ?></option>
-                <?php }  ?>
-            </select>
-            <h1 class="h1_choix_titre"><?= htmlspecialchars($choix_episode->affichageChoixAnime()['Titre_anime'], ENT_QUOTES, 'UTF-8'); ?></h1>
-            <select onchange="location.href=''+this.options[this.selectedIndex].value;" class="select_langue_choix" name="choix_langue" id=""> <!-- select affichant les langues -->
-                <option style="display: none;" value="">Choix langue</option>
-                <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=vostfr">VOSTFR</option>
-                <option value="index.php?choix&code=<?= htmlspecialchars($_GET['code'], ENT_QUOTES, 'UTF-8') ?>&saison=<?= htmlspecialchars($_GET['saison'], ENT_QUOTES, 'UTF-8') ?>&langue=vf">VF</option>
-            </select>
-            <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-                if ($utilisateur->verif_role()['Code_role'] == 1) {
-            ?>
-                    <form action="" method="post" id="formDesactiverAnime">
-                        <button type="submit" name="desactiverAnime" id="btnDesativerAnime" class="btnDesativerAnime">Désactiver</button>
-                    </form>
-            <?php
+                <?php
+                if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
+                    if ($utilisateur->verif_role()['Code_role'] == 1) {
+                ?>
+                        <button type="submit" id="btnSupprimerAnime" class="btnSupprimerAnime" onclick="supprimerAnime()">Supprimer</button>
+                <?php
+                    }
                 }
-            }
-            ?>
-            <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-                if ($utilisateur->verif_role()['Code_role'] == 1) {
-            ?>
-                    <form action="" method="post" id="formReactiverAnime">
-                        <button type="submit" name="reactiverAnime" id="btnReactiverAnime" class="btnReactiverAnime">Réactiver</button>
-                    </form>
-            <?php
-                }
-            }
-            ?>
-
-            <?php
-            if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-                if ($utilisateur->verif_role()['Code_role'] == 1) {
-            ?>
-                    <button type="submit" id="btnSupprimerAnime" class="btnSupprimerAnime" onclick="supprimerAnime()">Supprimer</button>
-            <?php
-                }
-            }
-            ?>
+                ?>
+            </div>
 
         </div>
 
@@ -102,7 +106,6 @@ if ($anime->verificationDesactiver()['Desactiver'] == 0 || $_SESSION['Role'] == 
                 </div>
             <?php } ?>
         </div>
-
     </body>
 
 <?php } else {

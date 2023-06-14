@@ -1,5 +1,4 @@
 <?php if (isset($_SESSION['id']) && isset($_SESSION['pseudo']) && $_SESSION['email']) { ?>
-
     <body class="watchlist_body">
         <div class="conteneur_div_watchlist">
             <div class="div_info_watchlist">

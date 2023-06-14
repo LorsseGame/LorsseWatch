@@ -351,7 +351,6 @@ ul {
     background-color: #312f2f;
 }
 
-
 .image_slide1,
 .image_slide2,
 .image_slide3 {
@@ -363,17 +362,14 @@ ul {
     width: 15vw;
     height: 20vw;
     position: absolute;
-
     top: 30%;
     left: 35%;
 }
-
 
 .titre_slide1 {
     position: absolute;
     top: 33%;
     left: 52%;
-
     width: 20vw;
     height: 8vw;
 }
@@ -382,7 +378,6 @@ ul {
     position: absolute;
     top: 8%;
     left: 50%;
-
     width: 20vw;
     height: 35vw;
 }
@@ -391,14 +386,15 @@ ul {
     position: absolute;
     top: 63%;
     left: 58%;
-
     border: none;
     border-radius: 3px;
     width: 8vw;
     height: 3vw;
     background-color: black;
     color: white;
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .dernier_sortie {
@@ -406,6 +402,7 @@ ul {
     margin-bottom: 1vw;
     text-align: center;
     font-size: 30px;
+    color: white;
 }
 
 .image_anime1 {
@@ -418,7 +415,6 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 .div_image_anime_2,
@@ -436,13 +432,12 @@ ul {
     transition: all 0.2s ease-in-out;
 }
 
-
-
 .le_plus_popolaire {
     margin-top: 5vw;
     margin-bottom: 1vw;
     text-align: center;
     font-size: 30px;
+    color: white;
 }
 
 .div_populaire {
@@ -465,19 +460,28 @@ ul {
     margin-top: 10vw;
 }
 
-
 .conteneur_btn_regarder {
     display: flex;
     justify-content: center;
 }
 
 .inp_regarder_home {
-    margin-top: 7%;
     border: none;
     border-radius: 3px;
     width: 8vw;
     height: 3vw;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+}
+
+.inp_regarder_home:hover,
+.button_slide:hover {
+    text-decoration: none;
+    color: white;
 }
 
 .image_navbar_profil {
@@ -485,6 +489,7 @@ ul {
     height: 4vw;
     width: 4vw;
 }
+
 
 
 
@@ -565,6 +570,11 @@ body {
 
 /* page information profil  */
 
+.info_profil_body {
+    background-color: #312f2f;
+    height: 100%;
+}
+
 .div_image_info_pseudo {
     display: flex;
     justify-content: center;
@@ -584,9 +594,8 @@ body {
     opacity: 0.70;
 }
 
-.info_profil_body {
-    background-color: #312f2f;
-    height: 100%;
+.main {
+    padding: 2rem;
 }
 
 .div_pseudo_info_pseudo {
@@ -610,11 +619,9 @@ body {
     background-color: #242323;
     width: 10%;
     height: 4vw;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border-right: 1px solid black;
 }
 
@@ -660,7 +667,6 @@ body {
     flex-direction: column;
     align-items: center;
     margin-top: 3rem;
-
 }
 
 .directionBouton {
@@ -702,14 +708,23 @@ body {
 
 .watchlist_body {
     background-color: #312f2f;
+    padding: 2%;
+    box-sizing: border-box;
+}
+
+.conteneur_div_watchlist {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .div_info_watchlist {
     background-color: #a3a0a0;
-    width: 40vw;
-    height: 40vw;
+    width: 100%;
+    max-width: 600px;
     border-radius: 20px;
-    margin: 2vw 0 0 2vw;
+    margin: 2%;
+    padding: 2%;
 
     display: flex;
     align-items: center;
@@ -718,97 +733,77 @@ body {
 
 .image_profil_watchlist {
     height: 10vw;
+    max-height: 100px;
     width: 10vw;
+    max-width: 100px;
     border-radius: 70px;
     margin-top: 2vw;
 }
 
 .div_info_dinamique_watchlist {
     display: flex;
-    margin-top: 5vw;
-
+    margin-top: 2vw;
 }
 
-.h3_temp_watchlist {
-    margin-left: 5vw;
-}
-
-.inp_lancer_watchlist {
-    border: none;
-    width: 8vw;
-    height: 3vw;
-    border-radius: 5px;
-    background-color: wheat;
-    margin-right: 4vw;
-    margin-top: 7vw;
+.div_info_dinamique_watchlist h3 {
+    margin-left: 2vw;
 }
 
 .conteneur_video_watchlist {
     display: flex;
-    flex-direction: column;
-}
-
-.conteneur_div_watchlist {
-    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 2%;
 }
 
 .div_anime_watchlist {
-    margin-top: 5vw;
-    margin-left: 4vw;
     background-color: #fff;
-    width: 50vw;
-    height: 8vw;
+    width: 100%;
+    max-width: 600px;
+    margin: 2%;
+    padding: 1%;
     border-radius: 10px;
-
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
 }
 
+.div_image_anime_watchlist {
+    margin-right: 1rem;
+}
 
 .img_watchlist_anime {
-    max-width: 5rem;
-    max-height: 6rem;
-    margin-left: 2rem;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .div_titre_anime_watchlist {
-    margin-left: 2rem;
+    margin: 0;
+}
+
+.div_bouton_watchlist {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    margin-left: 1rem;
 }
 
 .boutonwatchlist {
     border: none;
     border-radius: 3px;
-    width: 8vw;
-    height: 3vw;
+    width: 100px;
+    height: 40px;
     background-color: black;
     color: white;
-}
-
-.conteneur_element_gauche_watchlist {
-    display: flex;
-    align-items: center;
-}
-
-.conteneur_element_droite_watchlist {
-    flex: 0;
-    margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.div_bouton_watchlist {
-    position: absolute;
-    right: 80px;
-    display: flex;
-    flex-direction: column;
+    margin-bottom: 0.5rem;
 }
 
 .Bouton_Delete_Watchlist {
     border: none;
     border-radius: 3px;
-    width: 8vw;
-    height: 3vw;
+    width: 100px;
+    height: 40px;
     background-color: red;
     color: white;
 }
@@ -1050,6 +1045,13 @@ body {
     background-color: #3e8e41;
 }
 
+.conteneurBtnAdmin,
+.conteneurInformationAnime {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
 
 /* page admin  */
 .h1_ajouter_anime {
@@ -1247,7 +1249,6 @@ body {
 .divHistorique {
     margin-bottom: 2rem;
     margin-top: 2rem;
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1282,26 +1283,37 @@ body {
 }
 
 
+
 /* page gerer utilisateur  */
 
-.divGererInformation{
+.divGererInformation {
     display: flex;
+    flex-wrap: wrap;
     background-color: white;
     border: 1px solid black;
     justify-content: center;
     margin: 2rem 0;
 }
 
-.divGererInformation h3{
-    display: flex;
-}
-.divGererInformation h3 p {
-    margin-right: 1rem;
+.divGererInformation h3,
+.divGererInformation p {
+    margin: 0;
+    padding: 0.5rem;
 }
 
-@media only screen and (max-width: 480px) {
+.divGererInformation h3 {
+    flex-basis: 100%;
+}
 
-    /* page home  */
+.divGererInformation p {
+    flex-basis: 50%;
+}
+
+
+/* Pour les appareils mobiles */
+@media only screen and (max-width: 768px) {
+
+    /* page index  */
 
     .navbare {
         height: 2.5rem;
@@ -1537,5 +1549,325 @@ body {
         width: 16vw;
         height: 25vw;
     }
+
+    /* page choix episode  */
+
+    .div_fond_image_anime {
+        height: 40vw;
+    }
+
+    .image_anime_choix {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .h1_choix_titre {
+        font-size: 24px;
+        margin-top: 1vw;
+        margin-bottom: 0;
+    }
+
+    .div_choix_episode {
+        width: 40vw;
+        height: 20vw;
+        margin-right: 1vw;
+        margin-bottom: 1rem;
+    }
+
+    .image_choix_play {
+        height: 10vw;
+        width: 10vw;
+    }
+
+    .h3_numero_episode_choix {
+        font-size: 16px;
+        margin-bottom: 2rem;
+    }
+
+    .select_saison_choix,
+    .select_langue_choix {
+        width: 7rem;
+        height: 30px;
+        font-size: 16px;
+    }
+
+    .add_anime_watchlist {
+        font-size: 10px;
+        margin-right: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        border: 0px solid black;
+    }
+
+    .notification {
+        width: 12rem;
+        height: 4rem;
+        top: 5.5rem;
+        right: 2rem;
+    }
+
+    #btnDesativerAnime,
+    .btnSupprimerAnime,
+    .btnReactiverAnime {
+        padding: 8px 10px;
+        font-size: 16px;
+        margin-left: 0.5rem;
+    }
+
+    .confirmationDelete {
+        width: 18rem;
+        height: 10rem;
+        top: 50%;
+        left: 35%;
+    }
+
+    .texteConfirmation {
+        font-size: 16px;
+    }
+
+    .conteneurBoutonConfirmeDelete button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 2px;
+    }
+
+    .information_anime {
+        flex-direction: column;
+    }
+
+    /* page info profile  */
+
+    .image_info_profil {
+        width: 40vw;
+        height: 40vw;
+        margin-top: 5vw;
+    }
+
+    .h3_info_profil {
+        width: 80%;
+        height: 8vw;
+        font-size: 16px;
+    }
+
+    .h5_info_profil {
+        width: 20%;
+        height: 8vw;
+        font-size: 14px;
+    }
+
+    .modifier_pseudo,
+    .modifier_email,
+    .modifier_password,
+    .send_password,
+    .send_email,
+    .send_pseudo {
+        height: 8vw;
+        width: 10%;
+        font-size: 12px;
+    }
+
+    .inp_email,
+    .inp_password,
+    .inp_pseudo {
+        width: 80%;
+        height: 8vw;
+        font-size: 16px;
+    }
+
+    .confirmationImage {
+        height: 50rem;
+        width: 80%;
+    }
+
+    .imgConfirmation {
+        height: 20rem;
+        width: 20rem;
+    }
+
+    .confirmationImage button,
+    .confirmationImage input {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 2px;
+    }
+
+    /* page watchlist  */
+
+    .div_info_watchlist {
+        width: 80%;
+    }
+
+    .conteneur_video_watchlist {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .div_anime_watchlist {
+        width: 90%;
+        margin: 2% auto;
+    }
+
+    .div_bouton_watchlist {
+        margin-top: 1rem;
+        align-items: center;
+    }
+
+    .boutonwatchlist,
+    .Bouton_Delete_Watchlist {
+        width: 5rem;
+        height: 5rem;
+    }
+
+}
+
+
+
+
+
+/* Pour les tablettes */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+
+    /* page choix episode  */
+    .div_fond_image_anime {
+        height: 40vw;
+    }
+
+    .image_anime_choix {
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .h1_choix_titre {
+        font-size: 30px;
+        margin-top: 1vw;
+        margin-bottom: 2rem;
+    }
+
+    .div_choix_episode {
+        width: 25vw;
+        height: 20vw;
+        margin-right: 1vw;
+        margin-bottom: 1rem;
+    }
+
+    .image_choix_play {
+        height: 10vw;
+        width: 10vw;
+    }
+
+    .h3_numero_episode_choix {
+        font-size: 16px;
+        margin-bottom: 2rem;
+    }
+
+    .select_saison_choix,
+    .select_langue_choix {
+        width: 10rem;
+        height: 30px;
+        font-size: 24px;
+    }
+
+    .add_anime_watchlist {
+        font-size: 10px;
+        margin-right: 0.5rem;
+        width: 3rem;
+        height: 3rem;
+        border: 0px solid black;
+    }
+
+    .notification {
+        width: 12rem;
+        height: 4rem;
+        top: 5.5rem;
+        right: 2rem;
+    }
+
+    #btnDesativerAnime,
+    .btnSupprimerAnime,
+    .btnReactiverAnime {
+        padding: 8px 10px;
+        font-size: 24px;
+        margin-left: 0.5rem;
+    }
+
+    .confirmationDelete {
+        width: 18rem;
+        height: 10rem;
+        top: 50%;
+        left: 35%;
+    }
+
+    .texteConfirmation {
+        font-size: 16px;
+    }
+
+    .conteneurBoutonConfirmeDelete button {
+        padding: 8px 16px;
+        font-size: 14px;
+        margin: 2px;
+    }
+
+    .information_anime {
+        flex-direction: column;
+    }
+
+
+
+    /* page info profil  */
+
+    .image_info_profil {
+        width: 20vw;
+        height: 20vw;
+        margin-top: 4vw;
+    }
+
+    .h3_info_profil {
+        width: 50%;
+        height: 5vw;
+        font-size: 14px;
+    }
+
+    .h5_info_profil {
+        width: 15%;
+        height: 5vw;
+        font-size: 12px;
+    }
+
+    .modifier_pseudo,
+    .modifier_email,
+    .modifier_password,
+    .send_password,
+    .send_email,
+    .send_pseudo {
+        height: 5vw;
+        width: 8%;
+        font-size: 10px;
+    }
+
+    .inp_email,
+    .inp_password,
+    .inp_pseudo {
+        width: 50%;
+        height: 5vw;
+        font-size: 14px;
+    }
+
+    .confirmationImage {
+        height: 30rem;
+        width: 40rem;
+    }
+
+    .imgConfirmation {
+        height: 12rem;
+        width: 12rem;
+    }
+
+    .confirmationImage button,
+    .confirmationImage input {
+        padding: 6px 12px;
+        font-size: 12px;
+        margin: 2px;
+    }
+
 
 }

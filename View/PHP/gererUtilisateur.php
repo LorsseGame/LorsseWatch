@@ -2,12 +2,9 @@
     foreach ($utilisateur->affichageUtilisateur() as $key => $value) {
 ?>
         <div class="divGererInformation">
-            <h3>Code : <p><?= htmlspecialchars($value['Code_utilisateur'], ENT_QUOTES, 'UTF-8') ?></p>
-            </h3>
-            <h3>Pseudo : <p><?= htmlspecialchars($value['Pseudo_utilisateur'], ENT_QUOTES, 'UTF-8') ?></p>
-            </h3>
-            <h3>Désactiver : <p><?= htmlspecialchars($value['desactiver'], ENT_QUOTES, 'UTF-8') ?></p>
-            </h3>
+            <h3>Code : <?= htmlspecialchars($value['Code_utilisateur'], ENT_QUOTES, 'UTF-8') ?></h3>
+            <h3>Pseudo : <?= htmlspecialchars($value['Pseudo_utilisateur'], ENT_QUOTES, 'UTF-8') ?></h3>
+            <h3>Désactiver : <?= htmlspecialchars($value['desactiver'], ENT_QUOTES, 'UTF-8') ?></h3>
             <form action="" method="post">
                 <button type="submit" value="<?= $value['Code_utilisateur'] ?>" name="delete">Supprimer</button>
                 <button type="submit" value="<?= $value['Code_utilisateur'] ?>" name="desactiverUtilisateur">Désactiver</button>
