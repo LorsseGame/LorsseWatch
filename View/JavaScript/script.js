@@ -10,7 +10,6 @@ document.addEventListener('click', function (event) {
 });
 
 
-
 function previewFile() {
     var preview = document.querySelector('#preview img');
     var file = document.querySelector('input[type=file]').files[0];
@@ -119,14 +118,14 @@ function restoreButtonContent() {
 
 
 window.addEventListener('DOMContentLoaded', function () {
-    const informationAnimeDiv = document.querySelector('.information_anime');
+    const conteneurInformationAnime = document.querySelector('.information_anime');
     const h1ChoixTitre = document.querySelector('.h1_choix_titre');
     const selectElements = document.querySelectorAll('.select_element');
 
     function rearrangeElements() {
         if (window.innerWidth <= 1024) {
-            // Insérer le titre à l'intérieur de la div .information_anime après le premier select
-            informationAnimeDiv.insertBefore(h1ChoixTitre, informationAnimeDiv);
+            // Insérer le titre à l'intérieur de la div .conteneurInformationAnime après le premier select
+            conteneurInformationAnime.insertBefore(h1ChoixTitre, conteneurInformationAnime.firstChild.nextSibling);
         } else {
             // Remettre le titre à sa position initiale
             informationAnimeDiv.insertBefore(h1ChoixTitre, informationAnimeDiv.querySelector('.select_saison_choix'));
@@ -134,7 +133,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         // Réorganiser les éléments select en inversant leur ordre
         for (let i = selectElements.length - 1; i >= 0; i--) {
-            informationAnimeDiv.insertBefore(selectElements[i], h1ChoixTitre.nextSibling);
+            conteneurInformationAnime.insertBefore(selectElements[i], h1ChoixTitre.nextSibling);
         }
     }
 

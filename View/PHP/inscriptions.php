@@ -45,7 +45,7 @@
                     <?php } ?>
 
 
-                    <input type="file" name="fichier" id=""><br><br>
+                    <input type="file" name="fichier" style="width: 8.5rem;" id=""><br><br>
 
                     <?php if (isset($erreur["fichier"])) { ?>
                         <p class="erreur_fichier"><?= htmlspecialchars($erreur["fichier"], ENT_QUOTES, 'UTF-8') ?></p>

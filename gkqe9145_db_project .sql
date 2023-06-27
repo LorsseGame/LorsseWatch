@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : sam. 10 juin 2023 à 14:35
+-- Généré le : lun. 19 juin 2023 à 09:17
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -710,11 +710,14 @@ CREATE TABLE `historique` (
 --
 
 INSERT INTO `historique` (`codeHistorique`, `codeAnime`, `numeroEpisode`, `codeUtilisateur`) VALUES
-(1, 16, 8, 3),
+(1, 16, 3, 3),
 (2, 12, 4, 3),
-(3, 13, 2, 3),
-(4, 14, 4, 3),
-(5, 1, 12, 3);
+(3, 13, 3, 3),
+(4, 14, 8, 3),
+(5, 1, 12, 3),
+(6, 15, 8, 3),
+(7, 6, 2, 3),
+(8, 4, 13, 3);
 
 -- --------------------------------------------------------
 
@@ -773,7 +776,7 @@ CREATE TABLE `slider` (
 INSERT INTO `slider` (`codeSlider`, `nomSlider`, `codeAnime`) VALUES
 (1, 'Slider 1', 4),
 (2, 'Slider 2', 6),
-(3, 'Slider 3', 16);
+(3, 'Slider 3', 1);
 
 -- --------------------------------------------------------
 
@@ -799,10 +802,10 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`Code_utilisateur`, `Prenom_utilisateur`, `Nom_utilisateur`, `Pseudo_utilisateur`, `AdresseEmail_utilisateur`, `MotdePasse_utilisateur`, `desactiver`, `lien_image`, `Code_role`, `Code_watchlist`) VALUES
-(3, 'NICOLAS', 'MAGUET', 'LorsseGame', 'lorssegame@gmail.com', '$2y$10$8LH8xjuHQApGxw5YMXt0WOg3Ycd0Qxg4oudWBPfuptRa1CRy52K6K', NULL, './uploads/pp cyberpunk.png', 1, 0),
-(8, 'Nicolas', 'Maguet', 'Lorsse', 'lorsse@gmail.com', '$2y$10$TB8TI92HEknyy7UQhcAMNOZQ7/7xOyeTcQUAiPcgrW/Lx7Ux6/lr6', NULL, './uploads/JavaScript-logo.png', 2, 0),
-(9, 'emmanuel', 'diogo', 'hades', 'manu.diogo@yahoo.fr', '$2y$10$NbLYnQ0NdmEGKCw20v6gu.NuxkrweIZcPmn8LtMP.ZxzTb17ZBaUe', NULL, './uploads/output-onlinepngtools.png', 2, 0),
-(11, 'l', 'Maguet', 'lolo', 'lolo@gmail.com', '$2y$10$HZ6xJd4OonMBX300B/WOcOjA/Zhxk8fw52qiS.Y9qob0Mpd2Qh6m2', NULL, './uploads/ukuu.png', 2, 0);
+(3, 'NICOLAS', 'MAGUET', 'LorsseGame', 'lorssegame@gmail.com', '$2y$10$8LH8xjuHQApGxw5YMXt0WOg3Ycd0Qxg4oudWBPfuptRa1CRy52K6K', 0, './uploads/yoku.jpg', 1, 0),
+(8, 'Nicolas', 'Maguet', 'Lorsse', 'lorsse@gmail.com', '$2y$10$TB8TI92HEknyy7UQhcAMNOZQ7/7xOyeTcQUAiPcgrW/Lx7Ux6/lr6', 0, './uploads/JavaScript-logo.png', 2, 0),
+(9, 'emmanuel', 'diogo', 'hades', 'manu.diogo@yahoo.fr', '$2y$10$NbLYnQ0NdmEGKCw20v6gu.NuxkrweIZcPmn8LtMP.ZxzTb17ZBaUe', 0, './uploads/output-onlinepngtools.png', 2, 0),
+(11, 'l', 'Maguet', 'lolo', 'lolo@gmail.com', '$2y$10$HZ6xJd4OonMBX300B/WOcOjA/Zhxk8fw52qiS.Y9qob0Mpd2Qh6m2', 0, './uploads/ukuu.png', 2, 0);
 
 -- --------------------------------------------------------
 
@@ -821,11 +824,12 @@ CREATE TABLE `watchlist` (
 --
 
 INSERT INTO `watchlist` (`Code_watchlist`, `Code_utilisateur`, `Code_anime`) VALUES
+(37, 3, 6),
 (15, 3, 11),
 (16, 3, 12),
 (30, 3, 13),
 (20, 3, 14),
-(34, 3, 16),
+(36, 3, 16),
 (13, 8, 10);
 
 --
@@ -923,13 +927,13 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `episode`
 --
 ALTER TABLE `episode`
-  MODIFY `Code_episode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1351;
+  MODIFY `Code_episode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1363;
 
 --
 -- AUTO_INCREMENT pour la table `historique`
 --
 ALTER TABLE `historique`
-  MODIFY `codeHistorique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `codeHistorique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT pour la table `populaire`
@@ -959,7 +963,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `Code_watchlist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
+  MODIFY `Code_watchlist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- Contraintes pour les tables déchargées

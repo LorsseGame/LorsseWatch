@@ -202,6 +202,10 @@ ul {
     height: 5vw;
     border-radius: 40px;
 }
+.nav-container{
+    /* position: relative; */
+    /* overflow: hidden; */
+}
 
 
 /* footer  */
@@ -305,8 +309,8 @@ ul {
     /* margin-top: 1vw; */
     color: white;
     background-color: rgb(212, 140, 254);
-    width: 5vw;
-    height: 2vw;
+    width: 8vw;
+    height: 4vw;
     border-radius: 10px;
 }
 
@@ -323,7 +327,7 @@ ul {
     margin: 10% 0;
     justify-content: center;
     background-color: rgb(248, 248, 248);
-    width: 30vw;
+    width: 35vw;
     max-height: 100%;
     border-radius: 20px;
     padding-bottom: 1rem;
@@ -485,14 +489,10 @@ ul {
 }
 
 .image_navbar_profil {
-    border-radius: 30px;
+    border-radius: 50%;
     height: 4vw;
     width: 4vw;
 }
-
-
-
-
 
 /* page login  */
 
@@ -584,7 +584,7 @@ body {
 .image_info_profil {
     width: 12vw;
     height: 12vw;
-    border-radius: 120px;
+    border-radius: 50%;
     margin-top: 3vw;
     opacity: 1;
     transition: opacity 0.1s ease-in-out;
@@ -708,7 +708,6 @@ body {
 
 .watchlist_body {
     background-color: #312f2f;
-    padding: 2%;
     box-sizing: border-box;
 }
 
@@ -775,7 +774,7 @@ body {
 
 .img_watchlist_anime {
     max-width: 100%;
-    max-height: 100%;
+    max-height: 10rem;
 }
 
 .div_titre_anime_watchlist {
@@ -821,7 +820,7 @@ body {
 
 .video {
     max-width: 100%;
-    width: 50%;
+    width: 60%;
     background-color: black;
     height: auto;
 }
@@ -1161,7 +1160,7 @@ body {
     color: #727272;
     display: flex;
     align-items: center;
-    width: 60rem;
+    width: 40rem;
     margin: 0 auto;
     margin-bottom: 1rem;
     padding: 1rem 1.25rem;
@@ -1312,6 +1311,10 @@ body {
 
 /* Pour les appareils mobiles */
 @media only screen and (max-width: 768px) {
+
+    body{
+        min-height: 90%;
+    }
 
     /* page index  */
 
@@ -1525,6 +1528,7 @@ body {
 
     .numero_episode {
         font-size: 12px;
+        min-height: 16rem;
     }
 
 
@@ -1534,10 +1538,12 @@ body {
     #search-input {
         width: 14rem;
         height: 2rem;
+        margin-top: 1rem;
     }
 
     #send_recherche {
         height: 2rem;
+        margin-top: 1rem;
     }
 
     .div_recherche_anime {
@@ -1546,8 +1552,8 @@ body {
 
 
     .a_recherche img {
-        width: 16vw;
-        height: 25vw;
+        width: 20vw;
+        height: 30vw;
     }
 
     /* page choix episode  */
@@ -1715,7 +1721,8 @@ body {
     .boutonwatchlist,
     .Bouton_Delete_Watchlist {
         width: 5rem;
-        height: 5rem;
+        height: 3rem;
+        font-size: 3vw;
     }
 
 }
@@ -1869,5 +1876,34 @@ body {
         margin: 2px;
     }
 
+    /* page video  */
 
+    .numero_episode{
+        min-height: 18rem;
+    }
+
+    .a_video_plus,
+    .a_video_moins {
+        display: none;
+    }
+    .video {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+    
+    /* page recherche  */
+    #search-input{
+        width: 14rem;
+        height: 2rem;
+        margin-top: 1rem;
+    }
+    #send_recherche{
+        height: 2rem;
+        margin-top: 1rem;
+    }
+    .a_recherche img{
+        width: 20vw;
+        height: 30vw ;
+
+    }
 }

@@ -64,14 +64,17 @@ if (empty($_GET['saison'])) {
 <?php
     exit;
 }
-
-if (isset($_POST['add_anime_watchlist'])) {
-    if (empty($Watchlist->verifDoublon())) {
-        if (isset($_SESSION['id'])) {
-            $Watchlist->add_anime();
+if (isset($_SESSION['id'])) {
+    if (isset($_POST['add_anime_watchlist'])) {
+        if (empty($Watchlist->verifDoublon())) {
+            if (isset($_SESSION['id'])) {
+                $Watchlist->add_anime();
+            }
         }
     }
 }
+
+
 if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
     if (isset($_POST['desactiverAnime'])) {
         echo "puss";

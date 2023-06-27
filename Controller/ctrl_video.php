@@ -18,18 +18,26 @@ $moins--;
 
 
 if (isset($_SESSION['id']) && isset($_SESSION['email']) && isset($_SESSION['pseudo']) && isset($_SESSION['lien_image']) && isset($_SESSION['Role'])) {
+    // Vérifie si les clés 'id', 'email', 'pseudo', 'lien_image' et 'Role' existent dans la session
+
     $historique->setCodeUtilisateur($_SESSION['id']);
     $historique->setCodeAnime($_GET['anime']);
     $historique->setEpisode($_GET['episode']);
 
     if (empty($historique->verificationExistant())) {
+        // Vérifie si l'historique est vide en utilisant la méthode 'verificationExistant()'
+        // Si l'historique est vide, ajoute un nouvel historique en utilisant la méthode 'addHistorique()'
         $historique->addHistorique();
     } else if (is_numeric($historique->verificationExistant()['codeHistorique'])) {
+        // Vérifie si l'historique existant a un 'codeHistorique' numérique en utilisant la méthode 'verificationExistant()'
+        // Si c'est le cas, compare le numéro de l'épisode de l'historique avec celui passé en paramètre ($_GET['episode'])
         if ($historique->recupEpisode()['numeroEpisode'] != $_GET['episode']) {
+            // Si les numéros d'épisode ne correspondent pas, met à jour l'historique en utilisant la méthode 'updateHistorique()'
             $historique->updateHistorique();
         }
     }
 }
+
 
 
 if ($_GET['episode'] <= 0) {

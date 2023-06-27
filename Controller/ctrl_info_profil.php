@@ -11,7 +11,7 @@ if (isset($_POST['send_pseudo'])) {
     }
 
     if (empty($erreur)) {
-        $utilisateur->pseudo = $pseudo;
+        $utilisateur->setPseudo($pseudo);
         $utilisateur->setId($_SESSION['id']);
         $utilisateur->update_pseudo();
         $_SESSION['pseudo'] = $pseudo;

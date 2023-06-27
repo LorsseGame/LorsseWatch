@@ -26,7 +26,7 @@ include("./Controller/ctrl.index.php");
 </head>
 
 <header>
-    <nav class="navbare">
+    <nav class="navbare nav-container">
         <!-- barre de navigation -->
         <div class="hamburger-menu">
             <input id="menu__toggle" type="checkbox" />

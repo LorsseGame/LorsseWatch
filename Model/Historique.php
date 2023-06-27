@@ -79,7 +79,7 @@ class Historique extends Database
 
     public function affichage()
     {
-        $aff = $this->PDO->prepare("SELECT `codeAnime`, `numeroEpisode` FROM `historique` WHERE codeUtilisateur = ?");
+        $aff = $this->PDO->prepare("SELECT `codeAnime`, `numeroEpisode` FROM `historique` WHERE codeUtilisateur = ? ORDER BY `historique`.`codeHistorique` DESC LIMIT 20;");
         $aff->bindValue(1, $this->codeUtilisateur, PDO::PARAM_INT);
         $aff->execute();
         return $aff->fetchAll(PDO::FETCH_ASSOC);

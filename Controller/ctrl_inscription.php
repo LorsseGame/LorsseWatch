@@ -46,7 +46,7 @@ if (isset($_POST['send'])) {
 
     if (empty($erreur)) {
         $utilisateur->setEmail($email);
-        $utilisateur->pseudo = $pseudo;
+        $utilisateur->setPseudo($pseudo);
 
         // verif si l'email et le pseudo n'est pas identique a un utilisateur 
         if ($utilisateur->verif() === false) {
@@ -74,7 +74,7 @@ if (isset($_POST['send'])) {
             }
             if (empty($erreur['fichier'])) {
                 $utilisateur->setEmail($email);
-                $utilisateur->pseudo = $pseudo;
+                $utilisateur->setPseudo($pseudo);
                 $utilisateur->setMotdePasse($password);
                 $utilisateur->setLienImage($url_image);
                 $utilisateur->setPrenom($prenom);

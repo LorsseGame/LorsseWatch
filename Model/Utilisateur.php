@@ -22,6 +22,15 @@ class Utilisateur extends Database
     {
         $this->dateNaissance = $dateNaissance;
     }
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    public function setPseudo($pseudo)
+    {
+        $this->pseudo = $pseudo;
+    }
 
     public function getPrenom()
     {
