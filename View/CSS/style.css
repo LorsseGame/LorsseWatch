@@ -202,10 +202,6 @@ ul {
     height: 5vw;
     border-radius: 40px;
 }
-.nav-container{
-    /* position: relative; */
-    /* overflow: hidden; */
-}
 
 
 /* footer  */
@@ -1228,7 +1224,7 @@ body {
 }
 
 .btnCategorie {
-    width: 5rem;
+    width: 8rem;
     height: 3rem;
 }
 

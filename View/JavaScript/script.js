@@ -31,48 +31,51 @@ function cancelImage() {
 
 }
 
-document.getElementById('formDesactiverAnime').addEventListener('submit', function (e) {
-    e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+function desactiver(){
+    document.getElementById('formDesactiverAnime').addEventListener('submit', function (e) {
+        e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+    
+        // Envoyer le formulaire via AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Le formulaire a été envoyé avec succès
+                // Afficher la div avec la transition
+                document.getElementById('notification').style.display = 'flex';
+                setTimeout(function () {
+                    // Masquer la div après 5 secondes
+                    document.getElementById('notification').style.display = 'none';
+                }, 2000);
+            }
+        };
+        xhr.send('desactiverAnime=1');
+    });
+}
 
-    // Envoyer le formulaire via AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            // Le formulaire a été envoyé avec succès
-            // Afficher la div avec la transition
-            document.getElementById('notification').style.display = 'flex';
-            setTimeout(function () {
-                // Masquer la div après 5 secondes
-                document.getElementById('notification').style.display = 'none';
-            }, 2000);
-        }
-    };
-    xhr.send('desactiverAnime=1');
-});
-
-
-document.getElementById('formReactiverAnime').addEventListener('submit', function (e) {
-    e.preventDefault(); // Empêche l'envoi du formulaire par défaut
-
-    // Envoyer le formulaire via AJAX
-    var xhr = new XMLHttpRequest();
-    xhr.open('POST', '', true);
-    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-    xhr.onload = function () {
-        if (xhr.status === 200) {
-            // Le formulaire a été envoyé avec succès
-            // Afficher la div avec la transition
-            document.getElementById('notificationReactiver').style.display = 'flex';
-            setTimeout(function () {
-                // Masquer la div après 5 secondes
-                document.getElementById('notificationReactiver').style.display = 'none';
-            }, 2000);
-        }
-    };
-    xhr.send('reactiverAnime=0');
-});
+function reactiver() {
+    document.getElementById('formReactiverAnime').addEventListener('submit', function (e) {
+        e.preventDefault(); // Empêche l'envoi du formulaire par défaut
+    
+        // Envoyer le formulaire via AJAX
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '', true);
+        xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                // Le formulaire a été envoyé avec succès
+                // Afficher la div avec la transition
+                document.getElementById('notificationReactiver').style.display = 'flex';
+                setTimeout(function () {
+                    // Masquer la div après 5 secondes
+                    document.getElementById('notificationReactiver').style.display = 'none';
+                }, 2000);
+            }
+        };
+        xhr.send('reactiverAnime=0');
+    });
+}
 
 
 function supprimerAnime() {
@@ -82,6 +85,33 @@ function supprimerAnime() {
 function cancelConfirmDelete() {
     document.querySelector('#confirmationDelete').style.display = 'none';
 }
+
+
+window.addEventListener('DOMContentLoaded', function () {
+    const conteneurInformationAnime = document.querySelector('.information_anime');
+    const h1ChoixTitre = document.querySelector('.h1_choix_titre');
+    const selectElements = document.querySelectorAll('.select_saison_choix');
+
+    function rearrangeElements() {
+        if (window.innerWidth <= 1024) {
+            // Insérer le titre à l'intérieur de la div .conteneurInformationAnime après le premier select
+            conteneurInformationAnime.insertBefore(h1ChoixTitre, conteneurInformationAnime.firstChild.nextSibling);
+        } else {
+            // Remettre le titre à sa position initiale
+            informationAnimeDiv.insertBefore(h1ChoixTitre, document.querySelector('.select_saison_choix'));
+        }
+
+        // Réorganiser les éléments select en inversant leur ordre
+        for (let i = selectElements.length - 1; i >= 0; i--) {
+            conteneurInformationAnime.insertBefore(selectElements[i], h1ChoixTitre.nextSibling);
+        }
+    }
+
+    window.addEventListener('resize', rearrangeElements);
+
+    rearrangeElements(); // Appeler la fonction une première fois au chargement de la page pour vérifier la disposition initiale
+});
+
 
 // Récupérer le bouton et créer l'image
 var addButton = document.getElementById("addButton");
@@ -113,41 +143,3 @@ function restoreButtonContent() {
     addButton.innerText = "Ajouter à la watchlist"; // Restaurer le texte du bouton
     addButton.removeChild(image); // Supprimer l'image du bouton
 }
-
-
-
-
-window.addEventListener('DOMContentLoaded', function () {
-    const conteneurInformationAnime = document.querySelector('.information_anime');
-    const h1ChoixTitre = document.querySelector('.h1_choix_titre');
-    const selectElements = document.querySelectorAll('.select_element');
-
-    function rearrangeElements() {
-        if (window.innerWidth <= 1024) {
-            // Insérer le titre à l'intérieur de la div .conteneurInformationAnime après le premier select
-            conteneurInformationAnime.insertBefore(h1ChoixTitre, conteneurInformationAnime.firstChild.nextSibling);
-        } else {
-            // Remettre le titre à sa position initiale
-            informationAnimeDiv.insertBefore(h1ChoixTitre, informationAnimeDiv.querySelector('.select_saison_choix'));
-        }
-
-        // Réorganiser les éléments select en inversant leur ordre
-        for (let i = selectElements.length - 1; i >= 0; i--) {
-            conteneurInformationAnime.insertBefore(selectElements[i], h1ChoixTitre.nextSibling);
-        }
-    }
-
-    window.addEventListener('resize', rearrangeElements);
-
-    rearrangeElements(); // Appeler la fonction une première fois au chargement de la page pour vérifier la disposition initiale
-});
-
-
-
-
-
-
-
-
-
-

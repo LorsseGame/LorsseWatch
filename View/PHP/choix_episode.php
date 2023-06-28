@@ -42,33 +42,16 @@ if ($anime->verificationDesactiver()['Desactiver'] == 0 || $_SESSION['Role'] == 
                     if ($utilisateur->verif_role()['Code_role'] == 1) {
                 ?>
                         <form action="" method="post" id="formDesactiverAnime">
-                            <button type="submit" name="desactiverAnime" id="btnDesativerAnime" class="btnDesativerAnime">Désactiver</button>
+                            <button type="submit" name="desactiverAnime" id="btnDesativerAnime" onclick="desactiver()" class="btnDesativerAnime">Désactiver</button>
                         </form>
-                <?php
-                    }
-                }
-                ?>
-                <?php
-                if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-                    if ($utilisateur->verif_role()['Code_role'] == 1) {
-                ?>
                         <form action="" method="post" id="formReactiverAnime">
-                            <button type="submit" name="reactiverAnime" id="btnReactiverAnime" class="btnReactiverAnime">Réactiver</button>
+                            <button type="submit" name="reactiverAnime" id="btnReactiverAnime" onclick="reactiver()" class="btnReactiverAnime">Réactiver</button>
                         </form>
-                <?php
-                    }
-                }
-                ?>
-
-                <?php
-                if (isset($_SESSION['id']) && isset($_SESSION['email'])) {
-                    if ($utilisateur->verif_role()['Code_role'] == 1) {
-                ?>
                         <button type="submit" id="btnSupprimerAnime" class="btnSupprimerAnime" onclick="supprimerAnime()">Supprimer</button>
                 <?php
                     }
                 }
-                ?>
+                ?> 
             </div>
 
         </div>
