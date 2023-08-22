@@ -67,9 +67,7 @@ if (empty($_GET['saison'])) {
 if (isset($_SESSION['id'])) {
     if (isset($_POST['add_anime_watchlist'])) {
         if (empty($Watchlist->verifDoublon())) {
-            if (isset($_SESSION['id'])) {
-                $Watchlist->add_anime();
-            }
+                $Watchlist->add_anime();     
         }
     }
 }

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 19 juin 2023 à 09:17
+-- Généré le : mar. 22 août 2023 à 18:29
 -- Version du serveur : 10.4.28-MariaDB
 -- Version de PHP : 8.2.4
 
@@ -60,7 +60,9 @@ INSERT INTO `anime` (`Code_anime`, `Titre_anime`, `Nombre_episode`, `image`, `im
 (13, 'moi quand je me reincarne en slime', 49, './image_anime/moi_quand_je_me_reincarne_en_slime/moi_quand_je_me_reincarne_en_slime.jpeg', './image_anime/moi_quand_je_me_reincarne_en_slime/moi_quand_je_me_reincarne_en_slime.jpeg', 2, NULL, NULL, NULL, 0),
 (14, 'Overlord', 52, './image_anime/Overlord/Overlord.jpe', './image_anime/Overlord/Overlord.jpe', 4, NULL, NULL, NULL, 0),
 (15, 'Tomodachi Game', 12, './image_anime/Tomodachi_Game/Tomodachi_Game.jpeg', './image_anime/Tomodachi_Game/Tomodachi_Game.jpeg', 1, NULL, NULL, NULL, 0),
-(16, 'Oshi no Ko', 11, './image_anime/Oshi_no_Ko/oshi no ko.png', './image_anime/Oshi_no_Ko/oshi no ko.png', 1, NULL, NULL, NULL, 0);
+(16, 'Oshi no Ko', 11, './image_anime/Oshi_no_Ko/oshi no ko.png', './image_anime/Oshi_no_Ko/oshi no ko.png', 1, NULL, NULL, NULL, 0),
+(17, 'ReZero', 13, './image_anime/ReZero/anime-re-zero-saison-3-annonce.jpeg', './image_anime/ReZero/anime-re-zero-saison-3-annonce.jpeg', 1, NULL, NULL, NULL, 0),
+(18, 'attaque des titan', 12, './image_anime/attaque_des_titan/attaque_des_titan.jpg', './image_anime/attaque_des_titan/attaque_des_titan.jpg', 1, 'image_anime/attaque_des_titan/attque_des_titan_fond.png', 'image_anime/attaque_des_titan/Shingeki_no_Kyojin_titre.png', NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -690,7 +692,32 @@ INSERT INTO `episode` (`Code_episode`, `Description_episode`, `episode`, `saison
 (1310, '', 8, 1, 'image_episode/Oshi_no_Ko_s1/episode8.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode8.mp4', 16, 0, 'vostfr'),
 (1311, '', 9, 1, 'image_episode/Oshi_no_Ko_s1/episode9.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode9.mp4', 16, 0, 'vostfr'),
 (1312, '', 10, 1, 'image_episode/Oshi_no_Ko_s1/episode10.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode10.mp4', 16, 0, 'vostfr'),
-(1313, '', 11, 1, 'image_episode/Oshi_no_Ko_s1/episode11.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode11.mp4', 16, 0, 'vostfr');
+(1313, '', 11, 1, 'image_episode/Oshi_no_Ko_s1/episode11.PNG', '', 'Video/Oshi_no_Ko/saison1/vostfr/episode11.mp4', 16, 0, 'vostfr'),
+(1363, '', 1, 1, 'image_episode/ReZero_s1/episode1.PNG', '', 'Video/ReZero/saison1/vostfr/episode1.mp4', 17, 0, 'vostfr'),
+(1364, '', 2, 1, 'image_episode/ReZero_s1/episode2.PNG', '', 'Video/ReZero/saison1/vostfr/episode2.mp4', 17, 0, 'vostfr'),
+(1365, '', 3, 1, 'image_episode/ReZero_s1/episode3.PNG', '', 'Video/ReZero/saison1/vostfr/episode3.mp4', 17, 0, 'vostfr'),
+(1366, '', 4, 1, 'image_episode/ReZero_s1/episode4.PNG', '', 'Video/ReZero/saison1/vostfr/episode4.mp4', 17, 0, 'vostfr'),
+(1367, '', 5, 1, 'image_episode/ReZero_s1/episode5.PNG', '', 'Video/ReZero/saison1/vostfr/episode5.mp4', 17, 0, 'vostfr'),
+(1368, '', 6, 1, 'image_episode/ReZero_s1/episode6.PNG', '', 'Video/ReZero/saison1/vostfr/episode6.mp4', 17, 0, 'vostfr'),
+(1369, '', 7, 1, 'image_episode/ReZero_s1/episode7.PNG', '', 'Video/ReZero/saison1/vostfr/episode7.mp4', 17, 0, 'vostfr'),
+(1370, '', 8, 1, 'image_episode/ReZero_s1/episode8.PNG', '', 'Video/ReZero/saison1/vostfr/episode8.mp4', 17, 0, 'vostfr'),
+(1371, '', 9, 1, 'image_episode/ReZero_s1/episode9.PNG', '', 'Video/ReZero/saison1/vostfr/episode9.mp4', 17, 0, 'vostfr'),
+(1372, '', 10, 1, 'image_episode/ReZero_s1/episode10.PNG', '', 'Video/ReZero/saison1/vostfr/episode10.mp4', 17, 0, 'vostfr'),
+(1373, '', 11, 1, 'image_episode/ReZero_s1/episode11.PNG', '', 'Video/ReZero/saison1/vostfr/episode11.mp4', 17, 0, 'vostfr'),
+(1374, '', 12, 1, 'image_episode/ReZero_s1/episode12.PNG', '', 'Video/ReZero/saison1/vostfr/episode12.mp4', 17, 0, 'vostfr'),
+(1375, '', 13, 1, 'image_episode/ReZero_s1/episode13.PNG', '', 'Video/ReZero/saison1/vostfr/episode13.mp4', 17, 0, 'vostfr'),
+(1376, '', 1, 1, 'image_episode/attaque_des_titan_s1/episode1.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode1.mp4', 18, 0, 'vostfr'),
+(1377, '', 2, 1, 'image_episode/attaque_des_titan_s1/episode2.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode2.mp4', 18, 0, 'vostfr'),
+(1378, '', 3, 1, 'image_episode/attaque_des_titan_s1/episode3.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode3.mp4', 18, 0, 'vostfr'),
+(1379, '', 4, 1, 'image_episode/attaque_des_titan_s1/episode4.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode4.mp4', 18, 0, 'vostfr'),
+(1380, '', 5, 1, 'image_episode/attaque_des_titan_s1/episode5.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode5.mp4', 18, 0, 'vostfr'),
+(1381, '', 6, 1, 'image_episode/attaque_des_titan_s1/episode6.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode6.mp4', 18, 0, 'vostfr'),
+(1382, '', 7, 1, 'image_episode/attaque_des_titan_s1/episode7.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode7.mp4', 18, 0, 'vostfr'),
+(1383, '', 8, 1, 'image_episode/attaque_des_titan_s1/episode8.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode8.mp4', 18, 0, 'vostfr'),
+(1384, '', 9, 1, 'image_episode/attaque_des_titan_s1/episode9.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode9.mp4', 18, 0, 'vostfr'),
+(1385, '', 10, 1, 'image_episode/attaque_des_titan_s1/episode10.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode10.mp4', 18, 0, 'vostfr'),
+(1386, '', 11, 1, 'image_episode/attaque_des_titan_s1/episode11.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode11.mp4', 18, 0, 'vostfr'),
+(1387, '', 12, 1, 'image_episode/attaque_des_titan_s1/episode12.PNG', '', 'Video/attaque_des_titan/saison1/vostfr/episode12.mp4', 18, 0, 'vostfr');
 
 -- --------------------------------------------------------
 
@@ -713,11 +740,14 @@ INSERT INTO `historique` (`codeHistorique`, `codeAnime`, `numeroEpisode`, `codeU
 (1, 16, 3, 3),
 (2, 12, 4, 3),
 (3, 13, 3, 3),
-(4, 14, 8, 3),
+(4, 14, 2, 3),
 (5, 1, 12, 3),
-(6, 15, 8, 3),
+(6, 15, 13, 3),
 (7, 6, 2, 3),
-(8, 4, 13, 3);
+(8, 4, 13, 3),
+(9, 17, 1, 3),
+(10, 10, 5, 3),
+(11, 18, 2, 3);
 
 -- --------------------------------------------------------
 
@@ -776,7 +806,7 @@ CREATE TABLE `slider` (
 INSERT INTO `slider` (`codeSlider`, `nomSlider`, `codeAnime`) VALUES
 (1, 'Slider 1', 4),
 (2, 'Slider 2', 6),
-(3, 'Slider 3', 1);
+(3, 'Slider 3', 18);
 
 -- --------------------------------------------------------
 
@@ -802,7 +832,7 @@ CREATE TABLE `utilisateur` (
 --
 
 INSERT INTO `utilisateur` (`Code_utilisateur`, `Prenom_utilisateur`, `Nom_utilisateur`, `Pseudo_utilisateur`, `AdresseEmail_utilisateur`, `MotdePasse_utilisateur`, `desactiver`, `lien_image`, `Code_role`, `Code_watchlist`) VALUES
-(3, 'NICOLAS', 'MAGUET', 'LorsseGame', 'lorssegame@gmail.com', '$2y$10$8LH8xjuHQApGxw5YMXt0WOg3Ycd0Qxg4oudWBPfuptRa1CRy52K6K', 0, './uploads/yoku.jpg', 1, 0),
+(3, 'NICOLAS', 'MAGUET', 'LorsseG', 'lorssegame@gmail.com', '$2y$10$8LH8xjuHQApGxw5YMXt0WOg3Ycd0Qxg4oudWBPfuptRa1CRy52K6K', 0, './uploads/ukuu.png', 1, 0),
 (8, 'Nicolas', 'Maguet', 'Lorsse', 'lorsse@gmail.com', '$2y$10$TB8TI92HEknyy7UQhcAMNOZQ7/7xOyeTcQUAiPcgrW/Lx7Ux6/lr6', 0, './uploads/JavaScript-logo.png', 2, 0),
 (9, 'emmanuel', 'diogo', 'hades', 'manu.diogo@yahoo.fr', '$2y$10$NbLYnQ0NdmEGKCw20v6gu.NuxkrweIZcPmn8LtMP.ZxzTb17ZBaUe', 0, './uploads/output-onlinepngtools.png', 2, 0),
 (11, 'l', 'Maguet', 'lolo', 'lolo@gmail.com', '$2y$10$HZ6xJd4OonMBX300B/WOcOjA/Zhxk8fw52qiS.Y9qob0Mpd2Qh6m2', 0, './uploads/ukuu.png', 2, 0);
@@ -824,13 +854,11 @@ CREATE TABLE `watchlist` (
 --
 
 INSERT INTO `watchlist` (`Code_watchlist`, `Code_utilisateur`, `Code_anime`) VALUES
-(37, 3, 6),
-(15, 3, 11),
-(16, 3, 12),
-(30, 3, 13),
-(20, 3, 14),
-(36, 3, 16),
-(13, 8, 10);
+(40, 3, 14),
+(48, 3, 15),
+(46, 3, 17),
+(13, 8, 10),
+(47, 8, 17);
 
 --
 -- Index pour les tables déchargées
@@ -927,13 +955,13 @@ ALTER TABLE `commentaire`
 -- AUTO_INCREMENT pour la table `episode`
 --
 ALTER TABLE `episode`
-  MODIFY `Code_episode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1363;
+  MODIFY `Code_episode` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1388;
 
 --
 -- AUTO_INCREMENT pour la table `historique`
 --
 ALTER TABLE `historique`
-  MODIFY `codeHistorique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `codeHistorique` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT pour la table `populaire`
@@ -963,7 +991,7 @@ ALTER TABLE `utilisateur`
 -- AUTO_INCREMENT pour la table `watchlist`
 --
 ALTER TABLE `watchlist`
-  MODIFY `Code_watchlist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `Code_watchlist` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- Contraintes pour les tables déchargées
