@@ -42,7 +42,7 @@
       if (!empty($image->information_anime()['image_home'])) { ?>
         <div class="div_image_anime_<?= $i ?>">
           <a href="index.php?choix&code=<?= $i ?>&saison=1&langue=vostfr" class="a_anime1">
-            <img class="image_anime1" src="<?= htmlspecialchars($image->information_anime()['image_home'], ENT_QUOTES, 'UTF-8') ?>" alt="">
+            <img class="image_anime1" loading="lazy" src="<?= htmlspecialchars($image->information_anime()['image_home'], ENT_QUOTES, 'UTF-8') ?>" alt="">
           </a>
         </div>
     <?php }
@@ -51,10 +51,10 @@
 
   <h3 class="le_plus_popolaire">Le plus populaire</h3>
   <div class="div_populaire">
-    <img src="<?= htmlspecialchars($image->affichage($populaire->affichagePopulaire(1)['codeAnime'])['image_home'], ENT_QUOTES, 'UTF-8') ?>" class="populaire" alt="">
+    <img loading="lazy" src="<?= htmlspecialchars($image->affichage($populaire->affichagePopulaire(1)['codeAnime'])['image_home'], ENT_QUOTES, 'UTF-8') ?>" class="populaire" alt="">
     <div class="populaire_droite">
       <div class="conteneur_titre_populaire">
-        <img src="<?= htmlspecialchars($image->affichage($populaire->affichagePopulaire(1)['codeAnime'])['image_titre'], ENT_QUOTES, 'UTF-8') ?>" class="image_titre_populaire" alt="">
+        <img loading="lazy" src="<?= htmlspecialchars($image->affichage($populaire->affichagePopulaire(1)['codeAnime'])['image_titre'], ENT_QUOTES, 'UTF-8') ?>" class="image_titre_populaire" alt="">
       </div>
       <div class="div_description_populaire">
         <p class="description_populaire"></p>

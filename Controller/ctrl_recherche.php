@@ -6,3 +6,4 @@ if (isset($_POST['send_recherche'])) {
     $result = $Anime->recherche($recherche);
 }
 ?>
+

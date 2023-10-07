@@ -15,7 +15,6 @@ if ($role->verif_role()["Code_role"] == 1) {
 
     <body>
 
-
         <h1 class="h1_ajouter_anime">Ajouter Anime</h1>
 
         <a href="index.php?gererUtilisateur"><button>gérer utilisateur</button></a>

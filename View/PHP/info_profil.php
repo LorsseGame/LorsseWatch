@@ -1,6 +1,5 @@
 <body class="info_profil_body">
     <main>
-
         <div class="div_image_info_pseudo">
             <form id="myForm" method="post" enctype="multipart/form-data">
                 <div>
@@ -52,8 +51,8 @@
                     <input type="submit" value="Modifier" class="send_email" name="send_email" id="">
                 <?php  } ?>
             </div>
-
         </form>
+
         <form action="" method="post">
             <div class="div_pseudo_info_pseudo">
                 <?php if (empty($_POST['modifier_password'])) { ?>
@@ -68,7 +67,6 @@
                     <input type="password" class="inp_password" name="password" id="">
                     <input type="submit" value="Modifier" class="send_password" name="send_password" id="">
                 <?php  } ?>
-
             </div>
         </form>
 

@@ -111,35 +111,3 @@ window.addEventListener('DOMContentLoaded', function () {
 
     rearrangeElements(); // Appeler la fonction une première fois au chargement de la page pour vérifier la disposition initiale
 });
-
-
-// Récupérer le bouton et créer l'image
-var addButton = document.getElementById("addButton");
-var image = document.createElement("img");
-image.src = "./image/iconWatchlist.svg";
-
-// Vérifier la largeur de la fenêtre lors du chargement de la page
-if (window.innerWidth <= 1024) {
-    replaceButtonContent();
-}
-
-// Ajouter un écouteur d'événement pour détecter le redimensionnement de la fenêtre
-window.addEventListener("resize", function () {
-    if (window.innerWidth <= 1024) {
-        replaceButtonContent();
-    } else {
-        restoreButtonContent();
-    }
-});
-
-// Fonction pour remplacer le contenu du bouton par l'image
-function replaceButtonContent() {
-    addButton.innerText = ""; // Supprimer le texte du bouton
-    addButton.appendChild(image); // Ajouter l'image au bouton
-}
-
-// Fonction pour restaurer le contenu original du bouton
-function restoreButtonContent() {
-    addButton.innerText = "Ajouter à la watchlist"; // Restaurer le texte du bouton
-    addButton.removeChild(image); // Supprimer l'image du bouton
-}

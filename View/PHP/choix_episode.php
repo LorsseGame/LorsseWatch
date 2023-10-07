@@ -20,7 +20,7 @@ if ($anime->verificationDesactiver()['Desactiver'] == 0 || $_SESSION['Role'] == 
             <div class="conteneurInformationAnime">
                 <form action="" method="post">
                     <!-- formulaire d'ajout d'anime à la watchlist -->
-                    <button type="submit" class="add_anime_watchlist" name="add_anime_watchlist" id="addButton">Ajouter à la watchlist</button>
+                    <button type="submit" class="add_anime_watchlist" name="add_anime_watchlist" id="addButton"><img src="./image/iconWatchlist.svg" alt=""></button>
                 </form>
 
                 <select class="select_saison_choix" name="saison" onchange="location.href=''+this.options[this.selectedIndex].value;" id=""> <!-- select affichant le nombre de saisons -->
