@@ -95,9 +95,8 @@ include("./Controller/ctrl.index.php");
 
             <!-- bouton de connexion -->
             <div class="balise-login">
-                <a href="index.php?register"> <button class="register">Register</button></a>
-
-                <a class="aLogin" href="index.php?login"> <button class="login">Login</button></a>
+                <a href="index.php?register"><button class="register">Register</button></a>
+                <a class="aLogin" href="index.php?login"><button class="login">Login</button></a>
             </div>
         <?php } ?>
     </nav>
