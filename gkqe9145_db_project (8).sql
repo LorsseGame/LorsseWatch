@@ -131,17 +131,6 @@ INSERT INTO `categorie` (`categorie_ID`, `categorie_Name`, `categorie_Detail`) V
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaire`
---
-
-CREATE TABLE `commentaire` (
-  `Code_commentaire` int(11) NOT NULL,
-  `Contenue` varchar(244) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `episode`
 --
 
@@ -732,23 +721,6 @@ CREATE TABLE `historique` (
   `codeUtilisateur` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `historique`
---
-
-INSERT INTO `historique` (`codeHistorique`, `codeAnime`, `numeroEpisode`, `codeUtilisateur`) VALUES
-(1, 16, 3, 3),
-(2, 12, 4, 3),
-(3, 13, 3, 3),
-(4, 14, 2, 3),
-(5, 1, 12, 3),
-(6, 15, 13, 3),
-(7, 6, 2, 3),
-(8, 4, 13, 3),
-(9, 17, 1, 3),
-(10, 10, 5, 3),
-(11, 18, 2, 3);
-
 -- --------------------------------------------------------
 
 --
@@ -827,16 +799,6 @@ CREATE TABLE `utilisateur` (
   `Code_watchlist` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `utilisateur`
---
-
-INSERT INTO `utilisateur` (`Code_utilisateur`, `Prenom_utilisateur`, `Nom_utilisateur`, `Pseudo_utilisateur`, `AdresseEmail_utilisateur`, `MotdePasse_utilisateur`, `desactiver`, `lien_image`, `Code_role`, `Code_watchlist`) VALUES
-(3, 'NICOLAS', 'MAGUET', 'LorsseG', 'lorssegame@gmail.com', '$2y$10$8LH8xjuHQApGxw5YMXt0WOg3Ycd0Qxg4oudWBPfuptRa1CRy52K6K', 0, './uploads/ukuu.png', 1, 0),
-(8, 'Nicolas', 'Maguet', 'Lorsse', 'lorsse@gmail.com', '$2y$10$TB8TI92HEknyy7UQhcAMNOZQ7/7xOyeTcQUAiPcgrW/Lx7Ux6/lr6', 0, './uploads/JavaScript-logo.png', 2, 0),
-(9, 'emmanuel', 'diogo', 'hades', 'manu.diogo@yahoo.fr', '$2y$10$NbLYnQ0NdmEGKCw20v6gu.NuxkrweIZcPmn8LtMP.ZxzTb17ZBaUe', 0, './uploads/output-onlinepngtools.png', 2, 0),
-(11, 'l', 'Maguet', 'lolo', 'lolo@gmail.com', '$2y$10$HZ6xJd4OonMBX300B/WOcOjA/Zhxk8fw52qiS.Y9qob0Mpd2Qh6m2', 0, './uploads/ukuu.png', 2, 0);
-
 -- --------------------------------------------------------
 
 --
@@ -849,16 +811,6 @@ CREATE TABLE `watchlist` (
   `Code_anime` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Déchargement des données de la table `watchlist`
---
-
-INSERT INTO `watchlist` (`Code_watchlist`, `Code_utilisateur`, `Code_anime`) VALUES
-(40, 3, 14),
-(48, 3, 15),
-(46, 3, 17),
-(13, 8, 10),
-(47, 8, 17);
 
 --
 -- Index pour les tables déchargées
