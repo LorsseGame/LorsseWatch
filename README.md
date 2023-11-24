@@ -6,7 +6,8 @@ Un site de streaming d'anime fonctionnel
 
 1. Cloner le projet sur votre machine.
 2. Ajouter les fichier dans votre serveur local
-3. Importer le fichier MySQL dans phpMyAdmin (Le gestionnaire de base de donnée que j'ai utiliser)
+3. Nommer votre base de donnée `gkqe9145_db_project` (peut êtres changer )
+4. Importer le fichier MySQL dans phpMyAdmin (Le gestionnaire de base de donnée que j'ai utiliser)
 
 ## Utilisation
 
