@@ -1,0 +1,114 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Anime {
+  idAnime       Int            @id @default(autoincrement())
+  name          String         @db.VarChar
+  numberEpisode Int
+  numberSaison  Int
+  imgBig        String?
+  imgSmall      String?
+  animeHistory  animeHistory[]
+  animeList     animeList[]
+  episodeAnime  episodeAnime[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Episode {
+  idEpisode     BigInt         @id @default(autoincrement())
+  name          DateTime       @default(now()) @db.Timestamptz(6)
+  episodeNumber Int
+  saisonNumber  Int
+  img           String?
+  videoLink     String
+  Description   String?
+  episodeAnime  episodeAnime[]
+  language      language[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model History {
+  idHistory    Int            @id @default(autoincrement())
+  animeHistory animeHistory[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Language {
+  idLanguage Int        @id @default(autoincrement())
+  name       String     @db.VarChar
+  language   language[]
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model List {
+  idList    Int         @id @default(autoincrement())
+  animeList animeList[]
+}
+
+/// This model or at least one of its fields has comments in the database, and requires an additional setup for migrations: Read more: https://pris.ly/d/database-comments
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Roles {
+  idRole Int    @id @default(autoincrement())
+  name   String @db.VarChar
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Store {
+  idList      Int     @id @default(autoincrement())
+  name        String
+  price       Float   @db.Real
+  description String?
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model Users {
+  idUser    Int    @id @default(autoincrement())
+  email     String
+  password  String
+  idHistory Int
+  idList    Int
+  idRole    Int
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model animeHistory {
+  id        Int     @id @default(autoincrement())
+  idHistory Int
+  idAnime   Int
+  Anime     Anime   @relation(fields: [idAnime], references: [idAnime], onDelete: NoAction, onUpdate: NoAction)
+  History   History @relation(fields: [idHistory], references: [idHistory], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model animeList {
+  id      Int   @id @default(autoincrement())
+  idList  Int
+  idAnime Int
+  Anime   Anime @relation(fields: [idAnime], references: [idAnime], onDelete: NoAction, onUpdate: NoAction)
+  List    List  @relation(fields: [idList], references: [idList], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model episodeAnime {
+  id        Int     @id @default(autoincrement())
+  idAnime   Int
+  idEpisode BigInt
+  Anime     Anime   @relation(fields: [idAnime], references: [idAnime], onDelete: NoAction, onUpdate: NoAction)
+  Episode   Episode @relation(fields: [idEpisode], references: [idEpisode], onDelete: NoAction, onUpdate: NoAction)
+}
+
+/// This model contains row level security and requires additional setup for migrations. Visit https://pris.ly/d/row-level-security for more info.
+model language {
+  id         Int      @id @default(autoincrement())
+  idEpisode  BigInt
+  idLanguage Int
+  Episode    Episode  @relation(fields: [idEpisode], references: [idEpisode], onDelete: NoAction, onUpdate: NoAction)
+  Language   Language @relation(fields: [idLanguage], references: [idLanguage], onDelete: NoAction, onUpdate: NoAction)
+}
