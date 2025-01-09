@@ -14,24 +14,32 @@ export default function Presentation() {
   const plugin = React.useRef(
     Autoplay({ delay: 10000, stopOnInteraction: true })
   );
+  // let lienImage = ["", ""];
   return (
-    <div className=" ">
+    <div>
       <Carousel
         plugins={[plugin.current]}
         onMouseEnter={plugin.current.stop}
         onMouseLeave={plugin.current.reset}
       >
         <CarouselContent>
-          {Array.from({ length: 5 }).map((_, index) => (
+          {Array.from({ length: 3 }).map((_, index) => (
             <CarouselItem key={index}>
-              <div className="">
-                <Image
-                  src="/Images/Annonce.svg"
-                  height={100000}
-                  width={100000}
-                  alt="Image annonce"
-                  className="w-full h-72 object-cover"
-                ></Image>
+              <div>
+                <div>
+                  <Image
+                    src="/Images/Annonce.svg"
+                    height={100}
+                    width={100}
+                    alt="Image annonce"
+                    className="w-full h-52 object-cover"
+                  />
+                </div>
+                <div>
+                  <h2></h2>
+                  <p></p>
+                  <button></button>
+                </div>
               </div>
             </CarouselItem>
           ))}

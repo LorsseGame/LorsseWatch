@@ -1,25 +1,10 @@
-import Link from "next/link";
+import { LoginForm } from "@/src/Components/layout/login-forms";
 
-export default function login() {
+export default function LoginPage() {
   return (
-    <div className="h-full bg-bgSite text-white">
-      <div>
-        <h1 className="">Login</h1>
-        <p>Welcome back. Enter your credentials to access your account</p>
-      </div>
-      <div>
-        <div>
-          <h2>Email Address</h2>
-          <input type="email" name="" id="" />
-        </div>
-        <div>
-          <h2>Password</h2>
-          <Link href="">Forgot Password</Link>
-          <input type="password" name="" id="" />
-        </div>
-        <input type="checkbox" name="" id="" />
-        <p>Keep me signed in</p>
-        <button></button>
+    <div className="flex min-h-svh flex-col items-center justify-center bg-muted p-6 md:p-10">
+      <div className="w-full max-w-sm md:max-w-3xl">
+        <LoginForm />
       </div>
     </div>
   );

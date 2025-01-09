@@ -5,7 +5,9 @@ export default function Navbar() {
   return (
     <nav className="flex gap-12 justify-center items-center py-3 bg-bgSite text-white ">
       <div className="font-roboto-condensed">
-        <h1 className="text-base font-medium">LorsseWatch</h1>
+        <Link href="/" className="text-base font-medium">
+          LorsseWatch
+        </Link>
       </div>
       <div>
         <ul className="flex gap-5 font-roboto-condensed">
